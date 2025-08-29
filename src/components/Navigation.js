@@ -5,12 +5,37 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Home', description: 'Main landing page' },
-    { path: '/counter-hooks', label: 'Counter with Hooks', description: 'React Hooks example' },
-    { path: '/counter-render-props', label: 'Counter with Render Props', description: 'Render props pattern example' },
-    { path: '/render-props-demo', label: 'Render Props Demo', description: 'Advanced render props demonstration' },
-    { path: '/performance-monitor', label: 'Performance Monitor', description: 'Performance monitoring example' },
-    { path: '/subtree-isolation', label: 'Subtree Isolation', description: 'Subtree isolation demonstration' }
+    { path: "/", label: "Home", description: "Main landing page" },
+    {
+      path: "/counter-hooks",
+      label: "Counter with Hooks",
+      description: "React Hooks example",
+    },
+    {
+      path: "/counter-render-props",
+      label: "Render Props Examples",
+      description: "Multiple render props examples",
+    },
+    {
+      path: "/simple-render-props",
+      label: "Simple Render Props",
+      description: "Basic render props explanation",
+    },
+    {
+      path: "/render-props-demo",
+      label: "Render Props Demo",
+      description: "Advanced render props demonstration",
+    },
+    {
+      path: "/performance-monitor",
+      label: "Performance Monitor",
+      description: "Performance monitoring example",
+    },
+    {
+      path: "/subtree-isolation",
+      label: "Subtree Isolation",
+      description: "Subtree isolation demonstration",
+    },
   ];
 
   return (
