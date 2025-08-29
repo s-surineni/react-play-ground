@@ -1,0 +1,174 @@
+.render-props-examples {
+  padding: 20px;
+}
+
+.render-props-examples h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.render-props-examples p {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Example containers */
+.example-container {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.example-container:last-child {
+  margin-bottom: 0;
+}
+
+.example-container.basic {
+  background-color: #f8f9fa;
+}
+
+.example-container.card-style {
+  background-color: #fff3cd;
+}
+
+.example-container.minimal {
+  background-color: #e7f3ff;
+}
+
+.example-container h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #495057;
+}
+
+/* Basic Counter Example */
+.basic-counter {
+  background-color: #d4edda;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #c3e6cb;
+}
+
+.basic-counter h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #155724;
+}
+
+.basic-counter .button-group {
+  margin: 10px 0;
+}
+
+.basic-counter .button-group button {
+  margin: 0 5px;
+}
+
+.basic-counter .counter-info {
+  font-size: 14px;
+  color: #666;
+  margin-top: 15px;
+}
+
+/* Card Style Counter Example */
+.card-counter {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.card-counter .count-display {
+  font-size: 48px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 20px 0;
+}
+
+.card-counter .button-group {
+  margin: 20px 0;
+}
+
+.card-counter .circular-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+}
+
+.card-counter .circular-button.increment {
+  background-color: #28a745;
+}
+
+.card-counter .reset-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Minimal Counter Example */
+.minimal-counter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.minimal-counter .count-display {
+  font-size: 24px;
+  font-weight: bold;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* Button Styles */
+.btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-decrement {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-reset {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-increment {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-decrease {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 15px;
+}
+
+.btn-increase {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+}

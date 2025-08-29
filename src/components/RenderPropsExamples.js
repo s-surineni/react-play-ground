@@ -1,82 +1,41 @@
 import React from 'react';
 import CounterWithRenderProps from './CounterWithRenderProps';
+import "./RenderPropsExamples.css";
 
 const RenderPropsExamples = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="render-props-examples">
       <h1>Counter with Render Props - Proper Usage</h1>
       <p>
-        This demonstrates how to properly use the
-        CounterWithRenderProps component by passing a render
-        function as a prop.
+        This demonstrates how to properly use the CounterWithRenderProps
+        component by passing a render function as a prop.
       </p>
 
       {/* Example 1: Basic usage with render prop */}
-      <div
-        style={{
-          backgroundColor: "#f8f9fa",
-          padding: "20px",
-          borderRadius: "8px",
-          marginBottom: "20px",
-        }}
-      >
+      <div className="example-container basic">
         <h3>Example 1: Basic Counter</h3>
         <CounterWithRenderProps
           render={(counterState) => (
-            <div
-              style={{
-                backgroundColor: "#d4edda",
-                padding: "15px",
-                borderRadius: "6px",
-                border: "1px solid #c3e6cb",
-              }}
-            >
+            <div className="basic-counter">
               <h4>Count: {counterState.count}</h4>
-              <div style={{ margin: "10px 0" }}>
+              <div className="button-group">
                 <button
                   onClick={counterState.decrement}
-                  style={{
-                    backgroundColor: "#dc3545",
-                    color: "white",
-                    border: "none",
-                    padding: "8px 16px",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    margin: "0 5px",
-                  }}
+                  className="btn btn-decrement"
                 >
                   -
                 </button>
-                <button
-                  onClick={counterState.reset}
-                  style={{
-                    backgroundColor: "#6c757d",
-                    color: "white",
-                    border: "none",
-                    padding: "8px 16px",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    margin: "0 5px",
-                  }}
-                >
+                <button onClick={counterState.reset} className="btn btn-reset">
                   Reset
                 </button>
                 <button
                   onClick={counterState.increment}
-                  style={{
-                    backgroundColor: "#28a745",
-                    color: "white",
-                    border: "none",
-                    padding: "8px 16px",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    margin: "0 5px",
-                  }}
+                  className="btn btn-increment"
                 >
                   +
                 </button>
               </div>
-              <div style={{ fontSize: "14px", color: "#666" }}>
+              <div className="counter-info">
                 State Changes: {counterState.renderCount} | Renders:{" "}
                 {counterState.actualRenderCount}
               </div>
@@ -86,84 +45,27 @@ const RenderPropsExamples = () => {
       </div>
 
       {/* Example 2: Different UI style */}
-      <div
-        style={{
-          backgroundColor: "#fff3cd",
-          padding: "20px",
-          borderRadius: "8px",
-          marginBottom: "20px",
-        }}
-      >
+      <div className="example-container card-style">
         <h3>Example 2: Card Style Counter</h3>
         <CounterWithRenderProps
           render={(counterState) => (
-            <div
-              style={{
-                backgroundColor: "white",
-                padding: "20px",
-                borderRadius: "8px",
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "48px",
-                  fontWeight: "bold",
-                  color: "#007bff",
-                  margin: "20px 0",
-                }}
-              >
-                {counterState.count}
-              </div>
-              <div style={{ margin: "20px 0" }}>
+            <div className="card-counter">
+              <div className="count-display">{counterState.count}</div>
+              <div className="button-group">
                 <button
                   onClick={counterState.decrement}
-                  style={{
-                    backgroundColor: "#dc3545",
-                    color: "white",
-                    border: "none",
-                    padding: "12px 20px",
-                    borderRadius: "50%",
-                    cursor: "pointer",
-                    margin: "0 10px",
-                    fontSize: "18px",
-                    width: "50px",
-                    height: "50px",
-                  }}
+                  className="circular-button"
                 >
                   -
                 </button>
                 <button
                   onClick={counterState.increment}
-                  style={{
-                    backgroundColor: "#28a745",
-                    color: "white",
-                    border: "none",
-                    padding: "12px 20px",
-                    borderRadius: "50%",
-                    cursor: "pointer",
-                    margin: "0 10px",
-                    fontSize: "18px",
-                    width: "50px",
-                    height: "50px",
-                  }}
+                  className="circular-button increment"
                 >
                   +
                 </button>
               </div>
-              <button
-                onClick={counterState.reset}
-                style={{
-                  backgroundColor: "#6c757d",
-                  color: "white",
-                  border: "none",
-                  padding: "8px 16px",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                }}
-              >
+              <button onClick={counterState.reset} className="reset-button">
                 Reset Counter
               </button>
             </div>
@@ -172,57 +74,21 @@ const RenderPropsExamples = () => {
       </div>
 
       {/* Example 3: Minimal counter */}
-      <div
-        style={{
-          backgroundColor: "#e7f3ff",
-          padding: "20px",
-          borderRadius: "8px",
-        }}
-      >
+      <div className="example-container minimal">
         <h3>Example 3: Minimal Counter</h3>
         <CounterWithRenderProps
           render={(counterState) => (
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "15px",
-                justifyContent: "center",
-              }}
-            >
+            <div className="minimal-counter">
               <button
                 onClick={counterState.decrement}
-                style={{
-                  backgroundColor: "#dc3545",
-                  color: "white",
-                  border: "none",
-                  padding: "10px 15px",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                }}
+                className="btn btn-decrease"
               >
                 Decrease
               </button>
-              <span
-                style={{
-                  fontSize: "24px",
-                  fontWeight: "bold",
-                  minWidth: "60px",
-                  textAlign: "center",
-                }}
-              >
-                {counterState.count}
-              </span>
+              <span className="count-display">{counterState.count}</span>
               <button
                 onClick={counterState.increment}
-                style={{
-                  backgroundColor: "#28a745",
-                  color: "white",
-                  border: "none",
-                  padding: "10px 15px",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                }}
+                className="btn btn-increase"
               >
                 Increase
               </button>

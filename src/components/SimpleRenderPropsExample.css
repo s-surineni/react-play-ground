@@ -1,0 +1,123 @@
+.simple-render-props {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.simple-render-props h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.simple-render-props h2 {
+  color: #495057;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.simple-render-props h3 {
+  color: #495057;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.simple-render-props h4 {
+  color: #495057;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.simple-render-props p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.simple-render-props ul {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.simple-render-props li {
+  margin-bottom: 8px;
+}
+
+.simple-render-props strong {
+  color: #495057;
+}
+
+.simple-render-props code {
+  background-color: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #e83e8c;
+}
+
+/* Info sections */
+.info-section {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.info-section.what-are {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.info-section.basic-example {
+  background-color: #e7f3ff;
+  border: 1px solid #b3d9ff;
+}
+
+.info-section.what-you-get {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.info-section.key-benefits {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+}
+
+.info-section.when-to-use {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  margin-top: 20px;
+}
+
+/* Code example */
+.code-example {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1px solid #dee2e6;
+  margin: 15px 0;
+}
+
+.code-example .comment {
+  color: #007bff;
+}
+
+.code-example .code-line {
+  margin: 2px 0;
+}
+
+.code-example .indent-1 {
+  margin-left: 20px;
+}
+
+.code-example .indent-2 {
+  margin-left: 40px;
+}
+
+.code-example .indent-3 {
+  margin-left: 60px;
+}
