@@ -8,6 +8,7 @@ import RenderPropsDemo from "./components/RenderPropsDemo";
 import PerformanceMonitor from "./components/PerformanceMonitor";
 import SubtreeIsolationDemo from "./components/SubtreeIsolationDemo";
 import SimpleRenderPropsExample from "./components/SimpleRenderPropsExample";
+import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
 import "./App.css";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
               path="/subtree-isolation"
               element={<SubtreeIsolationDemo />}
             />
+            <Route path="/redux-toolkit" element={<ReduxToolkitTutorial />} />
           </Routes>
         </main>
       </div>

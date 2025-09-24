@@ -19,6 +19,10 @@ const Home = () => {
 
         <ul>
           <li>
+            <strong>Redux Toolkit Tutorial:</strong> Minimal RTK setup with
+            slice, store, hooks
+          </li>
+          <li>
             <strong>Counter with Hooks:</strong> Modern React Hooks
             implementation
           </li>

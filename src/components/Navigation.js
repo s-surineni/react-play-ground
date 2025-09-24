@@ -7,6 +7,11 @@ const Navigation = () => {
   const navItems = [
     { path: "/", label: "Home", description: "Main landing page" },
     {
+      path: "/redux-toolkit",
+      label: "Redux Toolkit Tutorial",
+      description: "RTK store, slice, hooks",
+    },
+    {
       path: "/counter-hooks",
       label: "Counter with Hooks",
       description: "React Hooks example",

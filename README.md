@@ -1,6 +1,6 @@
-# Render Props vs Hooks Performance Demo
+# React Examples Playground
 
-This React application demonstrates the performance difference between using **hooks** and **render props** for fine-grained rendering control in React components.
+This React application demonstrates various React patterns including **Redux Toolkit**, **hooks**, and **render props**.
 
 ## 🎯 What This Demo Shows
 
@@ -24,23 +24,21 @@ The key concept demonstrated here is **fine-grained control over inline renderin
 
 ### Installation
 ```bash
-# Install dependencies
-npm install
+# Install dependencies (pnpm recommended)
+pnpm install
 
 # Start the development server
-npm start
+pnpm start
 ```
 
 The app will open in your browser at `http://localhost:3000`
 
-## 🔍 How to Use the Demo
+## 🔍 How to Use the Demos
 
 1. **Open Browser DevTools**: Press F12 and go to the Console tab
 2. **Start Monitoring**: Click "Start Monitoring" in the Performance Monitor section
-3. **Test Both Approaches**:
-   - Click the increment buttons in the "Counter with Hooks" section
-   - Click the increment buttons in the "Counter with Render Props" section
-4. **Observe the Difference**: Watch the console logs to see what gets re-rendered
+3. Explore pages via the navigation, including "Redux Toolkit Tutorial", "Counter with Hooks", and Render Props demos
+4. Observe console logs (for performance demos) to see what re-renders
 
 **Note**: The demo now shows two counters:
 - **State Change Count**: Only increases when you interact with the buttons
@@ -72,9 +70,13 @@ The app will open in your browser at `http://localhost:3000`
 ```
 src/
 ├── components/
+│   ├── ReduxToolkitTutorial.js      # RTK demo page
 │   ├── CounterWithHooks.js          # Hooks approach demo
 │   ├── CounterWithRenderProps.js    # Render props approach demo
 │   └── PerformanceMonitor.js        # Performance monitoring component
+├── features/
+│   └── counterSlice.js              # RTK slice example
+├── store.js                         # RTK store setup
 ├── App.js                           # Main application component
 ├── index.js                         # Application entry point
 └── index.css                        # Styling
@@ -82,17 +84,84 @@ src/
 
 ## 💡 Key Technical Concepts
 
-### 1. Fine-Grained Rendering Control
+### 1. Redux Toolkit Basics
+Minimal, opinionated setup using `configureStore` and `createSlice` with built-in Immer for immutable updates.
+
+### 2. Fine-Grained Rendering Control
 Render props allow you to control exactly which parts of your JSX render, rather than re-rendering the entire component.
 
-### 2. Memoization with React.memo
+### 3. Memoization with React.memo
 Static components are wrapped in `React.memo()` to prevent unnecessary re-renders.
 
-### 3. useCallback and useMemo
+### 4. useCallback and useMemo
 Event handlers and render functions are memoized to maintain referential equality.
 
-### 4. Render Props Pattern
+### 5. Render Props Pattern
 The `CounterRenderer` component uses the render props pattern to provide data to its children function.
+
+## Redux Toolkit Quick Start (What this repo shows)
+
+1) Install dependencies
+
+```
+pnpm add @reduxjs/toolkit react-redux
+```
+
+2) Create a slice (src/features/counterSlice.js)
+
+```
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = { value: 0 };
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => { state.value += 1; },
+    decrement: (state) => { state.value -= 1; },
+    incrementByAmount: (state, action) => { state.value += action.payload; },
+    reset: () => initialState,
+  },
+});
+
+export const { increment, decrement, incrementByAmount, reset } = counterSlice.actions;
+export default counterSlice.reducer;
+```
+
+3) Create a store (src/store.js)
+
+```
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './features/counterSlice';
+
+export default configureStore({ reducer: { counter: counterReducer } });
+```
+
+4) Provide the store (src/index.js)
+
+```
+import { Provider } from 'react-redux';
+import store from './store';
+
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
+```
+
+5) Use in a component (src/components/ReduxToolkitTutorial.js)
+
+```
+const count = useSelector((state) => state.counter.value);
+const dispatch = useDispatch();
+dispatch(incrementByAmount(5));
+```
+
+Open "/redux-toolkit" to try it.
 
 ## 🎯 When to Use Each Approach
 
