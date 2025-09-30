@@ -40,7 +40,11 @@ const Navigation = () => {
       path: "/subtree-isolation",
       label: "Subtree Isolation",
       description: "Subtree isolation demonstration",
-    },
+    },{
+      path: "/basic-input-text",
+      label: "Basic Input Text",
+      description: "Basic input text example",
+    }
   ];
 
   return (
