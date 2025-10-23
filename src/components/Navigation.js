@@ -44,6 +44,16 @@ const Navigation = () => {
       path: "/basic-input-text",
       label: "Basic Input Text",
       description: "Basic input text example",
+    },
+    {
+      path: "/basic-use-effect",
+      label: "Basic Use Effect",
+      description: "Basic use effect example",
+    },
+    {
+      path: "/search-input",
+      label: "Search Input",
+      description: "Search input example",
     }
   ];
 

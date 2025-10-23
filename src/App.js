@@ -10,6 +10,8 @@ import SubtreeIsolationDemo from "./components/SubtreeIsolationDemo";
 import SimpleRenderPropsExample from "./components/SimpleRenderPropsExample";
 import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
 import BasicInputText from "./components/BasicInputText";
+import BasicUseEffect from "./components/BasicUseEffect";
+import SearchInput from "./components/SearchInput/SearchInput";
 import "./App.css";
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
             />
             <Route path="/basic-input-text" element={<BasicInputText />} />
             <Route path="/redux-toolkit" element={<ReduxToolkitTutorial />} />
+            <Route path="/basic-use-effect" element={<BasicUseEffect />} />
+            <Route path="/search-input" element={<SearchInput />} />
           </Routes>
         </main>
       </div>
