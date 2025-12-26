@@ -12,6 +12,8 @@ import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
 import BasicInputText from "./components/BasicInputText";
 import BasicUseEffect from "./components/BasicUseEffect";
 import SearchInput from "./components/SearchInput/SearchInput";
+import UseCallbackExample from "./components/UseCallbackExample";
+import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
 import "./App.css";
 
 function App() {
@@ -44,6 +46,8 @@ function App() {
             <Route path="/redux-toolkit" element={<ReduxToolkitTutorial />} />
             <Route path="/basic-use-effect" element={<BasicUseEffect />} />
             <Route path="/search-input" element={<SearchInput />} />
+            <Route path="/use-callback" element={<UseCallbackExample />} />
+            <Route path="/shared-state-factory" element={<SharedStateFactoryDemo />} />
           </Routes>
         </main>
       </div>

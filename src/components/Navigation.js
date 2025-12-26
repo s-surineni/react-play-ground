@@ -40,7 +40,8 @@ const Navigation = () => {
       path: "/subtree-isolation",
       label: "Subtree Isolation",
       description: "Subtree isolation demonstration",
-    },{
+    },
+    {
       path: "/basic-input-text",
       label: "Basic Input Text",
       description: "Basic input text example",
@@ -54,7 +55,17 @@ const Navigation = () => {
       path: "/search-input",
       label: "Search Input",
       description: "Search input example",
-    }
+    },
+    {
+      path: "/use-callback",
+      label: "useCallback Example",
+      description: "useCallback hook demonstration",
+    },
+    {
+      path: "/shared-state-factory",
+      label: "Shared State Factory",
+      description: "Factory pattern vs Context comparison",
+    },
   ];
 
   return (

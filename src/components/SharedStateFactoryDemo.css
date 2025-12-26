@@ -1,0 +1,283 @@
+.shared-state-demo {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+  min-height: 100vh;
+  color: #e0e0e0;
+}
+
+.shared-state-demo h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffd700, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.explanation {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.explanation h2 {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.explanation p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.explanation p:last-child {
+  margin-bottom: 0;
+}
+
+.demo-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .demo-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title .subtitle {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: normal;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+}
+
+.context-title {
+  color: #ff6b6b;
+}
+
+.factory-title {
+  color: #4ecdc4;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.component-box {
+  padding: 1.25rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.component-box h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+}
+
+.component-box p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.context-box {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(255, 107, 107, 0.05));
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.context-box h4 {
+  color: #ff6b6b;
+}
+
+.factory-box {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.15), rgba(78, 205, 196, 0.05));
+  border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.factory-box h4 {
+  color: #4ecdc4;
+}
+
+.render-count {
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.render-count .count {
+  display: inline-block;
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.controls {
+  grid-column: 1 / -1;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.context-box .button-group button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  color: white;
+}
+
+.context-box .button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.factory-box .button-group button {
+  background: linear-gradient(135deg, #4ecdc4, #3dbdb5);
+  color: #0f0f23;
+}
+
+.factory-box .button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+.code-explanation {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-explanation h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.code-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .code-blocks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.code-block h3 {
+  padding: 0.75rem 1rem;
+  margin: 0;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.code-block:first-child h3 {
+  color: #ff6b6b;
+}
+
+.code-block:last-child h3 {
+  color: #4ecdc4;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  color: #b8c0c8;
+}
+
+.benefits {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(78, 205, 196, 0.1));
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.benefits h2 {
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.benefits li {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  line-height: 1.5;
+}
+
+.benefits li strong {
+  color: #4ecdc4;
+}
+
