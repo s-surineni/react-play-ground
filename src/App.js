@@ -9,8 +9,9 @@ import PerformanceMonitor from "./components/PerformanceMonitor";
 import SubtreeIsolationDemo from "./components/SubtreeIsolationDemo";
 import SimpleRenderPropsExample from "./components/SimpleRenderPropsExample";
 import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
-import BasicInputText from "./components/BasicInputText";
-import BasicUseEffect from "./components/BasicUseEffect";
+import BasicInputText from "./components/basicExamples/BasicInputText";
+import BasicUseEffect from "./components/basicExamples/BasicUseEffect";
+import HelloWorld from "./components/basicExamples/HelloWorld";
 import SearchInput from "./components/SearchInput/SearchInput";
 import UseCallbackExample from "./components/UseCallbackExample";
 import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
@@ -48,6 +49,7 @@ function App() {
             <Route path="/search-input" element={<SearchInput />} />
             <Route path="/use-callback" element={<UseCallbackExample />} />
             <Route path="/shared-state-factory" element={<SharedStateFactoryDemo />} />
+            <Route path="/hello-world" element={<HelloWorld />} />
           </Routes>
         </main>
       </div>
