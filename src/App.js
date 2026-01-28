@@ -11,6 +11,7 @@ import SimpleRenderPropsExample from "./components/SimpleRenderPropsExample";
 import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
 import BasicInputText from "./components/basicExamples/BasicInputText";
 import BasicUseEffect from "./components/basicExamples/BasicUseEffect";
+import BasicUseEffectConsole from "./components/basicExamples/BasicUseEffectConsole";
 import HelloWorld from "./components/basicExamples/HelloWorld";
 import SearchInput from "./components/SearchInput/SearchInput";
 import UseCallbackExample from "./components/UseCallbackExample";
@@ -46,6 +47,7 @@ function App() {
             <Route path="/basic-input-text" element={<BasicInputText />} />
             <Route path="/redux-toolkit" element={<ReduxToolkitTutorial />} />
             <Route path="/basic-use-effect" element={<BasicUseEffect />} />
+            <Route path="/basic-use-effect-console" element={<BasicUseEffectConsole />} />
             <Route path="/search-input" element={<SearchInput />} />
             <Route path="/use-callback" element={<UseCallbackExample />} />
             <Route path="/shared-state-factory" element={<SharedStateFactoryDemo />} />

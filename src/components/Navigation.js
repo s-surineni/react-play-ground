@@ -68,6 +68,11 @@ const Navigation = () => {
           label: "Basic Use Effect",
           description: "Basic use effect example",
         },
+        {
+          path: "/basic-use-effect-console",
+          label: "Basic Use Effect Console",
+          description: "useEffect with console.log example",
+        },
       ],
     },
     {
