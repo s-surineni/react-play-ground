@@ -18,6 +18,7 @@ import SearchInput from "./components/SearchInput/SearchInput";
 import UseCallbackExample from "./components/UseCallbackExample";
 import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
 import SelectableTable from "./components/SelectableTable";
+import ApiPolling from "./components/ApiPolling";
 import "./App.css";
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route path="/use-callback" element={<UseCallbackExample />} />
             <Route path="/shared-state-factory" element={<SharedStateFactoryDemo />} />
             <Route path="/selectable-table" element={<SelectableTable />} />
+            <Route path="/api-polling" element={<ApiPolling />} />
             <Route path="/hello-world" element={<HelloWorld />} />
           </Routes>
         </main>

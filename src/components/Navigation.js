@@ -100,6 +100,11 @@ const Navigation = () => {
       label: "Selectable Table",
       description: "Table with selectable rows",
     },
+    {
+      path: "/api-polling",
+      label: "API Polling",
+      description: "Calls an API every 5 seconds",
+    },
   ];
 
   return (
