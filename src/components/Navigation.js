@@ -73,6 +73,11 @@ const Navigation = () => {
           label: "Basic Use Effect Console",
           description: "useEffect with console.log example",
         },
+        {
+          path: "/use-effect-with-issue",
+          label: "Use Effect With Issue",
+          description: "useEffect with issue example",
+        },
       ],
     },
     {
@@ -89,6 +94,11 @@ const Navigation = () => {
       path: "/shared-state-factory",
       label: "Shared State Factory",
       description: "Factory pattern vs Context comparison",
+    },
+    {
+      path: "/selectable-table",
+      label: "Selectable Table",
+      description: "Table with selectable rows",
     },
   ];
 

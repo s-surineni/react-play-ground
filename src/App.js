@@ -12,10 +12,12 @@ import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
 import BasicInputText from "./components/basicExamples/BasicInputText";
 import BasicUseEffect from "./components/basicExamples/BasicUseEffect";
 import BasicUseEffectConsole from "./components/basicExamples/BasicUseEffectConsole";
+import UseEffectWithIssue from "./components/basicExamples/UseEffectWithIssue";
 import HelloWorld from "./components/basicExamples/HelloWorld";
 import SearchInput from "./components/SearchInput/SearchInput";
 import UseCallbackExample from "./components/UseCallbackExample";
 import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
+import SelectableTable from "./components/SelectableTable";
 import "./App.css";
 
 function App() {
@@ -48,9 +50,11 @@ function App() {
             <Route path="/redux-toolkit" element={<ReduxToolkitTutorial />} />
             <Route path="/basic-use-effect" element={<BasicUseEffect />} />
             <Route path="/basic-use-effect-console" element={<BasicUseEffectConsole />} />
+            <Route path="/use-effect-with-issue" element={<UseEffectWithIssue />} />
             <Route path="/search-input" element={<SearchInput />} />
             <Route path="/use-callback" element={<UseCallbackExample />} />
             <Route path="/shared-state-factory" element={<SharedStateFactoryDemo />} />
+            <Route path="/selectable-table" element={<SelectableTable />} />
             <Route path="/hello-world" element={<HelloWorld />} />
           </Routes>
         </main>
