@@ -4,10 +4,10 @@
   "description": "Demo showing performance differences between render props and hooks for fine-grained rendering control",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
@@ -15,8 +15,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^6.8.0",
-    "react-scripts": "5.0.1"
+    "react-router-dom": "^6.8.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "@vitejs/plugin-react": "^4.3.0"
   },
   "browserslist": {
     "production": [
