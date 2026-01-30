@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        function App() {
+            const [count, setCount] = React.useState(0);
+            const handleClick = () => {
+                setCount(count + 1);
+            };
+            return (
+                <div style={{ fontFamily: 'sans-serif', padding: '20px' }}>
+                    <h1>Hello, World!</h1>
+                    <p>This is the simplest React setup.</p>
+                    <p>Count: {count}</p>
+                    <button onClick={handleClick}>Click me</button>
+                </div>
+            );
+        }
+
+        const container = document.getElementById('container');
+        const reactRoot = ReactDOM.createRoot(container);
+        reactRoot.render(<App />);
+    </script>
+</body>
+
+</html>
