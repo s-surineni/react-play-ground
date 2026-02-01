@@ -92,6 +92,11 @@ const Navigation = () => {
       description: "useCallback hook demonstration",
     },
     {
+      path: "/use-memo",
+      label: "useMemo Example",
+      description: "useMemo hook demonstration",
+    },
+    {
       path: "/shared-state-factory",
       label: "Shared State Factory",
       description: "Factory pattern vs Context comparison",

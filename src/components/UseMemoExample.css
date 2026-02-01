@@ -1,0 +1,26 @@
+.use-memo {
+  padding: 20px;
+  max-width: 600px;
+}
+
+.use-memo__btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.use-memo__input {
+  width: 3em;
+  padding: 4px 8px;
+  margin: 0 4px;
+}
+
+.use-memo__hint {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: 16px;
+}

@@ -16,6 +16,7 @@ import UseEffectWithIssue from "./components/basicExamples/UseEffectWithIssue";
 import HelloWorld from "./components/basicExamples/HelloWorld";
 import SearchInput from "./components/SearchInput/SearchInput";
 import UseCallbackExample from "./components/UseCallbackExample";
+import UseMemoExample from "./components/UseMemoExample";
 import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
 import SelectableTable from "./components/SelectableTable";
 import ApiPolling from "./components/ApiPolling";
@@ -55,6 +56,7 @@ function App() {
             <Route path="/use-effect-with-issue" element={<UseEffectWithIssue />} />
             <Route path="/search-input" element={<SearchInput />} />
             <Route path="/use-callback" element={<UseCallbackExample />} />
+            <Route path="/use-memo" element={<UseMemoExample />} />
             <Route path="/shared-state-factory" element={<SharedStateFactoryDemo />} />
             <Route path="/selectable-table" element={<SelectableTable />} />
             <Route path="/api-polling" element={<ApiPolling />} />
