@@ -1,0 +1,56 @@
+.use-callback {
+  padding: 20px;
+  max-width: 800px;
+}
+
+.use-callback__child {
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px 0;
+  background-color: #ebf5fb;
+}
+
+.use-callback__child-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.use-callback__tip {
+  background-color: #fff3cd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ffc107;
+}
+
+.use-callback__without {
+  background-color: #f8d7da;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #dc3545;
+}
+
+.use-callback__with {
+  background-color: #d4edda;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #28a745;
+}
+
+.use-callback__counts {
+  margin-bottom: 15px;
+}
+
+.use-callback__takeaway {
+  background-color: #e2e3e5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #6c757d;
+}

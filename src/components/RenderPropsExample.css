@@ -1,0 +1,89 @@
+.render-props-example {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.render-props-example__simple {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.render-props-example__simple-btn {
+  margin-right: 10px;
+}
+
+.render-props-example__styled {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.render-props-example__styled-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.render-props-example__styled-value--positive {
+  color: green;
+}
+
+.render-props-example__styled-value--negative {
+  color: red;
+}
+
+.render-props-example__styled-value--zero {
+  color: black;
+}
+
+.render-props-example__styled-buttons {
+  margin-top: 10px;
+}
+
+.render-props-example__btn {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.render-props-example__btn--increment {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.render-props-example__btn--decrement {
+  background-color: #f44336;
+  color: white;
+}
+
+.render-props-example__btn--reset {
+  background-color: #2196F3;
+  color: white;
+}
+
+.render-props-example__advanced {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.render-props-example__advanced-buttons {
+  margin-top: 15px;
+}
+
+.render-props-example__advanced-btn {
+  margin-right: 10px;
+}
+
+.render-props-example__how {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #e8f4f8;
+  border-radius: 5px;
+}

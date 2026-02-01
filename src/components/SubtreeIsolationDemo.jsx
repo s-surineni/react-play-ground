@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import './SubtreeIsolationDemo.css';
 
 // Component that logs when it renders
 const RenderLogger = ({ children, name }) => {
@@ -8,20 +9,8 @@ const RenderLogger = ({ children, name }) => {
   console.log(`🔄 ${name} rendered (Render #${renderCountRef.current}) at ${new Date().toLocaleTimeString()}`);
   
   return (
-    <div style={{ 
-      border: '2px solid #007bff', 
-      padding: '10px', 
-      margin: '10px',
-      borderRadius: '6px'
-    }}>
-      <div style={{ 
-        backgroundColor: '#e7f3ff', 
-        padding: '5px', 
-        marginBottom: '10px',
-        borderRadius: '4px',
-        fontSize: '12px',
-        fontWeight: 'bold'
-      }}>
+    <div className="subtree-demo__logger">
+      <div className="subtree-demo__logger-header">
         {name} - Render #{renderCountRef.current}
       </div>
       {children}
@@ -37,24 +26,13 @@ const ExpensiveComponent = React.memo(({ name }) => {
   console.log(`🔄 ${name} rendered (Render #${renderCountRef.current}) at ${new Date().toLocaleTimeString()}`);
   
   return (
-    <div style={{ 
-      backgroundColor: '#fff3cd', 
-      padding: '15px', 
-      borderRadius: '6px',
-      border: '1px solid #ffeaa7'
-    }}>
+    <div className="subtree-demo__expensive">
       <h4>{name}</h4>
       <p>This is an expensive component that should NOT re-render unnecessarily.</p>
       <p><strong>Render Count: {renderCountRef.current}</strong></p>
-      <div style={{ 
-        backgroundColor: '#f8f9fa', 
-        padding: '10px', 
-        borderRadius: '4px',
-        fontFamily: 'monospace',
-        fontSize: '12px'
-      }}>
+      <div className="subtree-demo__expensive-inner">
         {Array.from({ length: 5 }, (_, i) => (
-          <div key={i} style={{ margin: '2px 0' }}>
+          <div key={i} className="subtree-demo__expensive-row">
             Expensive operation #{i + 1}
           </div>
         ))}
@@ -80,7 +58,7 @@ function HooksApproach() {
         
         {/* This entire subtree re-renders when count changes */}
         <RenderLogger name="Hooks Approach - Static Subtree">
-          <div style={{ backgroundColor: '#f8f9fa', padding: '15px', borderRadius: '6px' }}>
+          <div className="subtree-demo__static-content">
             <h4>Static Content (Re-renders Every Time!)</h4>
             <p>This content should be static but re-renders because hooks cause component-level re-renders.</p>
             <ExpensiveComponent name="Expensive Component in Hooks" />
@@ -89,20 +67,13 @@ function HooksApproach() {
         
         {/* Dynamic content */}
         <RenderLogger name="Hooks Approach - Dynamic Subtree">
-          <div style={{ backgroundColor: '#d4edda', padding: '15px', borderRadius: '6px' }}>
+          <div className="subtree-demo__dynamic-content">
             <h4>Dynamic Content</h4>
             <p>Count: <strong>{count}</strong></p>
             <p>State Changes: <strong>{renderCount}</strong></p>
             <button 
               onClick={() => setCount(prev => prev + 1)}
-              style={{
-                backgroundColor: '#007bff',
-                color: 'white',
-                border: 'none',
-                padding: '10px 20px',
-                borderRadius: '4px',
-                cursor: 'pointer'
-              }}
+              className="subtree-demo__btn"
             >
               Increment Count
             </button>
@@ -141,7 +112,7 @@ function RenderPropsApproach() {
 // This subtree NEVER re-renders, even when parent state changes
 const StaticSubtree = React.memo(() => (
   <RenderLogger name="Render Props Approach - Static Subtree (Isolated)">
-    <div style={{ backgroundColor: '#f8f9fa', padding: '15px', borderRadius: '6px' }}>
+    <div className="subtree-demo__static-content">
       <h4>Static Content (NEVER Re-renders!)</h4>
       <p>This content is isolated using React.memo and won't re-render when the parent's state changes.</p>
       <ExpensiveComponent name="Expensive Component in Render Props" />
@@ -153,20 +124,13 @@ const StaticSubtree = React.memo(() => (
 function DynamicSubtree({ count, renderCount, onIncrement }) {
   return (
     <RenderLogger name="Render Props Approach - Dynamic Subtree">
-      <div style={{ backgroundColor: '#d4edda', padding: '15px', borderRadius: '6px' }}>
+      <div className="subtree-demo__dynamic-content">
         <h4>Dynamic Content</h4>
         <p>Count: <strong>{count}</strong></p>
         <p>State Changes: <strong>{renderCount}</strong></p>
         <button 
           onClick={onIncrement}
-          style={{
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            padding: '10px 20px',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
+          className="subtree-demo__btn"
         >
           Increment Count
         </button>
@@ -180,22 +144,16 @@ export { HooksApproach, RenderPropsApproach };
 // Default export wrapper for routing
 const SubtreeIsolationDemo = () => {
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ textAlign: 'center', color: '#333', marginBottom: '30px' }}>
+    <div className="subtree-demo">
+      <h1 className="subtree-demo__title">
         Subtree Isolation Demo
       </h1>
       
-      <div style={{
-        backgroundColor: '#f8f9fa',
-        padding: '20px',
-        borderRadius: '10px',
-        marginBottom: '30px',
-        border: '1px solid #dee2e6'
-      }}>
-        <h2 style={{ color: '#495057', marginTop: 0 }}>
+      <div className="subtree-demo__intro">
+        <h2 className="subtree-demo__intro-title">
           Performance Difference Explained
         </h2>
-        <ul style={{ fontSize: '16px', lineHeight: '1.6', color: '#6c757d' }}>
+        <ul className="subtree-demo__intro-list">
           <li>
             <strong>Hooks Approach:</strong> When state changes, the entire
             component re-renders, including static content
@@ -215,37 +173,27 @@ const SubtreeIsolationDemo = () => {
         </ul>
       </div>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-        gap: '20px'
-      }}>
+      <div className="subtree-demo__grid">
         <div>
-          <h2 style={{ color: '#333', textAlign: 'center' }}>
+          <h2 className="subtree-demo__column-title">
             Hooks Approach
           </h2>
           <HooksApproach />
         </div>
         
         <div>
-          <h2 style={{ color: '#333', textAlign: 'center' }}>
+          <h2 className="subtree-demo__column-title">
             Render Props Approach
           </h2>
           <RenderPropsApproach />
         </div>
       </div>
 
-      <div style={{
-        marginTop: '30px',
-        padding: '20px',
-        backgroundColor: '#e7f3ff',
-        borderRadius: '8px',
-        border: '1px solid #b3d9ff'
-      }}>
-        <h3 style={{ color: '#0056b3', marginTop: 0 }}>
+      <div className="subtree-demo__insight">
+        <h3 className="subtree-demo__insight-title">
           Key Insight: Subtree Isolation
         </h3>
-        <ul style={{ fontSize: '16px', lineHeight: '1.6', color: '#0056b3' }}>
+        <ul className="subtree-demo__insight-list">
           <li>
             <strong>Hooks:</strong> When count changes, the ENTIRE component
             tree re-renders, including expensive static components

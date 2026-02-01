@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import './Navigation.css';
 
 const Navigation = () => {
   const location = useLocation();
@@ -113,27 +114,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav style={{
-      backgroundColor: '#f8f9fa',
-      padding: '20px',
-      borderBottom: '1px solid #dee2e6',
-      marginBottom: '20px'
-    }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ 
-          margin: '0 0 20px 0', 
-          color: '#333',
-          fontSize: '24px',
-          fontWeight: 'bold'
-        }}>
-          React Examples Navigation
-        </h1>
-        
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '15px'
-        }}>
+    <nav className="nav">
+      <div className="nav__inner">
+        <h1 className="nav__title">React Examples Navigation</h1>
+
+        <div className="nav__grid">
           {navItems.map((item, index) => {
             const menuKey = `menu-${index}`;
             const isExpanded = expandedMenus[menuKey];
@@ -143,112 +128,32 @@ const Navigation = () => {
 
             if (hasSubmenu) {
               return (
-                <div key={menuKey} style={{ gridColumn: hasSubmenu ? 'span 1' : 'auto' }}>
+                <div key={menuKey} className="nav__item">
                   <div
                     onClick={() => toggleMenu(menuKey)}
-                    style={{
-                      padding: '15px',
-                      backgroundColor: hasActiveChild ? '#007bff' : 'white',
-                      color: hasActiveChild ? 'white' : '#333',
-                      border: '1px solid #dee2e6',
-                      borderRadius: '8px',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s ease',
-                      boxShadow: hasActiveChild ? '0 4px 8px rgba(0,123,255,0.3)' : '0 2px 4px rgba(0,0,0,0.1)',
-                      marginBottom: isExpanded ? '10px' : '0'
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!hasActiveChild) {
-                        e.currentTarget.style.backgroundColor = '#e9ecef';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!hasActiveChild) {
-                        e.currentTarget.style.backgroundColor = 'white';
-                      }
-                    }}
+                    className={`nav__card ${hasActiveChild ? 'nav__card--active-child' : ''} ${isExpanded ? 'nav__card--expanded' : ''}`}
                   >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <div style={{ flex: 1 }}>
-                        <h3 style={{ 
-                          margin: '0 0 8px 0',
-                          fontSize: '16px',
-                          fontWeight: '600'
-                        }}>
-                          {item.label}
-                        </h3>
-                        <p style={{ 
-                          margin: 0,
-                          fontSize: '14px',
-                          opacity: hasActiveChild ? 0.9 : 0.7
-                        }}>
-                          {item.description}
-                        </p>
+                    <div className="nav__card-header">
+                      <div className="nav__card-body">
+                        <h3 className="nav__card-title">{item.label}</h3>
+                        <p className="nav__card-desc">{item.description}</p>
                       </div>
-                      <span style={{
-                        fontSize: '18px',
-                        transition: 'transform 0.2s ease',
-                        transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)'
-                      }}>
-                        ▶
-                      </span>
+                      <span className={`nav__arrow ${isExpanded ? 'nav__arrow--expanded' : ''}`}>▶</span>
                     </div>
                   </div>
                   {isExpanded && (
-                    <div style={{
-                      marginTop: '10px',
-                      paddingLeft: '15px',
-                      borderLeft: '3px solid #007bff',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '10px'
-                    }}>
+                    <div className="nav__submenu">
                       {item.submenu.map((subItem) => {
                         const isSubActive = location.pathname === subItem.path;
                         return (
                           <Link
                             key={subItem.path}
                             to={subItem.path}
-                            style={{
-                              textDecoration: 'none',
-                              color: 'inherit'
-                            }}
+                            className="nav__submenu-link"
                           >
-                            <div style={{
-                              padding: '12px',
-                              backgroundColor: isSubActive ? '#007bff' : '#f8f9fa',
-                              color: isSubActive ? 'white' : '#333',
-                              border: '1px solid #dee2e6',
-                              borderRadius: '6px',
-                              cursor: 'pointer',
-                              transition: 'all 0.2s ease',
-                              boxShadow: isSubActive ? '0 2px 4px rgba(0,123,255,0.3)' : '0 1px 2px rgba(0,0,0,0.05)',
-                            }}
-                            onMouseEnter={(e) => {
-                              if (!isSubActive) {
-                                e.currentTarget.style.backgroundColor = '#e9ecef';
-                              }
-                            }}
-                            onMouseLeave={(e) => {
-                              if (!isSubActive) {
-                                e.currentTarget.style.backgroundColor = '#f8f9fa';
-                              }
-                            }}
-                            >
-                              <h4 style={{ 
-                                margin: '0 0 4px 0',
-                                fontSize: '14px',
-                                fontWeight: '600'
-                              }}>
-                                {subItem.label}
-                              </h4>
-                              <p style={{ 
-                                margin: 0,
-                                fontSize: '12px',
-                                opacity: isSubActive ? 0.9 : 0.7
-                              }}>
-                                {subItem.description}
-                              </p>
+                            <div className={`nav__submenu-item ${isSubActive ? 'nav__submenu-item--active' : ''}`}>
+                              <h4 className="nav__submenu-title">{subItem.label}</h4>
+                              <p className="nav__submenu-desc">{subItem.description}</p>
                             </div>
                           </Link>
                         );
@@ -263,49 +168,11 @@ const Navigation = () => {
               <Link
                 key={item.path || menuKey}
                 to={item.path}
-                style={{
-                  textDecoration: 'none',
-                  color: 'inherit'
-                }}
+                className="nav__link"
               >
-                <div style={{
-                  padding: '15px',
-                  backgroundColor: isActive ? '#007bff' : 'white',
-                  color: isActive ? 'white' : '#333',
-                  border: '1px solid #dee2e6',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  boxShadow: isActive ? '0 4px 8px rgba(0,123,255,0.3)' : '0 2px 4px rgba(0,0,0,0.1)',
-                  transform: isActive ? 'translateY(-2px)' : 'none'
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.backgroundColor = '#e9ecef';
-                    e.currentTarget.style.transform = 'translateY(-1px)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.backgroundColor = 'white';
-                    e.currentTarget.style.transform = 'none';
-                  }
-                }}
-                >
-                  <h3 style={{ 
-                    margin: '0 0 8px 0',
-                    fontSize: '16px',
-                    fontWeight: '600'
-                  }}>
-                    {item.label}
-                  </h3>
-                  <p style={{ 
-                    margin: 0,
-                    fontSize: '14px',
-                    opacity: isActive ? 0.9 : 0.7
-                  }}>
-                    {item.description}
-                  </p>
+                <div className={`nav__card ${isActive ? 'nav__card--active' : ''}`}>
+                  <h3 className="nav__card-title">{item.label}</h3>
+                  <p className="nav__card-desc">{item.description}</p>
                 </div>
               </Link>
             );

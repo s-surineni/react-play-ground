@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./ApiPolling.css";
 
 const POLL_INTERVAL_MS = 5000;
 
@@ -60,53 +61,31 @@ const ApiPolling = () => {
   }, []);
 
   return (
-    <div style={{ padding: "24px", maxWidth: "560px", margin: "0 auto" }}>
-      <h1 style={{ marginBottom: "8px", color: "#333" }}>API Polling (every 5s)</h1>
-      <p style={{ marginBottom: "24px", color: "#666", fontSize: "14px" }}>
+    <div className="api-polling">
+      <h1 className="api-polling__title">API Polling (every 5s)</h1>
+      <p className="api-polling__intro">
         Polls every 5 seconds and shows a random quote (local mock to avoid CORS).
       </p>
 
       {lastFetchedAt && !loading && (
-        <p style={{ marginBottom: "16px", fontSize: "12px", color: "#6c757d" }}>
+        <p className="api-polling__last-updated">
           Last updated: {lastFetchedAt.toLocaleTimeString()}
         </p>
       )}
 
-      <div
-        style={{
-          border: "1px solid #dee2e6",
-          borderRadius: "8px",
-          padding: "20px",
-          backgroundColor: "#f8f9fa",
-          minHeight: "120px",
-        }}
-      >
+      <div className="api-polling__card">
         {loading && !data && (
-          <p style={{ margin: 0, color: "#6c757d" }}>Loading…</p>
+          <p className="api-polling__loading">Loading…</p>
         )}
         {error && (
-          <p style={{ margin: 0, color: "#dc3545" }}>Error: {error}</p>
+          <p className="api-polling__error">Error: {error}</p>
         )}
         {data && !error && (
           <>
-            <p
-              style={{
-                margin: "0 0 12px 0",
-                fontSize: "18px",
-                fontStyle: "italic",
-                color: "#333",
-                lineHeight: 1.5,
-              }}
-            >
-              "{data.content}"
-            </p>
-            <p style={{ margin: 0, fontSize: "14px", color: "#6c757d" }}>
-              — {data.author}
-            </p>
+            <p className="api-polling__quote">"{data.content}"</p>
+            <p className="api-polling__author">— {data.author}</p>
             {loading && (
-              <p style={{ marginTop: "12px", fontSize: "12px", color: "#6c757d" }}>
-                Refreshing…
-              </p>
+              <p className="api-polling__refreshing">Refreshing…</p>
             )}
           </>
         )}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, incrementByAmount, reset } from '../features/counterSlice';
+import './ReduxToolkitTutorial.css';
 
 const ReduxToolkitTutorial = () => {
   const dispatch = useDispatch();
@@ -8,36 +9,36 @@ const ReduxToolkitTutorial = () => {
   const [amount, setAmount] = useState(5);
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="redux-tutorial">
       <h1>Redux Toolkit Tutorial</h1>
       <p>
         This page demonstrates a minimal setup of Redux Toolkit using a simple counter slice.
       </p>
 
-      <section style={{ marginTop: 20 }}>
+      <section className="redux-tutorial__section">
         <h2>Counter</h2>
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <div className="redux-tutorial__counter-row">
           <button onClick={() => dispatch(decrement())}>-</button>
-          <span style={{ fontSize: 24, minWidth: 40, textAlign: 'center' }}>{count}</span>
+          <span className="redux-tutorial__count">{count}</span>
           <button onClick={() => dispatch(increment())}>+</button>
           <button onClick={() => dispatch(reset())}>Reset</button>
         </div>
       </section>
 
-      <section style={{ marginTop: 20 }}>
+      <section className="redux-tutorial__section">
         <h3>Increment by amount</h3>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <div className="redux-tutorial__amount-row">
           <input
             type="number"
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value) || 0)}
-            style={{ width: 100 }}
+            className="redux-tutorial__amount-input"
           />
           <button onClick={() => dispatch(incrementByAmount(amount))}>Add</button>
         </div>
       </section>
 
-      <section style={{ marginTop: 32 }}>
+      <section className="redux-tutorial__section redux-tutorial__section--large">
         <h2>How it works</h2>
         <ol>
           <li>

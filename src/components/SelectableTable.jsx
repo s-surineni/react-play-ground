@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import "./SelectableTable.css";
 
 const SAMPLE_DATA = [
   { id: 1, name: "Alice Johnson", role: "Engineer", department: "Product" },
@@ -43,89 +44,37 @@ const SelectableTable = () => {
   }, [isSomeSelected, isAllSelected]);
 
   return (
-    <div style={{ padding: "24px", maxWidth: "800px", margin: "0 auto" }}>
-      <h1 style={{ marginBottom: "8px", color: "#333" }}>Selectable Table</h1>
-      <p style={{ marginBottom: "24px", color: "#666", fontSize: "14px" }}>
+    <div className="selectable-table">
+      <h1 className="selectable-table__title">Selectable Table</h1>
+      <p className="selectable-table__intro">
         Click rows to select or deselect. Use the header checkbox to select all.
       </p>
 
       {selectedIds.size > 0 && (
-        <p style={{ marginBottom: "16px", fontSize: "14px", color: "#007bff" }}>
+        <p className="selectable-table__selected-count">
           Selected: {selectedIds.size} row{selectedIds.size !== 1 ? "s" : ""}
         </p>
       )}
 
-      <div
-        style={{
-          border: "1px solid #dee2e6",
-          borderRadius: "8px",
-          overflow: "hidden",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-        }}
-      >
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+
+      <div className="selectable-table__wrapper">
+        <table className="selectable-table__table">
           <thead>
-            <tr
-              style={{
-                backgroundColor: "#f8f9fa",
-                borderBottom: "2px solid #dee2e6",
-              }}
-            >
-              <th
-                style={{
-                  padding: "12px 16px",
-                  textAlign: "left",
-                  fontWeight: "600",
-                  width: "48px",
-                }}
-              >
-                <label
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    cursor: "pointer",
-                    gap: "8px",
-                  }}
-                >
+            <tr className="selectable-table__thead-row">
+              <th className="selectable-table__th selectable-table__th--checkbox">
+                <label className="selectable-table__th-label">
                   <input
                     type="checkbox"
                     ref={headerCheckboxRef}
                     checked={isAllSelected}
                     onChange={toggleAll}
-                    style={{ width: "18px", height: "18px", cursor: "pointer" }}
+                    className="selectable-table__checkbox"
                   />
                 </label>
               </th>
-              <th
-                style={{
-                  padding: "12px 16px",
-                  textAlign: "left",
-                  fontWeight: "600",
-                  color: "#495057",
-                }}
-              >
-                Name
-              </th>
-              <th
-                style={{
-                  padding: "12px 16px",
-                  textAlign: "left",
-                  fontWeight: "600",
-                  color: "#495057",
-                }}
-              >
-                Role
-              </th>
-              <th
-                style={{
-                  padding: "12px 16px",
-                  textAlign: "left",
-                  fontWeight: "600",
-                  color: "#495057",
-                }}
-              >
-                Department
-              </th>
+              <th className="selectable-table__th">Name</th>
+              <th className="selectable-table__th">Role</th>
+              <th className="selectable-table__th">Department</th>
             </tr>
           </thead>
           <tbody>
@@ -135,41 +84,22 @@ const SelectableTable = () => {
                 <tr
                   key={row.id}
                   onClick={() => toggleRow(row.id)}
-                  style={{
-                    backgroundColor: isSelected ? "#e7f3ff" : "white",
-                    borderBottom: "1px solid #eee",
-                    cursor: "pointer",
-                    transition: "background-color 0.15s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = "#f8f9fa";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = "white";
-                    }
-                  }}
+                  className={`selectable-table__row ${isSelected ? "selectable-table__row--selected" : ""}`}
                 >
-                  <td style={{ padding: "12px 16px", width: "48px" }}>
+                  <td className="selectable-table__td selectable-table__td--checkbox">
                     <input
                       type="checkbox"
                       checked={isSelected}
                       onChange={() => toggleRow(row.id)}
                       onClick={(e) => e.stopPropagation()}
-                      style={{ width: "18px", height: "18px", cursor: "pointer" }}
+                      className="selectable-table__checkbox"
                     />
                   </td>
-                  <td style={{ padding: "12px 16px", fontWeight: "500" }}>
+                  <td className="selectable-table__td selectable-table__td--name">
                     {row.name}
                   </td>
-                  <td style={{ padding: "12px 16px", color: "#495057" }}>
-                    {row.role}
-                  </td>
-                  <td style={{ padding: "12px 16px", color: "#495057" }}>
-                    {row.department}
-                  </td>
+                  <td className="selectable-table__td">{row.role}</td>
+                  <td className="selectable-table__td">{row.department}</td>
                 </tr>
               );
             })}

@@ -1,0 +1,53 @@
+.performance-monitor__actions {
+  margin-bottom: 20px;
+}
+
+.performance-monitor__start-btn {
+  margin-right: 10px;
+}
+
+.performance-monitor__start-btn--active {
+  background-color: #dc3545 !important;
+}
+
+.performance-monitor__start-btn--inactive {
+  background-color: #28a745 !important;
+}
+
+.performance-monitor__logs {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.performance-monitor__empty {
+  color: #666;
+  font-style: italic;
+}
+
+.performance-monitor__log-row {
+  padding: 2px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.performance-monitor__instructions {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.performance-monitor__instructions ol {
+  margin-left: 20px;
+}
+
+.performance-monitor__idle {
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  color: #666;
+}

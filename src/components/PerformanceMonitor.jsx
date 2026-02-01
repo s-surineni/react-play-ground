@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './PerformanceMonitor.css';
 
 function PerformanceMonitor() {
   const [renderLogs, setRenderLogs] = useState([]);
@@ -33,14 +34,10 @@ function PerformanceMonitor() {
     <div className="demo-section">
       <h2 className="demo-title">Performance Monitor</h2>
       
-      <div style={{ marginBottom: '20px' }}>
+      <div className="performance-monitor__actions">
         <button 
-          className="button" 
+          className={`button performance-monitor__start-btn ${isMonitoring ? 'performance-monitor__start-btn--active' : 'performance-monitor__start-btn--inactive'}`}
           onClick={toggleMonitoring}
-          style={{ 
-            backgroundColor: isMonitoring ? '#dc3545' : '#28a745',
-            marginRight: '10px'
-          }}
         >
           {isMonitoring ? 'Stop' : 'Start'} Monitoring
         </button>
@@ -53,34 +50,23 @@ function PerformanceMonitor() {
       {isMonitoring && (
         <div>
           <h3>Render Logs (Last 20)</h3>
-          <div style={{ 
-            backgroundColor: '#f8f9fa', 
-            padding: '15px', 
-            borderRadius: '6px',
-            maxHeight: '400px',
-            overflowY: 'auto',
-            fontFamily: 'monospace',
-            fontSize: '12px'
-          }}>
+          <div className="performance-monitor__logs">
             {renderLogs.length === 0 ? (
-              <p style={{ color: '#666', fontStyle: 'italic' }}>
+              <p className="performance-monitor__empty">
                 No render logs yet. Try clicking the counter buttons to see the difference!
               </p>
             ) : (
               renderLogs.map((log, index) => (
-                <div key={index} style={{ 
-                  padding: '2px 0',
-                  borderBottom: '1px solid #e9ecef'
-                }}>
+                <div key={index} className="performance-monitor__log-row">
                   {log}
                 </div>
               ))
             )}
           </div>
           
-          <div style={{ marginTop: '15px', fontSize: '14px', color: '#666' }}>
+          <div className="performance-monitor__instructions">
             <p><strong>Instructions:</strong></p>
-            <ol style={{ marginLeft: '20px' }}>
+            <ol>
               <li>Start monitoring above</li>
               <li>Click the increment buttons in both counter components</li>
               <li>Watch the console and this log to see the difference in rendering behavior</li>
@@ -91,13 +77,7 @@ function PerformanceMonitor() {
       )}
 
       {!isMonitoring && (
-        <div style={{ 
-          backgroundColor: '#e9ecef', 
-          padding: '15px', 
-          borderRadius: '6px',
-          textAlign: 'center',
-          color: '#666'
-        }}>
+        <div className="performance-monitor__idle">
           Click "Start Monitoring" to begin tracking render performance
         </div>
       )}

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import CounterWithRenderProps from "./CounterWithRenderProps";
+import "./RenderPropsDemo.css";
 
 // Component that logs when it renders
 const RenderLogger = ({ children, name }) => {
@@ -13,24 +14,8 @@ const RenderLogger = ({ children, name }) => {
   );
 
   return (
-    <div
-      style={{
-        border: "2px solid #007bff",
-        padding: "10px",
-        margin: "10px",
-        borderRadius: "6px",
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: "#e7f3ff",
-          padding: "5px",
-          marginBottom: "10px",
-          borderRadius: "4px",
-          fontSize: "12px",
-          fontWeight: "bold",
-        }}
-      >
+    <div className="render-props-demo__logger">
+      <div className="render-props-demo__logger-header">
         {name} - Render #{renderCountRef.current}
       </div>
       {children}
@@ -48,14 +33,7 @@ const StaticHeader = React.memo(() => (
 
 const StaticContent = React.memo(() => (
   <RenderLogger name="Static Content (Memoized)">
-    <div
-      style={{
-        backgroundColor: "#f0f0f0",
-        padding: "15px",
-        borderRadius: "6px",
-        margin: "10px 0",
-      }}
-    >
+    <div className="render-props-demo__static-box">
       <h4>Static Information</h4>
       <p>This content is completely isolated from counter state changes.</p>
       <p>
@@ -73,14 +51,7 @@ const StaticContent = React.memo(() => (
 
 const StaticFooter = React.memo(() => (
   <RenderLogger name="Static Footer (Memoized)">
-    <div
-      style={{
-        backgroundColor: "#e8f5e8",
-        padding: "15px",
-        borderRadius: "6px",
-        margin: "10px 0",
-      }}
-    >
+    <div className="render-props-demo__footer-box">
       <h4>Footer Section</h4>
       <p>This footer section is also memoized and won't re-render.</p>
       <p>It demonstrates how render props can isolate entire subtrees.</p>
@@ -101,7 +72,7 @@ function RenderPropsDemo() {
     <RenderLogger name="Render Props Demo - Main Container">
       <div>
         <h2>Render Props Pattern Demo</h2>
-        <p style={{ color: "#666", marginBottom: "20px" }}>
+        <p className="render-props-demo__intro">
           This demo shows how to properly use the render props pattern to
           achieve fine-grained rendering control and subtree isolation.
         </p>
@@ -111,15 +82,7 @@ function RenderPropsDemo() {
 
         {/* Counter using render props - only the render function re-renders */}
         <RenderLogger name="Counter Section">
-          <div
-            style={{
-              backgroundColor: "#fff3cd",
-              padding: "20px",
-              borderRadius: "8px",
-              margin: "20px 0",
-              border: "1px solid #ffeaa7",
-            }}
-          >
+          <div className="render-props-demo__counter-section">
             <h3>Counter with Render Props</h3>
             <p>
               The counter below uses the render props pattern. Notice how only
@@ -131,81 +94,36 @@ function RenderPropsDemo() {
             <CounterWithRenderProps
               render={(counterState) => (
                 <RenderLogger name="Counter Render Function">
-                  <div
-                    style={{
-                      backgroundColor: "#d4edda",
-                      padding: "15px",
-                      borderRadius: "6px",
-                      border: "1px solid #c3e6cb",
-                    }}
-                  >
+                  <div className="render-props-demo__dynamic-box">
                     <h4>Counter Display (Dynamic)</h4>
-                    <div
-                      style={{
-                        fontSize: "24px",
-                        fontWeight: "bold",
-                        color: "#155724",
-                        margin: "10px 0",
-                      }}
-                    >
+                    <div className="render-props-demo__count-display">
                       Count: {counterState.count}
                     </div>
 
-                    <div style={{ margin: "15px 0" }}>
+                    <div className="render-props-demo__buttons">
                       <button
                         onClick={counterState.decrement}
-                        style={{
-                          backgroundColor: "#dc3545",
-                          color: "white",
-                          border: "none",
-                          padding: "8px 16px",
-                          borderRadius: "4px",
-                          cursor: "pointer",
-                          margin: "0 5px",
-                        }}
+                        className="render-props-demo__btn render-props-demo__btn--decrement"
                       >
                         -
                       </button>
 
                       <button
                         onClick={counterState.reset}
-                        style={{
-                          backgroundColor: "#6c757d",
-                          color: "white",
-                          border: "none",
-                          padding: "8px 16px",
-                          borderRadius: "4px",
-                          cursor: "pointer",
-                          margin: "0 5px",
-                        }}
+                        className="render-props-demo__btn render-props-demo__btn--reset"
                       >
                         Reset
                       </button>
 
                       <button
                         onClick={counterState.increment}
-                        style={{
-                          backgroundColor: "#28a745",
-                          color: "white",
-                          border: "none",
-                          padding: "8px 16px",
-                          borderRadius: "4px",
-                          cursor: "pointer",
-                          margin: "0 5px",
-                        }}
+                        className="render-props-demo__btn render-props-demo__btn--increment"
                       >
                         +
                       </button>
                     </div>
 
-                    <div
-                      style={{
-                        backgroundColor: "#f8f9fa",
-                        padding: "10px",
-                        borderRadius: "4px",
-                        fontSize: "14px",
-                      }}
-                    >
+                    <div className="render-props-demo__state-box">
                       <div>
                         <strong>State Changes:</strong>{" "}
                         {counterState.renderCount}
@@ -229,19 +147,11 @@ function RenderPropsDemo() {
         <StaticFooter />
 
         {/* Demo render counter */}
-        <div
-          style={{
-            backgroundColor: "#e9ecef",
-            padding: "10px",
-            borderRadius: "4px",
-            textAlign: "center",
-            marginTop: "20px",
-          }}
-        >
+        <div className="render-props-demo__demo-footer">
           <p>
             <strong>Demo Component Render Count:</strong> {demoRenderCount}
           </p>
-          <p style={{ fontSize: "12px", color: "#666" }}>
+          <p className="render-props-demo__demo-footer-note">
             This counter shows how many times the entire demo component has
             rendered. Notice that it increases on every render, but the memoized
             static components don't re-render.

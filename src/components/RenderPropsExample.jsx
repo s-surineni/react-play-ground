@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './RenderPropsExample.css';
 
 // Component that uses render props pattern
 const Counter = ({ render }) => {
@@ -20,17 +21,17 @@ const Counter = ({ render }) => {
 // Example usage component
 const RenderPropsExample = () => {
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+    <div className="render-props-example">
       <h2>Render Props Pattern Example</h2>
       
       {/* First usage - Simple display */}
       <Counter
         render={({ count, increment, decrement, reset }) => (
-          <div style={{ marginBottom: '20px', padding: '15px', border: '1px solid #ccc', borderRadius: '5px' }}>
+          <div className="render-props-example__simple">
             <h3>Simple Counter</h3>
             <p>Count: {count}</p>
-            <button onClick={increment} style={{ marginRight: '10px' }}>+</button>
-            <button onClick={decrement} style={{ marginRight: '10px' }}>-</button>
+            <button onClick={increment} className="render-props-example__simple-btn">+</button>
+            <button onClick={decrement} className="render-props-example__simple-btn">-</button>
             <button onClick={reset}>Reset</button>
           </div>
         )}
@@ -39,51 +40,19 @@ const RenderPropsExample = () => {
       {/* Second usage - Different styling and layout */}
       <Counter
         render={({ count, increment, decrement, reset }) => (
-          <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f0f0f0', borderRadius: '5px' }}>
+          <div className="render-props-example__styled">
             <h3>Styled Counter</h3>
-            <div style={{ fontSize: '24px', fontWeight: 'bold', color: count > 0 ? 'green' : count < 0 ? 'red' : 'black' }}>
+            <div className={`render-props-example__styled-value ${count > 0 ? 'render-props-example__styled-value--positive' : count < 0 ? 'render-props-example__styled-value--negative' : 'render-props-example__styled-value--zero'}`}>
               {count}
             </div>
-            <div style={{ marginTop: '10px' }}>
-              <button 
-                onClick={increment}
-                style={{ 
-                  marginRight: '10px', 
-                  padding: '8px 16px',
-                  backgroundColor: '#4CAF50',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
-              >
+            <div className="render-props-example__styled-buttons">
+              <button onClick={increment} className="render-props-example__btn render-props-example__btn--increment">
                 Increment
               </button>
-              <button 
-                onClick={decrement}
-                style={{ 
-                  marginRight: '10px', 
-                  padding: '8px 16px',
-                  backgroundColor: '#f44336',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
-              >
+              <button onClick={decrement} className="render-props-example__btn render-props-example__btn--decrement">
                 Decrement
               </button>
-              <button 
-                onClick={reset}
-                style={{ 
-                  padding: '8px 16px',
-                  backgroundColor: '#2196F3',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer'
-                }}
-              >
+              <button onClick={reset} className="render-props-example__btn render-props-example__btn--reset">
                 Reset
               </button>
             </div>
@@ -94,21 +63,21 @@ const RenderPropsExample = () => {
       {/* Third usage - With additional features */}
       <Counter
         render={({ count, increment, decrement, reset }) => (
-          <div style={{ marginBottom: '20px', padding: '15px', border: '2px solid #333', borderRadius: '5px' }}>
+          <div className="render-props-example__advanced">
             <h3>Advanced Counter</h3>
             <p>Current count: <strong>{count}</strong></p>
             <p>Count is: {count === 0 ? 'zero' : count > 0 ? 'positive' : 'negative'}</p>
             <p>Count squared: {count * count}</p>
-            <div style={{ marginTop: '15px' }}>
-              <button onClick={increment} style={{ marginRight: '10px' }}>Add 1</button>
-              <button onClick={decrement} style={{ marginRight: '10px' }}>Subtract 1</button>
+            <div className="render-props-example__advanced-buttons">
+              <button onClick={increment} className="render-props-example__advanced-btn">Add 1</button>
+              <button onClick={decrement} className="render-props-example__advanced-btn">Subtract 1</button>
               <button onClick={reset}>Reset to Zero</button>
             </div>
           </div>
         )}
       />
 
-      <div style={{ marginTop: '30px', padding: '15px', backgroundColor: '#e8f4f8', borderRadius: '5px' }}>
+      <div className="render-props-example__how">
         <h3>How Render Props Work:</h3>
         <ul>
           <li>The <code>Counter</code> component manages state internally</li>
