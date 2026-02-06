@@ -116,6 +116,11 @@ const Navigation = () => {
       label: "Progress Bar",
       description: "Reusable progress bar with variants",
     },
+    {
+      path: "/comment-section",
+      label: "Comment Section",
+      description: "Blog comments with click-to-edit",
+    },
   ];
 
   return (

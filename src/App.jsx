@@ -21,6 +21,7 @@ import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
 import SelectableTable from "./components/SelectableTable";
 import ApiPolling from "./components/ApiPolling";
 import ProgressBarDemo from "./components/ProgressBarDemo";
+import CommentSection from "./components/CommentSection/CommentSection";
 import "./App.css";
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
             <Route path="/selectable-table" element={<SelectableTable />} />
             <Route path="/api-polling" element={<ApiPolling />} />
             <Route path="/progress-bar" element={<ProgressBarDemo />} />
+            <Route path="/comment-section" element={<CommentSection />} />
             <Route path="/hello-world" element={<HelloWorld />} />
           </Routes>
         </main>
