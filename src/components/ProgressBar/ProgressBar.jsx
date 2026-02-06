@@ -1,6 +1,9 @@
 import React from "react";
 import "./ProgressBar.css";
-
+// features
+// displays label
+// variants
+// custom height
 /**
  * ProgressBar – reusable progress indicator
  * @param {number} value - Progress value (0 to max, default max 100)
