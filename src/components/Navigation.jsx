@@ -21,6 +21,11 @@ const Navigation = () => {
       description: "RTK store, slice, hooks",
     },
     {
+      path: "/reselect-example",
+      label: "Reselect Example",
+      description: "Memoized selectors with reselect",
+    },
+    {
       path: "/counter-hooks",
       label: "Counter with Hooks",
       description: "React Hooks example",
@@ -120,6 +125,11 @@ const Navigation = () => {
       path: "/comment-section",
       label: "Comment Section",
       description: "Blog comments with click-to-edit",
+    },
+    {
+      path: "/holy-grail",
+      label: "Holy Grail",
+      description: "Holy Grail layout demonstration",
     },
   ];
 

@@ -9,6 +9,7 @@ import PerformanceMonitor from "./components/PerformanceMonitor";
 import SubtreeIsolationDemo from "./components/SubtreeIsolationDemo";
 import SimpleRenderPropsExample from "./components/SimpleRenderPropsExample";
 import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
+import ReselectExample from "./components/ReselectExample";
 import BasicInputText from "./components/basicExamples/BasicInputText";
 import BasicUseEffect from "./components/basicExamples/BasicUseEffect";
 import BasicUseEffectConsole from "./components/basicExamples/BasicUseEffectConsole";
@@ -22,6 +23,7 @@ import SelectableTable from "./components/SelectableTable";
 import ApiPolling from "./components/ApiPolling";
 import ProgressBarDemo from "./components/ProgressBarDemo";
 import CommentSection from "./components/CommentSection/CommentSection";
+import HolyGrail from "./components/HolyGrail/HolyGrail";
 import "./App.css";
 
 function App() {
@@ -52,6 +54,7 @@ function App() {
             />
             <Route path="/basic-input-text" element={<BasicInputText />} />
             <Route path="/redux-toolkit" element={<ReduxToolkitTutorial />} />
+            <Route path="/reselect-example" element={<ReselectExample />} />
             <Route path="/basic-use-effect" element={<BasicUseEffect />} />
             <Route path="/basic-use-effect-console" element={<BasicUseEffectConsole />} />
             <Route path="/use-effect-with-issue" element={<UseEffectWithIssue />} />
@@ -63,6 +66,7 @@ function App() {
             <Route path="/api-polling" element={<ApiPolling />} />
             <Route path="/progress-bar" element={<ProgressBarDemo />} />
             <Route path="/comment-section" element={<CommentSection />} />
+            <Route path="/holy-grail" element={<HolyGrail />} />
             <Route path="/hello-world" element={<HelloWorld />} />
           </Routes>
         </main>

@@ -1,0 +1,57 @@
+body {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.holy-grail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.columns {
+  display: flex;
+  flex: 1;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+  padding: 12px;
+  text-align: center;
+}
+
+header {
+  background-color: tomato;
+  height: 60px;
+}
+
+nav {
+  background-color: coral;
+  width: 100px;
+  flex-shrink: 0; /* Prevents the navigation from shrinking when the content in <main> is too wide.*/
+}
+
+main {
+  background-color: moccasin;
+  flex-grow: 1;
+}
+
+aside {
+  background-color: sandybrown;
+  width: 100px;
+  flex-shrink: 0; /* Prevents the sidebar from shrinking when the content in <main> is too wide.*/
+}
+
+footer {
+  background-color: slategray;
+  height: 100px;
+}
