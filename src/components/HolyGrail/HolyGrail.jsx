@@ -4,13 +4,13 @@ import './HolyGrail.css';
 export default function HolyGrail() {
     return (
         <div className="holy-grail">
-            <header>Header</header>
+            <div className='hg-header'>Header</div>
             <div className='columns'>
-                <nav>Navigation</nav>
-                <main>Main</main>
-                <aside>Sidebar</aside>
+                <div className='hg-nav'>Navigation</div>
+                <div className='hg-main'>Main</div>
+                <div className='hg-aside'>Sidebar</div>
             </div>
-            <footer>Footer</footer>
+            <div className='hg-footer'>Footer</div>
         </div>
     );
 }
