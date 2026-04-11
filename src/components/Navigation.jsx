@@ -131,6 +131,11 @@ const Navigation = () => {
       label: "Holy Grail",
       description: "Holy Grail layout demonstration",
     },
+    {
+      path: "/tweet",
+      label: "Tweet",
+      description: "Tweet component example",
+    },
   ];
 
   return (
