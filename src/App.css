@@ -3,13 +3,6 @@
   background-color: #ffffff;
 }
 
-main {
-  padding: 0 20px;
-}
 
-/* Responsive design */
-@media (max-width: 768px) {
-  main {
-    padding: 0 10px;
-  }
-}
+
+
