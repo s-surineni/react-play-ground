@@ -132,9 +132,9 @@ const Navigation = () => {
       description: "Holy Grail layout demonstration",
     },
     {
-      path: "/tweet",
-      label: "Tweet",
-      description: "Tweet component example",
+      path: "/tweets",
+      label: "Tweet List",
+      description: "Multiple tweets with parent component",
     },
   ];
 

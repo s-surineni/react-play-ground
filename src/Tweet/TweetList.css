@@ -1,0 +1,46 @@
+.tweet-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f8fa;
+    min-height: 100vh;
+}
+
+.tweet-list-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0f1419;
+    text-align: center;
+}
+
+.tweets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #536471;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid #cfd9de;
+}
+
+@media (max-width: 768px) {
+    .tweet-list {
+        padding: 10px;
+    }
+    
+    .tweet-list-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .tweets-container {
+        gap: 12px;
+    }
+}

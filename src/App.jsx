@@ -25,6 +25,7 @@ import ProgressBarDemo from "./components/ProgressBarDemo";
 import CommentSection from "./components/CommentSection/CommentSection";
 import HolyGrail from "./components/HolyGrail/HolyGrail";
 import Tweet from "./Tweet/Tweet";
+import TweetList from "./Tweet/TweetList";
 import "./App.css";
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
             <Route path="/comment-section" element={<CommentSection />} />
             <Route path="/holy-grail" element={<HolyGrail />} />
             <Route path="/tweet" element={<Tweet />} />
+            <Route path="/tweets" element={<TweetList />} />
             <Route path="/hello-world" element={<HelloWorld />} />
           </Routes>
         </main>
