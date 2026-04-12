@@ -1,5 +1,5 @@
 .tweet {
-    display: inline-flex;
+    display: flex;
     gap: 12px;
     background-color: #fff;
     border: 1px solid #cfd9de;
@@ -12,6 +12,15 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+.tweet-author-name {
+    font-weight: bold;
+}
+
+.tweet-handle {
+    color: #71767b;
+}
+
 
 .action-row {
     display: flex;
