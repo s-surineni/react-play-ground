@@ -7,6 +7,14 @@
     padding: 12px;
 }
 
+.tweet-avatar {
+    --thumbnail-size: 48px;
+
+    border-radius: var(--thumbnail-size);
+    height: var(--thumbnail-size);
+    width: var(--thumbnail-size);
+}
+
 .tweet-text {
     display: flex;
     flex-direction: column;
@@ -23,9 +31,13 @@
 
 
 .action-row {
+    color: #536471;
     display: flex;
     justify-content: space-between;
     align-self: stretch;
+    /* restricting width of action row */
+    max-width: 425px;
+    font-size: 13px;
 }
 
 .action-item {
@@ -40,3 +52,7 @@
     gap: 4px;
 }
 
+.action-icon {
+ height: 16px;
+ width: 16px;
+}
