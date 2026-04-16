@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProgressBar.css";
+import "./ProgressBar.module.css";
 // features
 // displays label
 // variants

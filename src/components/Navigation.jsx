@@ -136,6 +136,11 @@ const Navigation = () => {
       label: "Tweet List",
       description: "Multiple tweets with parent component",
     },
+    {
+      path: "/temp-playground",
+      label: "Temp Playground",
+      description: "Sandbox for building and testing components",
+    },
   ];
 
   return (

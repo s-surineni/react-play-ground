@@ -24,6 +24,7 @@ import ApiPolling from "./components/ApiPolling";
 import ProgressBarDemo from "./components/ProgressBarDemo";
 import CommentSection from "./components/CommentSection/CommentSection";
 import HolyGrail from "./components/HolyGrail/HolyGrail";
+import TempPlayground from "./components/TempPlayground";
 import Tweet from "./Tweet/Tweet";
 import TweetList from "./Tweet/TweetList";
 import "./App.css";
@@ -72,6 +73,7 @@ function App() {
             <Route path="/tweet" element={<Tweet />} />
             <Route path="/tweets" element={<TweetList />} />
             <Route path="/hello-world" element={<HelloWorld />} />
+            <Route path="/temp-playground" element={<TempPlayground />} />
           </Routes>
         </main>
       </div>
