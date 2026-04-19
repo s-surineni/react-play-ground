@@ -6,6 +6,7 @@ import CounterWithHooks from "./components/CounterWithHooks";
 import RenderPropsExamples from "./components/RenderPropsExamples";
 import RenderPropsDemo from "./components/RenderPropsDemo";
 import PerformanceMonitor from "./components/PerformanceMonitor";
+import IndexKeyDemo from "./components/IndexKeyDemo";
 import SubtreeIsolationDemo from "./components/SubtreeIsolationDemo";
 import SimpleRenderPropsExample from "./components/SimpleRenderPropsExample";
 import ReduxToolkitTutorial from "./components/ReduxToolkitTutorial";
@@ -50,6 +51,10 @@ function App() {
             <Route
               path="/performance-monitor"
               element={<PerformanceMonitor />}
+            />
+            <Route
+              path="/index-key-demo"
+              element={<IndexKeyDemo />}
             />
             <Route
               path="/subtree-isolation"

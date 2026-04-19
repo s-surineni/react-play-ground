@@ -51,6 +51,11 @@ const Navigation = () => {
       description: "Performance monitoring example",
     },
     {
+      path: "/index-key-demo",
+      label: "Index Key Demo",
+      description: "Why not to use array index as React key",
+    },
+    {
       path: "/subtree-isolation",
       label: "Subtree Isolation",
       description: "Subtree isolation demonstration",
