@@ -5,12 +5,17 @@ import './Navigation.css';
 const Navigation = () => {
   const location = useLocation();
   const [expandedMenus, setExpandedMenus] = useState({});
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleMenu = (menuKey) => {
     setExpandedMenus(prev => ({
       ...prev,
       [menuKey]: !prev[menuKey]
     }));
+  };
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
   };
 
   const navItems = [
@@ -146,9 +151,20 @@ const Navigation = () => {
   return (
     <nav className="nav">
       <div className="nav__inner">
-        <h1 className="nav__title">React Examples Navigation</h1>
+        <div className="nav__header">
+          <h1 className="nav__title">React Examples Navigation</h1>
+          <button
+            className={`nav__hamburger ${isNavOpen ? 'nav__hamburger--open' : ''}`}
+            onClick={toggleNav}
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
 
-        <div className="nav__grid">
+        {isNavOpen && (<div className="nav__grid">
           {navItems.map((item, index) => {
             const menuKey = `menu-${index}`;
             const isExpanded = expandedMenus[menuKey];
@@ -207,7 +223,7 @@ const Navigation = () => {
               </Link>
             );
           })}
-        </div>
+        </div>)}
       </div>
     </nav>
   );

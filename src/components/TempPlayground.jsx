@@ -1,4 +1,4 @@
-import "./TempPlayground.module.css"
+import styles from "./TempPlayground.module.css"
 export default function TempPlayground() {
   return (<>
     <ProgressBar fillPercentage={50} />
@@ -7,10 +7,10 @@ export default function TempPlayground() {
 
 function ProgressBar({ fillPercentage }) {
   return (
-    <div className="progress-bar">
-      {fillPercentage}%
-      <div className="progress-fill" style={{ width: `${fillPercentage}%`,
-    height: "100%" }}></div>
+    <div className={styles["progress-bar"]}>
+      <div className={styles["progress-fill"]} style={{
+        width: `${fillPercentage}%`
+      }}>{fillPercentage}%</div>
     </div>
   )
 }

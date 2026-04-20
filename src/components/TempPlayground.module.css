@@ -1,7 +1,12 @@
 .progress-fill {
   background-color: aqua;
+  text-align: center;
+  height: 100%;
 }
 
 .progress-bar {
-  text-align: center;
+  border: 1px solid #c5c5c5;
+  border-radius: 8px;
+  overflow: hidden;
+
 }
