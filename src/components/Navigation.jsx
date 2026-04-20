@@ -132,6 +132,11 @@ const Navigation = () => {
       description: "Reusable progress bar with variants",
     },
     {
+      path: "/progress-bar-2",
+      label: "Progress Bar 2",
+      description: "Alternative progress bar implementation",
+    },
+    {
       path: "/comment-section",
       label: "Comment Section",
       description: "Blog comments with click-to-edit",

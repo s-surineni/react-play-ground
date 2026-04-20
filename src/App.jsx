@@ -23,6 +23,7 @@ import SharedStateFactoryDemo from "./components/SharedStateFactoryDemo";
 import SelectableTable from "./components/SelectableTable";
 import ApiPolling from "./components/ApiPolling";
 import ProgressBarDemo from "./components/ProgressBarDemo";
+import ProgressBar2 from "./components/ProgressBar2/ProgressBar2";
 import CommentSection from "./components/CommentSection/CommentSection";
 import HolyGrail from "./components/HolyGrail/HolyGrail";
 import TempPlayground from "./components/TempPlayground";
@@ -73,6 +74,7 @@ function App() {
             <Route path="/selectable-table" element={<SelectableTable />} />
             <Route path="/api-polling" element={<ApiPolling />} />
             <Route path="/progress-bar" element={<ProgressBarDemo />} />
+            <Route path="/progress-bar-2" element={<ProgressBar2 />} />
             <Route path="/comment-section" element={<CommentSection />} />
             <Route path="/holy-grail" element={<HolyGrail />} />
             <Route path="/tweet" element={<Tweet />} />

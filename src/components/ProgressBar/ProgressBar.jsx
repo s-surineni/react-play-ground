@@ -1,5 +1,4 @@
-import React from "react";
-import "./ProgressBar.module.css";
+import styles from "./ProgressBar.module.css";
 // features
 // displays label
 // variants
@@ -26,7 +25,7 @@ function ProgressBar({
 
   return (
     <div
-      className={`progress-bar progress-bar--${variant} ${className}`.trim()}
+      className={`${styles["progress-bar"]} ${styles[`progress-bar--${variant}`]} ${className}`.trim()}
       style={height ? { "--progress-bar-height": height } : undefined}
       role="progressbar"
       aria-valuenow={clamped}
@@ -35,11 +34,11 @@ function ProgressBar({
       aria-label={showLabel ? `${percent}%` : undefined}
     >
       <div
-        className="progress-bar__fill"
+        className={styles["progress-bar__fill"]}
         style={{ width: `${percent}%` }}
       />
       {showLabel && (
-        <span className="progress-bar__label">{percent}%</span>
+        <span className={styles["progress-bar__label"]}>{percent}%</span>
       )}
     </div>
   );
