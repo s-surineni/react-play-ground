@@ -156,6 +156,16 @@ const Navigation = () => {
       label: "Temp Playground",
       description: "Sandbox for building and testing components",
     },
+    {
+      path: "/file-explorer",
+      label: "File Explorer",
+      description: "Recursive file explorer with expandable folders",
+    },
+        {
+      path: "/poll-app",
+      label: "Poll App",
+      description: "Polling app",
+    },
   ];
 
   return (
