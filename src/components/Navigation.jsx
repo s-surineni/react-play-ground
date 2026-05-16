@@ -156,6 +156,11 @@ const Navigation = () => {
       label: "Temp Playground",
       description: "Sandbox for building and testing components",
     },
+        {
+      path: "/chat-app",
+      label: "Chat App",
+      description: "Chat App",
+    },
   ];
 
   return (

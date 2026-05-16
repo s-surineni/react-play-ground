@@ -30,6 +30,7 @@ import TempPlayground from "./components/TempPlayground";
 import Tweet from "./Tweet/Tweet";
 import TweetList from "./Tweet/TweetList";
 import "./App.css";
+import ChatApp from "./components/ChatApp/ChatApp";
 
 function App() {
   return (
@@ -81,6 +82,8 @@ function App() {
             <Route path="/tweets" element={<TweetList />} />
             <Route path="/hello-world" element={<HelloWorld />} />
             <Route path="/temp-playground" element={<TempPlayground />} />
+            <Route path="/chat-app" element={<ChatApp />} />
+
           </Routes>
         </main>
       </div>
