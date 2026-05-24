@@ -161,6 +161,16 @@ const Navigation = () => {
       label: "Chat App",
       description: "Chat App",
     },
+    {
+      path: "/connect4",
+      label: "Connect4",
+      description: "Connect4 game",
+    },
+    {
+      path: "/connect42",
+      label: "Connect4 2",
+      description: "Connect4 game version 2",
+    },
   ];
 
   return (

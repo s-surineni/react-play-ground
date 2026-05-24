@@ -1,0 +1,56 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.status-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.board {
+  background-color: #0066cc; /* Classic Blue Board Frame */
+  padding: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  gap: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff; /* Empty slot */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Red Team */
+.cell.red {
+  background-color: #ff3333;
+  cursor: not-allowed;
+}
+
+/* Blue Team */
+.cell.blue {
+  background-color: #33ccff;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}

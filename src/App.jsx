@@ -29,6 +29,8 @@ import HolyGrail from "./components/HolyGrail/HolyGrail";
 import TempPlayground from "./components/TempPlayground";
 import Tweet from "./Tweet/Tweet";
 import TweetList from "./Tweet/TweetList";
+import Connect4 from "./components/Connect4/Connect4";
+import Connect42 from "./components/Connect42/Connect42";
 import "./App.css";
 import ChatApp from "./components/ChatApp/ChatApp";
 
@@ -83,6 +85,8 @@ function App() {
             <Route path="/hello-world" element={<HelloWorld />} />
             <Route path="/temp-playground" element={<TempPlayground />} />
             <Route path="/chat-app" element={<ChatApp />} />
+            <Route path="/connect42" element={<Connect42 />} />
+            <Route path="/connect4" element={<Connect4 />} />
 
           </Routes>
         </main>
