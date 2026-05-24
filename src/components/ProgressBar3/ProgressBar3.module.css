@@ -1,0 +1,21 @@
+.progress-bar {
+    border: 1px solid #c5c5c5;
+    border-radius: 8px;
+    height: 20px;
+    overflow: hidden;
+
+}
+
+.progress-fill {
+    background-color: #0070d2;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition-duration: 2000ms;
+    transition-property: transform;
+    transition-timing-function: linear;
+}
+
+.progress-filled {
+    transform: scaleX(1);
+}
