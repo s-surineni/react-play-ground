@@ -1,12 +1,11 @@
-.progress-fill {
-  background-color: aqua;
-  text-align: center;
-  height: 100%;
+.board {
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  /* border: 1px solid black; */
 }
 
-.progress-bar {
-  border: 1px solid #c5c5c5;
-  border-radius: 8px;
-  overflow: hidden;
-
+.cell {
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
 }
