@@ -1,0 +1,11 @@
+.light-grid {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(3, 30px);
+}
+
+.light {
+    border: 1px solid black;
+    height: 30px;
+    aspect-ratio: 1/1;
+}

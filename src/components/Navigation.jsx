@@ -181,6 +181,11 @@ const Navigation = () => {
       label: "Connect4 2",
       description: "Connect4 game version 2",
     },
+    {
+      path: "/c-shape",
+      label: "C-Shape Box",
+      description: "Machine coding: Grid box selection logic",
+    },
   ];
 
   return (

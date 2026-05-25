@@ -61,3 +61,11 @@ const PollApp = () => {
 };
 
 export default PollApp;
+
+/*
+Interviewer: "What if we had 10,000 options in this poll? How would your React code change?"
+
+Your Answer: > "At that scale, re-rendering the whole list on every vote would cause performance lag. 
+I would use Virtualization (like react-window) to only render the items currently visible on the screen, 
+and I'd likely use React.memo on the child components to prevent unnecessary re-renders of bars whose percentages haven't changed."
+*/
