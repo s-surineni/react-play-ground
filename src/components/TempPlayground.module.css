@@ -1,11 +1,14 @@
-.board {
+.light-box {
   display: grid;
-  grid-template-columns: repeat(7, 60px);
-  /* border: 1px solid black; */
+  grid-template-columns: repeat(3, 50px);
 }
 
-.cell {
-  height: 60px;
-  width: 60px;
+
+.light {
+  aspect-ratio: 1/1;
   border: 1px solid black;
+}
+
+.light-activated {
+  background-color: green;
 }
