@@ -1,14 +1,18 @@
-.light-box {
+.board {
   display: grid;
-  grid-template-columns: repeat(3, 50px);
+
 }
 
-
-.light {
+.tile {
   aspect-ratio: 1/1;
-  border: 1px solid black;
+  height: 30px;
+  border: solid 1px black;
 }
 
-.light-activated {
-  background-color: green;
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
 }
