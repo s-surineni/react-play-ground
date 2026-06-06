@@ -26,7 +26,7 @@ import ProgressBarDemo from "./components/ProgressBarDemo";
 import ProgressBar2 from "./components/ProgressBar2/ProgressBar2";
 import CommentSection from "./components/CommentSection/CommentSection";
 import HolyGrail from "./components/HolyGrail/HolyGrail";
-import TempPlayground from "./components/TempPlayground";
+import TempPlayground from "./components/TempPlayground/TempPlayground";
 import Tweet from "./Tweet/Tweet";
 import TweetList from "./Tweet/TweetList";
 import FileExplorerDemo from "./components/FileExplorer/FileExplorerDemo";
