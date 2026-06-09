@@ -30,6 +30,7 @@ import TempPlayground from "./components/TempPlayground/TempPlayground";
 import Tweet from "./Tweet/Tweet";
 import TweetList from "./Tweet/TweetList";
 import FileExplorerDemo from "./components/FileExplorer/FileExplorerDemo";
+import FileExplorerNormalized from "./components/FileExplorer/FileExplorerNormalized";
 import Connect4 from "./components/Connect4/Connect4";
 import Connect42 from "./components/Connect42/Connect42";
 import CShape from "./components/CShape/CShape";
@@ -88,6 +89,7 @@ function App() {
             <Route path="/hello-world" element={<HelloWorld />} />
             <Route path="/temp-playground" element={<TempPlayground />} />
             <Route path="/file-explorer" element={<FileExplorerDemo />} />
+            <Route path="/file-explorer-normalized" element={<FileExplorerNormalized />} />
             <Route path="/poll-app" element={<PollApp />} />
             <Route path="/chat-app" element={<ChatApp />} />
             <Route path="/connect42" element={<Connect42 />} />
