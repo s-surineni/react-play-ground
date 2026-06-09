@@ -43,4 +43,17 @@ function TreeNode({node}) {
        📄 {node.name}
      </div>
   }
+  if (node.type == "folder") {
+    return <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
+      📁 {node.name}
+      {open && node.children && (
+        <div style={{ paddingLeft: "20px" }}>
+          {node.children.map(childId => 
+            TreeNode({ node: nodes[childId] })
+          )}
+        </div>
+      )}
+    </div>
+  }
+  return null
 }
