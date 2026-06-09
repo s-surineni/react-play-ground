@@ -161,6 +161,11 @@ const Navigation = () => {
       label: "File Explorer",
       description: "Recursive file explorer with expandable folders",
     },
+    {
+      path: "/file-explorer-normalized",
+      label: "File Explorer Normalized",
+      description: "Normalized file explorer with navigation",
+    },
         {
       path: "/poll-app",
       label: "Poll App",
