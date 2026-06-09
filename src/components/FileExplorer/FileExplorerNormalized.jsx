@@ -33,7 +33,7 @@ const nodes = {
 //  │
 //  └── ContextMenu
 export default function FileExplorerNormalized() {
-    return nodes.map(aNode => TreeNode(aNode))
+    return Object.values(nodes).map(aNode => TreeNode({node: aNode}))
 }
 
 function TreeNode({node}) {
