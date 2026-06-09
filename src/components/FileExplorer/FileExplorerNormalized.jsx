@@ -33,10 +33,14 @@ const nodes = {
 //  │
 //  └── ContextMenu
 export default function FileExplorerNormalized() {
-    return <>Hi</>
+    return nodes.map(aNode => TreeNode())
 }
 
 function TreeNode({node}) {
   const [open, setOpen] = useState(false)
-  if 
+  if (node.type == "file") {
+    return <div>
+       📄 {node.name}
+     </div>
+  }
 }
