@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const nodes = {
   1: {
     id:1,
@@ -32,4 +34,9 @@ const nodes = {
 //  └── ContextMenu
 export default function FileExplorerNormalized() {
     return <>Hi</>
+}
+
+function TreeNode({node}) {
+  const [open, setOpen] = useState(false)
+  
 }
