@@ -46,8 +46,11 @@ function TreeNode({node}) {
   if (node.type == "folder") {
     return (<div onClick={() => setOpen(!open)}>
       📁 {node.name}
+      {open && node.children.map(child => (
+        chi
+      ))}
     </div>
-    {open && node.children.map(child => )}  
+      
   )
 
     
