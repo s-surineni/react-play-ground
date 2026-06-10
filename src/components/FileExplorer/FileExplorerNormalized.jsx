@@ -44,8 +44,8 @@ function TreeNode({node}) {
      </div>
   }
   if (node.type == "folder") {
-    <div onClick={setOpen(!open)}>
-      
+    return <div onClick={setOpen(!open)}>
+      📁 {node.name}
     </div>
   }
   return null
