@@ -99,9 +99,9 @@ function TreeNode({node}) {
         📁 {node.name}
         {open && node.children && (
           <div style={{ paddingLeft: "20px" }}>
-            {node.children.map(childId => (
-              <TreeNode key={childId} node={nodes[childId]} />
-            ))}
+            {node.children.map(childId => 
+              nodes[childId] ? <TreeNode key={childId} node={nodes[childId]} /> : null
+            )}
           </div>
         )}
       </div>
