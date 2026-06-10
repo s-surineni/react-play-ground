@@ -43,6 +43,10 @@ function TreeNode({node}) {
        📄 {node.name}
      </div>
   }
-  
+  if (node.type == "folder") {
+    <div onClick={setOpen(!open)}>
+      
+    </div>
+  }
   return null
 }
