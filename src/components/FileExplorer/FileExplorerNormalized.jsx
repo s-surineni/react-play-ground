@@ -5,7 +5,7 @@ const nodes = {
     id:1,
     name:"src",
     type:"folder",
-    children:[2,3]
+    children:[2]
   },
 
   2:{
@@ -46,7 +46,11 @@ function TreeNode({node}) {
   if (node.type == "folder") {
     return (<div onClick={() => setOpen(!open)}>
       📁 {node.name}
-    </div>)
+    </div>
+    {open && node.children.map(child => )}  
+  )
+
+    
   }
   return null
 }
