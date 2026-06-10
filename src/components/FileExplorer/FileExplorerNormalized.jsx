@@ -129,3 +129,17 @@ function TreeNode({node}) {
 // item index
 // item height
 // visible range
+
+// Follow-up: Lazy loading folders
+
+// Interviewer:
+
+// What if folders are huge?
+
+// Don't fetch everything.
+
+// Updating tree (important)
+
+// Question:
+
+// Rename a file. How?
