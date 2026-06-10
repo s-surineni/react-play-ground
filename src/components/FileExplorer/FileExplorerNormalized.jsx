@@ -109,3 +109,8 @@ function TreeNode({node}) {
   }
   return null
 }
+
+// Follow-up: "How do you handle 100,000 files?"
+// 1. Virtualization
+
+// Only render visible rows.
