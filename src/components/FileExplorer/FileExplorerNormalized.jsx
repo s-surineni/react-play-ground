@@ -33,7 +33,7 @@ const nodes = {
 //  │
 //  └── ContextMenu
 export default function FileExplorerNormalized() {
-    return Object.values(nodes).map(aNode => TreeNode({node: aNode}))
+    return Object.values(nodes).map(aNode => <TreeNode node={aNode} key={aNode.id} />)
 }
 
 function TreeNode({node}) {
@@ -49,7 +49,7 @@ function TreeNode({node}) {
       {open && node.children && (
         <div style={{ paddingLeft: "20px" }}>
           {node.children.map(childId => 
-            TreeNode({ node: nodes[childId] })
+            <TreeNode node={nodes[childId]} key={childId} />
           )}
         </div>
       )}
