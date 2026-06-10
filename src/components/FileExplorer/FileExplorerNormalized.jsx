@@ -5,7 +5,7 @@ const nodes = {
     id:1,
     name:"src",
     type:"folder",
-    children:[2,3]
+    children:[2,3,6,10]
   },
 
   2:{
@@ -94,20 +94,18 @@ function TreeNode({node}) {
      </div>
   }
   if (node.type == "folder") {
-    return (<div onClick={() => setOpen(!open)}>
-      📁 {node.name}
-{open && node.children && (
-        <div style={{ paddingLeft: "20px" }}>
-          {node.children.map(childId => (
-            <TreeNode key={childId} node={nodes[childId]} />
-          ))}
-        </div>
-      )}
-    </div>
-      
-  )
-
-    
+    return (
+      <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
+        📁 {node.name}
+        {open && node.children && (
+          <div style={{ paddingLeft: "20px" }}>
+            {node.children.map(childId => (
+              <TreeNode key={childId} node={nodes[childId]} />
+            ))}
+          </div>
+        )}
+      </div>
+    )
   }
   return null
 }
