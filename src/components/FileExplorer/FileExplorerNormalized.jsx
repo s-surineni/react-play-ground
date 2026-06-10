@@ -114,3 +114,18 @@ function TreeNode({node}) {
 // 1. Virtualization
 
 // Only render visible rows.
+// we flatten the tree  because virtualized lists work on a flat list, not a recursive tree.
+// A recursive renderer does:
+
+// <TreeNode node={root}/> recursive
+
+// and each node decides whether to render children.
+
+// But virtualization needs something like:
+
+// items.map(item => <Row item={item}/>) iterative
+// because it needs to know:
+
+// item index
+// item height
+// visible range
