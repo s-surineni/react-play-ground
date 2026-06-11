@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import FileExplorer from './FileExplorer';
 
-export default function FileExplorerDemo() {
-  const data = [
-    {
-      id: 1,
-      name: 'README.md',
+function renameInTree(nodes, id, newName) {
+  return nodes.map(node => {
+    if (node.id === id) {
+      return { ...node, name: newName };
     },
     {
       id: 2,
