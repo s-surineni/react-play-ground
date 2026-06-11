@@ -2,66 +2,66 @@ import { useState } from "react"
 
 const initialNodes = {
   1: {
-    id:1,
-    name:"src",
-    type:"folder",
-    children:[2,3,6,10]
+    id: 1,
+    name: "src",
+    type: "folder",
+    children: [2, 3, 6, 10]
   },
 
-  2:{
-    id:2,
-    name:"App.jsx",
-    type:"file"
+  2: {
+    id: 2,
+    name: "App.jsx",
+    type: "file"
   },
 
   3: {
-    id:3,
-    name:"components",
-    type:"folder",
-    children:[4,5]
+    id: 3,
+    name: "components",
+    type: "folder",
+    children: [4, 5]
   },
 
   4: {
-    id:4,
-    name:"Button.jsx",
-    type:"file"
+    id: 4,
+    name: "Button.jsx",
+    type: "file"
   },
 
   5: {
-    id:5,
-    name:"Header.jsx",
-    type:"file"
+    id: 5,
+    name: "Header.jsx",
+    type: "file"
   },
 
   6: {
-    id:6,
-    name:"utils",
-    type:"folder",
-    children:[7,8,9]
+    id: 6,
+    name: "utils",
+    type: "folder",
+    children: [7, 8, 9]
   },
 
   7: {
-    id:7,
-    name:"helpers.js",
-    type:"file"
+    id: 7,
+    name: "helpers.js",
+    type: "file"
   },
 
   8: {
-    id:8,
-    name:"api.js",
-    type:"file"
+    id: 8,
+    name: "api.js",
+    type: "file"
   },
 
   9: {
-    id:9,
-    name:"constants.js",
-    type:"file"
+    id: 9,
+    name: "constants.js",
+    type: "file"
   },
 
   10: {
-    id:10,
-    name:"index.js",
-    type:"file"
+    id: 10,
+    name: "index.js",
+    type: "file"
   }
 }
 
@@ -83,24 +83,43 @@ const initialNodes = {
 //  │
 //  └── ContextMenu
 export default function FileExplorerNormalized() {
-    const [nodes, setNodes] = useState(initialNodes)
+  const [nodes, setNodes] = useState(initialNodes)
 
-    const renameNode = (nodeId, newName) => {
-      setNodes(prev => ({
-        ...prev,
-        [nodeId]: {
-          ...prev[nodeId],
-          name: newName
-        }
-      }))
+  const renameNode = (nodeId, newName) => {
+    setNodes(prev => ({
+      ...prev,
+      [nodeId]: {
+        ...prev[nodeId],
+        name: newName
+      }
+    }))
+  }
+
+  // Find root nodes: nodes that are NOT children of any folder
+  const childIds = new Set()
+  Object.values(nodes).forEach(node => {
+    if (node.children) {
+      node.children.forEach(id => childIds.add(id))
     }
+  })
 
-    return Object.values(nodes).map(aNode => (
-      <TreeNode node={aNode} renameNode={renameNode} nodes={nodes} />
-    ))
+  const rootNodes = Object.values(nodes).filter(node => !childIds.has(node.id))
+
+  return (
+    <div style={{ fontFamily: "monospace", fontSize: "14px" }}>
+      {rootNodes.map(node => (
+        <TreeNode
+          key={node.id}
+          node={node}
+          renameNode={renameNode}
+          nodes={nodes}
+        />
+      ))}
+    </div>
+  )
 }
 
-function TreeNode({node, renameNode, nodes}) {
+function TreeNode({ node, renameNode, nodes }) {
   const [open, setOpen] = useState(false)
   const [isRenaming, setIsRenaming] = useState(false)
   const [editValue, setEditValue] = useState(node.name)
@@ -128,24 +147,27 @@ function TreeNode({node, renameNode, nodes}) {
     }
   }
 
-  if (node.type == "file") {
-    return <div onDoubleClick={handleDoubleClick} style={{ cursor: "default" }}>
-       📄 {isRenaming ? (
-         <input
-           autoFocus
-           value={editValue}
-           onChange={(e) => setEditValue(e.target.value)}
-           onBlur={handleSubmit}
-           onKeyDown={handleKeyDown}
-           onClick={(e) => e.stopPropagation()}
-           style={{ fontSize: "inherit", fontFamily: "inherit" }}
-         />
-       ) : (
-         node.name
-       )}
-     </div>
+  if (node.type === "file") {
+    return (
+      <div onDoubleClick={handleDoubleClick} style={{ cursor: "default" }}>
+        📄 {isRenaming ? (
+          <input
+            autoFocus
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            onBlur={handleSubmit}
+            onKeyDown={handleKeyDown}
+            onClick={(e) => e.stopPropagation()}
+            style={{ fontSize: "inherit", fontFamily: "inherit" }}
+          />
+        ) : (
+          node.name
+        )}
+      </div>
+    )
   }
-  if (node.type == "folder") {
+
+  if (node.type === "folder") {
     return (
       <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
         📁 {isRenaming ? (
@@ -163,14 +185,22 @@ function TreeNode({node, renameNode, nodes}) {
         )}
         {open && node.children && (
           <div style={{ paddingLeft: "20px" }}>
-            {node.children.map(childId => 
-              nodes[childId] ? <TreeNode key={childId} node={nodes[childId]} renameNode={renameNode} nodes={nodes} /> : null
+            {node.children.map(childId =>
+              nodes[childId] ? (
+                <TreeNode
+                  key={childId}
+                  node={nodes[childId]}
+                  renameNode={renameNode}
+                  nodes={nodes}
+                />
+              ) : null
             )}
           </div>
         )}
       </div>
     )
   }
+
   return null
 }
 
