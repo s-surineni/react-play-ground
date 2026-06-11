@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const nodes = {
+const initialNodes = {
   1: {
     id:1,
     name:"src",
@@ -83,24 +83,88 @@ const nodes = {
 //  │
 //  └── ContextMenu
 export default function FileExplorerNormalized() {
-    return Object.values(nodes).map(aNode => <TreeNode node={aNode} key={aNode.id} />)
+    const [nodes, setNodes] = useState(initialNodes)
+
+    const renameNode = (nodeId, newName) => {
+      setNodes(prev => ({
+        ...prev,
+        [nodeId]: {
+          ...prev[nodeId],
+          name: newName
+        }
+      }))
+    }
+
+    return Object.values(nodes).map(aNode => (
+      <TreeNode node={aNode} renameNode={renameNode} nodes={nodes} />
+    ))
 }
 
-function TreeNode({node}) {
+function TreeNode({node, renameNode, nodes}) {
   const [open, setOpen] = useState(false)
+  const [isRenaming, setIsRenaming] = useState(false)
+  const [editValue, setEditValue] = useState(node.name)
+
+  const handleDoubleClick = (e) => {
+    e.stopPropagation()
+    setIsRenaming(true)
+    setEditValue(node.name)
+  }
+
+  const handleSubmit = () => {
+    const trimmed = editValue.trim()
+    if (trimmed && trimmed !== node.name) {
+      renameNode(node.id, trimmed)
+    }
+    setIsRenaming(false)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit()
+    } else if (e.key === "Escape") {
+      setEditValue(node.name)
+      setIsRenaming(false)
+    }
+  }
+
   if (node.type == "file") {
-    return <div>
-       📄 {node.name}
+    return <div onDoubleClick={handleDoubleClick} style={{ cursor: "default" }}>
+       📄 {isRenaming ? (
+         <input
+           autoFocus
+           value={editValue}
+           onChange={(e) => setEditValue(e.target.value)}
+           onBlur={handleSubmit}
+           onKeyDown={handleKeyDown}
+           onClick={(e) => e.stopPropagation()}
+           style={{ fontSize: "inherit", fontFamily: "inherit" }}
+         />
+       ) : (
+         node.name
+       )}
      </div>
   }
   if (node.type == "folder") {
     return (
       <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
-        📁 {node.name}
+        📁 {isRenaming ? (
+          <input
+            autoFocus
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            onBlur={handleSubmit}
+            onKeyDown={handleKeyDown}
+            onClick={(e) => e.stopPropagation()}
+            style={{ fontSize: "inherit", fontFamily: "inherit" }}
+          />
+        ) : (
+          <span onDoubleClick={handleDoubleClick}>{node.name}</span>
+        )}
         {open && node.children && (
           <div style={{ paddingLeft: "20px" }}>
             {node.children.map(childId => 
-              nodes[childId] ? <TreeNode key={childId} node={nodes[childId]} /> : null
+              nodes[childId] ? <TreeNode key={childId} node={nodes[childId]} renameNode={renameNode} nodes={nodes} /> : null
             )}
           </div>
         )}
