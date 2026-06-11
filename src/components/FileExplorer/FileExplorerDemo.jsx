@@ -5,6 +5,19 @@ function renameInTree(nodes, id, newName) {
   return nodes.map(node => {
     if (node.id === id) {
       return { ...node, name: newName };
+    }
+    if (node.children) {
+      return { ...node, children: renameInTree(node.children, id, newName) };
+    }
+    return node;
+  });
+}
+
+export default function FileExplorerDemo() {
+  const [data, setData] = useState([
+    {
+      id: 1,
+      name: 'README.md',
     },
     {
       id: 2,
@@ -44,7 +57,11 @@ function renameInTree(nodes, id, newName) {
         },
       ],
     },
-  ];
+  ]);
 
-  return <FileExplorer folders={data} />;
+  const handleRename = (id, newName) => {
+    setData(prev => renameInTree(prev, id, newName));
+  };
+
+  return <FileExplorer folders={data} onRename={handleRename} />;
 }
