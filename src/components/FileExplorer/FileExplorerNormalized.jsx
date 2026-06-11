@@ -169,20 +169,25 @@ function TreeNode({ node, renameNode, nodes }) {
 
   if (node.type === "folder") {
     return (
-      <div onClick={() => setOpen(!open)} style={{ cursor: "pointer" }}>
-        📁 {isRenaming ? (
-          <input
-            autoFocus
-            value={editValue}
-            onChange={(e) => setEditValue(e.target.value)}
-            onBlur={handleSubmit}
-            onKeyDown={handleKeyDown}
-            onClick={(e) => e.stopPropagation()}
-            style={{ fontSize: "inherit", fontFamily: "inherit" }}
-          />
-        ) : (
-          <span onDoubleClick={handleDoubleClick}>{node.name}</span>
-        )}
+      <div>
+        <div
+          onClick={() => setOpen(!open)}
+          style={{ cursor: "pointer" }}
+        >
+          {open ? "📂" : "📁"} {isRenaming ? (
+            <input
+              autoFocus
+              value={editValue}
+              onChange={(e) => setEditValue(e.target.value)}
+              onBlur={handleSubmit}
+              onKeyDown={handleKeyDown}
+              onClick={(e) => e.stopPropagation()}
+              style={{ fontSize: "inherit", fontFamily: "inherit" }}
+            />
+          ) : (
+            <span onDoubleClick={handleDoubleClick}>{node.name}</span>
+          )}
+        </div>
         {open && node.children && (
           <div style={{ paddingLeft: "20px" }}>
             {node.children.map(childId =>
