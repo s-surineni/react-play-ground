@@ -351,3 +351,35 @@ function TreeNode({ node, renameNode, nodes }) {
 // }
 
 // But backend enforces.
+
+// Architecture answer (senior level)
+
+// If interviewer asks:
+
+// "Design Google Drive file tree"
+
+// Say:
+
+// React
+//  |
+// Tree virtualization
+//  |
+// Query cache
+//  |
+// File API
+//  |
+// Backend
+//  |
+// Database
+
+// Frontend owns:
+
+// selection
+// expansion
+// optimistic updates
+
+// Backend owns:
+
+// hierarchy
+// permissions
+// persistence
