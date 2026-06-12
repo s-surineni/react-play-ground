@@ -209,6 +209,17 @@ function TreeNode({ node, renameNode, nodes }) {
   return null
 }
 
+// Features may include:
+
+// expand/collapse folders
+// select files
+// rename
+// delete
+// create folder
+// lazy load children
+// search
+// drag/drop
+
 // Follow-up: "How do you handle 100,000 files?"
 // 1. Virtualization
 
