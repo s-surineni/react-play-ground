@@ -253,3 +253,23 @@ function TreeNode({ node, renameNode, nodes }) {
 // Question:
 
 // Rename a file. How?
+
+// Updating tree (important)
+// Avoid:
+
+// setTree(
+//  JSON.parse(JSON.stringify(tree))
+// )
+
+// Slow.
+
+// Use immutable update:
+
+// function renameNode(id,name){
+
+//  return {
+//    ...node,
+//    name
+//  }
+
+// }
