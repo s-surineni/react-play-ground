@@ -273,3 +273,81 @@ function TreeNode({ node, renameNode, nodes }) {
 //  }
 
 // }
+
+// Search feature
+
+// Question:
+
+// Search files by name
+
+// Naive:
+
+// DFS every time
+
+// For large trees:
+
+// Build index:
+
+// {
+//  "app.jsx":[2],
+//  "button.jsx":[5]
+// }
+
+// Search:
+
+// O(1)
+
+// Drag and drop
+
+// Need to discuss:
+
+// When moving:
+
+// A
+//  |
+//  B
+
+// to:
+
+// C
+//  |
+//  B
+
+// Operations:
+
+// remove from old parent
+// add to new parent
+
+// With normalized state:
+
+// oldParent.children =
+//  oldParent.children.filter(
+//  id=>id!==nodeId
+//  )
+
+
+// newParent.children.push(nodeId)
+
+// Permissions
+
+// Senior question:
+
+// "Some files are read-only?"
+
+// Model:
+
+// {
+//  name:"config.json",
+//  permissions:{
+//    read:true,
+//    write:false
+//  }
+// }
+
+// UI:
+
+// {canEdit &&
+//  <RenameButton/>
+// }
+
+// But backend enforces.
