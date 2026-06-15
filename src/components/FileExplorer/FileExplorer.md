@@ -165,9 +165,12 @@ function renameInTree(nodes, id, newName) {
 
 ### Root node detection (normalized)
 
+**This logic runs in the parent component** (e.g., `FileExplorerNormalized`) before rendering any `TreeNode` components. The child components don't need to know about root detection — they just receive a node ID and render recursively.
+
 Only nodes that are **not** in any folder's `children` array are rendered at the top level:
 
 ```js
+// Inside FileExplorerNormalized component
 const childIds = new Set()
 Object.values(nodes).forEach(node => {
   if (node.children) {
@@ -175,7 +178,111 @@ Object.values(nodes).forEach(node => {
   }
 })
 const rootNodes = Object.values(nodes).filter(node => !childIds.has(node.id))
+
+// Then render only the roots:
+return (
+  <div>
+    {rootNodes.map(node => (
+      <TreeNode key={node.id} nodeId={node.id} nodes={nodes} />
+    ))}
+  </div>
+)
 ```
+
+#### Why this approach?
+
+In a normalized structure, there's no explicit "root" field. Every node lives at the same level in the flat object. To find which nodes should appear at the top of the tree, we need to identify nodes that are **not children of any other node**.
+
+#### How it works (step-by-step)
+
+1. **Collect all child IDs**: Loop through every node and gather all IDs that appear in any `children` array into a `Set`
+   - Using a `Set` gives O(1) lookup performance in the next step
+   - Any ID in this set means "I'm someone's child, so I'm not a root"
+
+2. **Filter for roots**: Loop through all nodes again and keep only those whose ID is **not** in the `childIds` set
+   - If a node's ID doesn't appear in any `children` array, it has no parent → it's a root
+
+#### Example walkthrough
+
+Given this tree:
+
+```
+src/
+├── components/
+│   └── Button.jsx
+└── App.jsx
+```
+
+State looks like:
+
+```js
+{
+  1: { id: 1, name: "src", type: "folder", children: [2, 3] },
+  2: { id: 2, name: "components", type: "folder", children: [4] },
+  3: { id: 3, name: "App.jsx", type: "file" },
+  4: { id: 4, name: "Button.jsx", type: "file" }
+}
+```
+
+**Step 1**: Build `childIds` set
+- Node 1 has children `[2, 3]` → add 2 and 3
+- Node 2 has children `[4]` → add 4
+- Result: `childIds = Set([2, 3, 4])`
+
+**Step 2**: Filter for roots
+- Node 1: `1` not in `childIds` ✅ **root**
+- Node 2: `2` in `childIds` ❌ (child of node 1)
+- Node 3: `3` in `childIds` ❌ (child of node 1)
+- Node 4: `4` in `childIds` ❌ (child of node 2)
+
+**Result**: `rootNodes = [node 1]` — only "src" renders at the top level
+
+#### Time complexity
+
+- **Build childIds**: O(n) — iterate through all nodes once
+- **Filter roots**: O(n) — iterate through all nodes once, with O(1) set lookup
+- **Total**: O(n) where n = total number of nodes
+
+This is efficient because it requires only two passes through the data, regardless of tree depth.
+
+#### Edge cases
+
+**Orphaned nodes** — if a node's ID is referenced in a `children` array but doesn't exist in the nodes object, it won't cause an error (it just won't render):
+
+```js
+{
+  1: { id: 1, name: "src", type: "folder", children: [2, 99] },  // 99 doesn't exist
+  2: { id: 2, name: "App.jsx", type: "file" }
+}
+```
+- `childIds = Set([2, 99])`
+- Root: node 1
+- Node 99 is referenced but doesn't exist, so nothing breaks
+
+**Circular references** — if two nodes reference each other as children, both would be excluded from roots (neither would render):
+
+```js
+{
+  1: { id: 1, name: "A", children: [2] },
+  2: { id: 2, name: "B", children: [1] }  // circular!
+}
+```
+- `childIds = Set([1, 2])`
+- Roots: none (both IDs are in the set)
+- **Prevention**: validate on mutation that you're not creating cycles
+
+**Multiple roots** — the algorithm naturally handles forests (multiple trees):
+
+```js
+{
+  1: { id: 1, name: "src", children: [2] },
+  2: { id: 2, name: "App.jsx" },
+  3: { id: 3, name: "public", children: [4] },  // separate tree
+  4: { id: 4, name: "index.html" }
+}
+```
+- `childIds = Set([2, 4])`
+- Roots: nodes 1 and 3 (both "src" and "public" render at top level)
 
 ### Preventing child clicks from toggling parent folders
 
