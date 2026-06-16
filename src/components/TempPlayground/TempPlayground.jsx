@@ -76,5 +76,6 @@ function File({ name }) {
 }
 
 function Folder({ node }) {
-  return <>📁 {node.name}</>
+  return (<>📁 {node.name}
+  {node.children.map(child => child.name)}</>)
 }
