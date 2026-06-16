@@ -77,5 +77,5 @@ function File({ name }) {
 
 function Folder({ node }) {
   return (<>📁 {node.name}
-  {node.children.map(child => child.name)}</>)
+  {node.children.map(child => {initialNodes[child].name)}}</>)
 }
