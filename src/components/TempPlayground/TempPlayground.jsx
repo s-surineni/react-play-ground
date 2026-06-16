@@ -76,13 +76,13 @@ function File({ node }) {
 }
 
 function Folder({ node }) {
-  return (<><div style={{paddingLeft: "20px"}>📁 {node.name}</div>
+  return (<><div >📁 {node.name}</div>
   {node.children.map(child => {
     const childNode = initialNodes[child]
     if (childNode.type == 'folder') 
-      return <Folder key={childNode.id} node={childNode} />
+      return <div style={{paddingLeft: "20px"}}><Folder key={childNode.id} node={childNode} /></div>
     else {
-      return <File key={childNode.id} node={childNode} />
+      return <div style={{paddingLeft: "20px"}}><File key={childNode.id} node={childNode} /></div>
     }
   }
 )}</>)
