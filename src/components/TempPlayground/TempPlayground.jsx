@@ -68,11 +68,11 @@ export default function TempPlayground() {
   const rootNodes = Object.values(initialNodes).filter(node => !(childNodes.has(node.id)))
   console.log('childNodes', childNodes)
   console.log('rootNodes', rootNodes)
-  return <>{rootNodes.map(aRootNode => <Folder node={aRootNode} />)}</>
+  return <>{rootNodes.map(aRootNode => <Folder key={aRootNode.id} node={aRootNode} />)}</>
 }
 
-function File({ name }) {
-  return <>📄 {name}</>;
+function File({ node }) {
+  return <>📄 {node.name}</>;
 }
 
 function Folder({ node }) {
@@ -82,7 +82,7 @@ function Folder({ node }) {
     if (childNode.type == 'folder') 
       return <Folder node={childNode} />
     else {
-      
+      return <File node={childNode} />
     }
   }
 )}</>)
