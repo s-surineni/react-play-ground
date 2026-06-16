@@ -76,7 +76,7 @@ function File({ node }) {
 }
 
 function Folder({ node }) {
-  return (<><div>📁 {node.name}</div>
+  return (<><div style={{paddingLeft: "20px"}>📁 {node.name}</div>
   {node.children.map(child => {
     const childNode = initialNodes[child]
     if (childNode.type == 'folder') 
