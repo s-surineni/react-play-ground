@@ -77,5 +77,10 @@ function File({ name }) {
 
 function Folder({ node }) {
   return (<>📁 {node.name}
-  {node.children.map(child => {initialNodes[child].name)}}</>)
+  {node.children.map(child => {
+    const childNode = initialNodes[child]
+    if (childNode.type == 'folder') 
+      return initialNodes[child].name
+  }
+)}</>)
 }
