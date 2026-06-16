@@ -80,9 +80,9 @@ function Folder({ node }) {
   {node.children.map(child => {
     const childNode = initialNodes[child]
     if (childNode.type == 'folder') 
-      return <Folder node={childNode} />
+      return <Folder key={childNode.id} node={childNode} />
     else {
-      return <File node={childNode} />
+      return <File key={childNode.id} node={childNode} />
     }
   }
 )}</>)
