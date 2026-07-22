@@ -1,9 +1,5 @@
 const HelloWorld = () => {
-    return (
-        <div>
-            <p>Hello World</p>
-        </div>
-    )
+    return 'Hello world!!'
 }
 
 export default HelloWorld;

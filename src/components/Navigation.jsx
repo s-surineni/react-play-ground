@@ -94,6 +94,31 @@ const Navigation = () => {
           label: "Use Effect With Issue",
           description: "useEffect with issue example",
         },
+        {
+          path: "/use-reducer-cart",
+          label: "useReducer Cart",
+          description: "Cart with useReducer",
+        },
+        {
+          path: "/use-debounce",
+          label: "useDebounce Hook",
+          description: "Custom debounce hook",
+        },
+        {
+          path: "/error-boundary-demo",
+          label: "Error Boundary",
+          description: "Class component error boundary",
+        },
+        {
+          path: "/use-state-functional-update",
+          label: "useState Functional Update",
+          description: "Why setState(prev => prev + 1) is required",
+        },
+        {
+          path: "/import-example",
+          label: "Import example",
+          description: "useEffect with issue example",
+        },
       ],
     },
     {
@@ -190,6 +215,21 @@ const Navigation = () => {
       path: "/c-shape",
       label: "C-Shape Box",
       description: "Machine coding: Grid box selection logic",
+    },
+    {
+      path: "/accordion",
+      label: "Accordion",
+      description: "Compound component pattern",
+    },
+    {
+      path: "/lazy-suspense",
+      label: "Lazy Suspense",
+      description: "React.lazy + Suspense code splitting",
+    },
+    {
+      path: "/layout-effect-demo",
+      label: "Layout Effect",
+      description: "useLayoutEffect vs useEffect",
     },
   ];
 
