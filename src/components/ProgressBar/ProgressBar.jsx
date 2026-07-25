@@ -5,23 +5,20 @@ import styles from "./ProgressBar.module.css";
 // custom height
 /**
  * ProgressBar – reusable progress indicator
- * @param {number} value - Progress value (0 to max, default max 100)
- * @param {number} max - Maximum value (default 100)
+ * @param {number} percent - Progress percentage (0 to 100)
  * @param {boolean} showLabel - Whether to show percentage label (default true)
  * @param {string} variant - 'default' | 'success' | 'warning' | 'danger'
  * @param {string} height - CSS height (e.g. '8px', '1rem')
  * @param {string} className - Additional CSS class
  */
 function ProgressBar({
-  value = 0,
-  max = 100,
+  percent = 0,
   showLabel = true,
   variant = "default",
   height,
   className = "",
 }) {
-  const clamped = Math.min(max, Math.max(0, Number(value)));
-  const percent = max > 0 ? Math.round((clamped / max) * 100) : 0;
+  const clamped = Math.min(100, Math.max(0, Number(percent)));
 
   return (
     <div
@@ -30,15 +27,15 @@ function ProgressBar({
       role="progressbar"
       aria-valuenow={clamped}
       aria-valuemin={0}
-      aria-valuemax={max}
-      aria-label={showLabel ? `${percent}%` : undefined}
+      aria-valuemax={100}
+      aria-label={showLabel ? `${clamped}%` : undefined}
     >
       <div
         className={styles["progress-bar__fill"]}
-        style={{ width: `${percent}%` }}
+        style={{ width: `${clamped}%` }}
       />
       {showLabel && (
-        <span className={styles["progress-bar__label"]}>{percent}%</span>
+        <span className={styles["progress-bar__label"]}>{clamped}%</span>
       )}
     </div>
   );
