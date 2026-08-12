@@ -33,7 +33,7 @@ const Navigation = () => {
     {
       path: "/counter-hooks",
       label: "Counter with Hooks",
-      description: "React Hooks example",
+      description: "Hooks example",
     },
     {
       path: "/counter-render-props",
@@ -58,7 +58,7 @@ const Navigation = () => {
     {
       path: "/index-key-demo",
       label: "Index Key Demo",
-      description: "Why not to use array index as React key",
+      description: "Why not to use an array index as a key",
     },
     {
       path: "/subtree-isolation",
@@ -67,7 +67,7 @@ const Navigation = () => {
     },
     {
       label: "Basic Examples",
-      description: "Basic React component examples",
+      description: "Basic component examples",
       submenu: [
         {
           path: "/hello-world",
@@ -191,13 +191,18 @@ const Navigation = () => {
       label: "C-Shape Box",
       description: "Machine coding: Grid box selection logic",
     },
+    {
+      path: "/file-explorer-gf",
+      label: "file explorere gf",
+      description: "something"
+    }
   ];
 
   return (
     <nav className="nav">
       <div className="nav__inner">
         <div className="nav__header">
-          <h1 className="nav__title">React Examples Navigation</h1>
+          <h1 className="nav__title">Examples Navigation</h1>
           <button
             className={`nav__hamburger ${isNavOpen ? 'nav__hamburger--open' : ''}`}
             onClick={toggleNav}

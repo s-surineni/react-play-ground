@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Explanation</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+        .demo-box {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .example {
+            width: 300px;
+            height: 20px;
+            background: #0d6efd;
+            margin: 10px 0;
+        }
+        .label {
+            font-family: monospace;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .radius-0 {
+            border-radius: 0;
+        }
+        .radius-4 {
+            border-radius: 4px;
+        }
+        .radius-8 {
+            border-radius: 8px;
+        }
+        .radius-50 {
+            border-radius: 50%;
+        }
+        .radius-50-percent {
+            border-radius: 50%;
+        }
+        .radius-9999 {
+            border-radius: 9999px;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .side {
+            padding: 20px;
+            background: #fff;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+        }
+        .side h3 {
+            margin-top: 0;
+            color: #0d6efd;
+        }
+        .progress-bar {
+            width: 250px;
+            height: 20px;
+            background: #e9ecef;
+            position: relative;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #0d6efd, #0a58ca);
+            width: 60%;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        code {
+            background: #f1f3f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding <code>border-radius: 9999px</code></h1>
+
+        <div class="demo-box">
+            <h2>Progression of border-radius values:</h2>
+
+            <div class="label">border-radius: 0 (sharp corners)</div>
+            <div class="example radius-0"></div>
+
+            <div class="label">border-radius: 4px (slightly rounded)</div>
+            <div class="example radius-4"></div>
+
+            <div class="label">border-radius: 8px (more rounded)</div>
+            <div class="example radius-8"></div>
+
+            <div class="label">border-radius: 50% (pill shape with percentage)</div>
+            <div class="example radius-50-percent"></div>
+
+            <div class="label">border-radius: 9999px (pill shape with large value)</div>
+            <div class="example radius-9999"></div>
+        </div>
+
+        <div class="note">
+            <strong>Key Point:</strong> When border-radius exceeds half the element's height/width,
+            it creates perfectly rounded ends (pill shape). 9999px guarantees this regardless of dimensions.
+        </div>
+
+        <h2>Why 9999px instead of 50%?</h2>
+
+        <div class="comparison">
+            <div class="side">
+                <h3>border-radius: 50%</h3>
+                <div class="progress-bar" style="border-radius: 50%;">
+                    <div class="progress-fill" style="border-radius: 50%;"></div>
+                </div>
+                <p style="font-size: 14px; color: #666;">
+                    Works perfectly for pill shapes. Rounds based on element dimensions.
+                </p>
+            </div>
+
+            <div class="side">
+                <h3>border-radius: 9999px</h3>
+                <div class="progress-bar" style="border-radius: 9999px;">
+                    <div class="progress-fill" style="border-radius: 9999px;"></div>
+                </div>
+                <p style="font-size: 14px; color: #666;">
+                    Also creates pill shape. Uses absolute value that exceeds any dimension.
+                </p>
+            </div>
+        </div>
+
+        <h2>Visual Breakdown:</h2>
+        <div class="demo-box">
+            <p><strong>Element height:</strong> 20px</p>
+            <p><strong>Half height:</strong> 10px</p>
+            <p><strong>border-radius: 9999px</strong> → Browser treats as ~10px on each corner</p>
+
+            <svg width="400" height="150" style="margin: 20px 0;">
+                <rect x="50" y="50" width="300" height="20" fill="#e9ecef" rx="10" stroke="#666" stroke-width="1"/>
+                <circle cx="60" cy="60" r="10" fill="none" stroke="#dc3545" stroke-width="2" stroke-dasharray="3,3"/>
+                <circle cx="340" cy="60" r="10" fill="none" stroke="#dc3545" stroke-width="2" stroke-dasharray="3,3"/>
+
+                <line x1="60" y1="80" x2="60" y2="110" stroke="#dc3545" stroke-width="1"/>
+                <text x="60" y="125" text-anchor="middle" font-size="12" fill="#dc3545">10px radius</text>
+
+                <line x1="340" y1="80" x2="340" y2="110" stroke="#dc3545" stroke-width="1"/>
+                <text x="340" y="125" text-anchor="middle" font-size="12" fill="#dc3545">10px radius</text>
+
+                <line x1="50" y1="35" x2="350" y2="35" stroke="#0d6efd" stroke-width="1" marker-end="url(#arrow)"/>
+                <text x="200" y="30" text-anchor="middle" font-size="12" fill="#0d6efd">300px width</text>
+
+                <line x1="365" y1="50" x2="365" y2="70" stroke="#28a745" stroke-width="1"/>
+                <text x="385" y="63" font-size="12" fill="#28a745">20px</text>
+            </svg>
+
+            <p style="color: #666; font-size: 14px;">
+                The circles show how each corner gets a 10px radius (half the height),
+                creating smooth, rounded ends regardless of the 300px width.
+            </p>
+        </div>
+
+        <div class="note">
+            <strong>Bottom line:</strong> <code>border-radius: 9999px</code> is a CSS trick to guarantee
+            pill-shaped elements. The browser caps it at half the smallest dimension, creating perfect rounded ends.
+        </div>
+    </div>
+</body>
+</html>

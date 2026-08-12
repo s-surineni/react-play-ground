@@ -4,13 +4,13 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="home">
-      <h1>Welcome to React Examples Playground</h1>
+      <h1>Welcome to the Examples Playground</h1>
 
       <div className="main-content">
         <h2>What You'll Find Here</h2>
 
         <p>
-          This project demonstrates various React patterns and concepts through
+          This project demonstrates various UI patterns and concepts through
           practical examples. Use the navigation above to explore different
           implementations and learn how they work.
         </p>
@@ -23,7 +23,7 @@ const Home = () => {
             slice, store, hooks
           </li>
           <li>
-            <strong>Counter with Hooks:</strong> Modern React Hooks
+            <strong>Counter with Hooks:</strong> Modern Hooks
             implementation
           </li>
           <li>

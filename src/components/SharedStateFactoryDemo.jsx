@@ -242,7 +242,7 @@ export default function SharedStateFactoryDemo() {
       <div className="explanation">
         <h2>The Problem with Context</h2>
         <p>
-          When using React Context, <strong>ALL consumers re-render</strong> whenever 
+          When using Context, <strong>ALL consumers re-render</strong> whenever
           any part of the context value changes. Click "Increment Counter" on the Context 
           side and watch ALL render counts increase!
         </p>
@@ -260,7 +260,7 @@ export default function SharedStateFactoryDemo() {
         {/* Context Side */}
         <div className="demo-section">
           <h2 className="section-title context-title">
-            ❌ React Context
+            ❌ Context
             <span className="subtitle">All components re-render on any change</span>
           </h2>
           <ContextProvider>
@@ -332,8 +332,8 @@ export default function SharedStateFactoryDemo() {
             <strong>🧹 No Provider Hell:</strong> No need for nested context providers
           </li>
           <li>
-            <strong>📦 Works Outside React:</strong> State can be accessed from anywhere, 
-            not just React components
+            <strong>📦 Works Outside Components:</strong> State can be accessed from anywhere,
+            not just UI components
           </li>
           <li>
             <strong>🔧 Simpler API:</strong> No need for useMemo or useCallback to prevent 
@@ -344,4 +344,3 @@ export default function SharedStateFactoryDemo() {
     </div>
   );
 }
-

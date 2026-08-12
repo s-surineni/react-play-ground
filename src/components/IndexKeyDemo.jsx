@@ -41,7 +41,7 @@ const IndexKeyDemo = () => {
 
   return (
     <section className="index-key-demo">
-      <h1>React key example: array index vs stable id</h1>
+      <h1>Key example: array index vs stable id</h1>
       <p>
         Click the buttons for one or more items, then rotate the list. The example
         on the left uses <code>key={"index"}</code>, which can preserve the wrong
@@ -61,7 +61,7 @@ const IndexKeyDemo = () => {
         <div className="index-key-demo__panel">
           <h2>Bad: key = index</h2>
           <div className="index-key-demo__subtitle">
-            React uses the list position instead of item identity. Local state can move
+            The list position is used instead of item identity. Local state can move
             to the wrong item after reordering.
           </div>
           <div className="index-key-demo__list">
@@ -74,7 +74,7 @@ const IndexKeyDemo = () => {
         <div className="index-key-demo__panel">
           <h2>Good: key = item.id</h2>
           <div className="index-key-demo__subtitle">
-            Each item keeps the same key after reordering, so React preserves the
+            Each item keeps the same key after reordering, preserving the
             right component state.
           </div>
           <div className="index-key-demo__list">

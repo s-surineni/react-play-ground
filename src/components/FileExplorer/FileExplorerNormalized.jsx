@@ -96,13 +96,9 @@ export default function FileExplorerNormalized() {
   }
 
   // Find root nodes: nodes that are NOT children of any folder
-  const childIds = new Set()
-  Object.values(nodes).forEach(node => {
-    if (node.children) {
-      node.children.forEach(id => childIds.add(id))
-    }
-  })
-
+  const childIds = new Set(
+    Object.values(nodes).flatMap(node => node.children || [])
+  )
   const rootNodes = Object.values(nodes).filter(node => !childIds.has(node.id))
 
   return (

@@ -114,7 +114,7 @@ const StaticSubtree = React.memo(() => (
   <RenderLogger name="Render Props Approach - Static Subtree (Isolated)">
     <div className="subtree-demo__static-content">
       <h4>Static Content (NEVER Re-renders!)</h4>
-      <p>This content is isolated using React.memo and won't re-render when the parent's state changes.</p>
+      <p>This content is isolated using memoization and won't re-render when the parent's state changes.</p>
       <ExpensiveComponent name="Expensive Component in Render Props" />
     </div>
   </RenderLogger>

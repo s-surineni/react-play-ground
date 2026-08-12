@@ -37,6 +37,7 @@ import CShape from "./components/CShape/CShape";
 import "./App.css";
 import PollApp from "./components/PollApp/PollApp";
 import ChatApp from "./components/ChatApp/ChatApp";
+import FileExplorerDemoGF from './components/FileExplorerGF/FileExplorerDemo'
 
 function App() {
   return (
@@ -95,7 +96,7 @@ function App() {
             <Route path="/connect42" element={<Connect42 />} />
             <Route path="/connect4" element={<Connect4 />} />
             <Route path="/c-shape" element={<CShape />} />
-
+            <Route path="/file-explorer-gf" element={<FileExplorerDemoGF />} />
           </Routes>
         </main>
       </div>
