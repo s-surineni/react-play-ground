@@ -235,6 +235,11 @@ const Navigation = () => {
       label: "Layout Effect",
       description: "useLayoutEffect vs useEffect",
     },
+        {
+      path: "/data-table",
+      label: "Data table",
+      description: "useLayoutEffect vs useEffect",
+    },
   ];
 
   return (

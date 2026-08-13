@@ -46,6 +46,7 @@ import ChatApp from "./components/ChatApp/ChatApp";
 import FileExplorerDemoGF from './components/FileExplorerGF/FileExplorerDemo'
 import Accordion from "./components/Accordion/Accordion";
 import ImportExample from "./components/basicExamples/ImportExample";
+import DataTable from "./components/DataTable/DataTable";
 
 function App() {
   return (
@@ -113,6 +114,8 @@ function App() {
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/lazy-suspense" element={<LazySuspense />} />
             <Route path="/layout-effect-demo" element={<LayoutEffectDemo />} />
+            <Route path="/layout-effect-demo" element={<LayoutEffectDemo />} />
+            <Route path="/data-table" element={<DataTable />} />
           </Routes>
         </main>
       </div>
