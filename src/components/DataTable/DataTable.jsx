@@ -1,7 +1,12 @@
 import data from './data.js'
 function DataTable() {
+    const pageSizes = [5, 10, 15]
     return (
-        <><table>
+        <>
+            <select>
+                {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
+            </select>
+            <table>
             <caption>People</caption>
             <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
             <tbody>
