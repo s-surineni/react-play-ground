@@ -1,14 +1,16 @@
 import data from './data.js'
 function DataTable() {
-    return (<table>
-        <caption>People</caption>
-        <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
-        <tbody>
-           { data.map( row => <tr key={row['id']}><td>{row['id']}</td><td>{row['name']}</td><td>{row['age']}</td><td>{row['occupation']}</td></tr>)}
-            
-        </tbody>
+    return (
+        <><table>
+            <caption>People</caption>
+            <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
+            <tbody>
+                {data.map(row => <tr key={row['id']}><td>{row['id']}</td><td>{row['name']}</td><td>{row['age']}</td><td>{row['occupation']}</td></tr>)}
 
-    </table>)
+            </tbody>
+
+        </table>
+        </>)
 }
 
 export default DataTable
