@@ -15,6 +15,12 @@ import BasicInputText from "./components/basicExamples/BasicInputText";
 import BasicUseEffect from "./components/basicExamples/BasicUseEffect";
 import BasicUseEffectConsole from "./components/basicExamples/BasicUseEffectConsole";
 import UseEffectWithIssue from "./components/basicExamples/UseEffectWithIssue";
+import UseReducerCart from "./components/basicExamples/UseReducerCart";
+import UseDebounce from "./components/basicExamples/UseDebounce";
+import ErrorBoundaryDemo from "./components/basicExamples/ErrorBoundaryDemo";
+import LazySuspense from "./components/basicExamples/LazySuspense";
+import LayoutEffectDemo from "./components/basicExamples/LayoutEffectDemo";
+import UseStateFunctionalUpdate from "./components/basicExamples/UseStateFunctionalUpdate";
 import HelloWorld from "./components/basicExamples/HelloWorld";
 import SearchInput from "./components/SearchInput/SearchInput";
 import UseCallbackExample from "./components/UseCallbackExample";
@@ -37,7 +43,12 @@ import CShape from "./components/CShape/CShape";
 import "./App.css";
 import PollApp from "./components/PollApp/PollApp";
 import ChatApp from "./components/ChatApp/ChatApp";
+<<<<<<< HEAD
 import FileExplorerDemoGF from './components/FileExplorerGF/FileExplorerDemo'
+=======
+import Accordion from "./components/Accordion/Accordion";
+import ImportExample from "./components/basicExamples/ImportExample";
+>>>>>>> 3e0e5f759adf9d59a32a487513f817b0f651c68a
 
 function App() {
   return (
@@ -97,6 +108,14 @@ function App() {
             <Route path="/connect4" element={<Connect4 />} />
             <Route path="/c-shape" element={<CShape />} />
             <Route path="/file-explorer-gf" element={<FileExplorerDemoGF />} />
+            <Route path="/import-example" element={<ImportExample />} />
+            <Route path="/use-reducer-cart" element={<UseReducerCart />} />
+            <Route path="/use-debounce" element={<UseDebounce />} />
+            <Route path="/error-boundary-demo" element={<ErrorBoundaryDemo />} />
+            <Route path="/use-state-functional-update" element={<UseStateFunctionalUpdate />} />
+            <Route path="/accordion" element={<Accordion />} />
+            <Route path="/lazy-suspense" element={<LazySuspense />} />
+            <Route path="/layout-effect-demo" element={<LayoutEffectDemo />} />
           </Routes>
         </main>
       </div>
