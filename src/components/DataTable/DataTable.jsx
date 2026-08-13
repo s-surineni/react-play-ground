@@ -4,7 +4,7 @@ function DataTable() {
         <caption>People</caption>
         <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
         <tbody>
-           { data.map( row => <tr><td>{row['id']}</td><td>{row['name']}</td><td>{row['age']}</td><td>{row['occupation']}</td></tr>)}
+           { data.map( row => <tr key={row['id']}><td>{row['id']}</td><td>{row['name']}</td><td>{row['age']}</td><td>{row['occupation']}</td></tr>)}
             
         </tbody>
 
