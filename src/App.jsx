@@ -43,12 +43,9 @@ import CShape from "./components/CShape/CShape";
 import "./App.css";
 import PollApp from "./components/PollApp/PollApp";
 import ChatApp from "./components/ChatApp/ChatApp";
-<<<<<<< HEAD
 import FileExplorerDemoGF from './components/FileExplorerGF/FileExplorerDemo'
-=======
 import Accordion from "./components/Accordion/Accordion";
 import ImportExample from "./components/basicExamples/ImportExample";
->>>>>>> 3e0e5f759adf9d59a32a487513f817b0f651c68a
 
 function App() {
   return (

@@ -220,7 +220,7 @@ const Navigation = () => {
       path: "/file-explorer-gf",
       label: "file explorere gf",
       description: "something"
-    }
+    },{
       path: "/accordion",
       label: "Accordion",
       description: "Compound component pattern",
