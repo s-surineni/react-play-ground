@@ -1,6 +1,7 @@
 import data from './data.js'
+import { useState } from 'react'
 function DataTable() {
-    const pageSizes = [5, 10, 15]
+    const [pageSizes, setPageSizes] = useState([5, 10, 15])
     return (
         <>
             <select>
