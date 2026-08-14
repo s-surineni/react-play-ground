@@ -4,15 +4,18 @@ function DataTable() {
     const pageSizes = [5, 10, 15]
     const [pageSize, setPageSize] = useState(pageSizes[0])
     const [pageNumber, setPageNumber] = useState(1)
+    const pageCount = Math.ceil(data.length / pageSize)
     const currentData = data.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
     return (
         <>
             <label>
                 Rows per page:{' '}
-                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
+                <select value={pageSize} onChange={e => {setPageSize(Number(e.target.value)); setPageNumber(1)}}>
                     {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
                 </select>
             </label>
+            <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber === 1}>Previous</button>
+            <button onClick={() => setPageNumber(pageNumber + 1)} disabled={pageNumber === pageCount}>Next</button>
             <table>
             <caption>People</caption>
             <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
