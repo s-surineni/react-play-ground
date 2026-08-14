@@ -2,14 +2,17 @@ import data from './data.js'
 import { useState } from 'react'
 function DataTable() {
     const pageSizes = [5, 10, 15]
-    const [pageSize, setPageSize] = useState(5)
+    const [pageSize, setPageSize] = useState(pageSizes[0])
     const [pageNumber, setPageNumber] = useState(1)
     const currentData = data.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
     return (
         <>
-            <select onChange={e => setPageSize(Number(e.target.value))}>
-                {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
-            </select>
+            <label>
+                Rows per page:{' '}
+                <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
+                    {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
+                </select>
+            </label>
             <table>
             <caption>People</caption>
             <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
