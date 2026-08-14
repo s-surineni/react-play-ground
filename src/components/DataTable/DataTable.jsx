@@ -10,7 +10,7 @@ function DataTable() {
             <table>
             <caption>People</caption>
             <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
-            <tbody>
+            <tbody>wh
                 {data.map(row => <tr key={row['id']}><td>{row['id']}</td><td>{row['name']}</td><td>{row['age']}</td><td>{row['occupation']}</td></tr>)}
 
             </tbody>
