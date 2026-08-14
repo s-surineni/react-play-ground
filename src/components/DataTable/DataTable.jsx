@@ -7,7 +7,7 @@ function DataTable() {
     const currentData = data.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
     return (
         <>
-            <select onChange={e => setPageSize(e.target.value)}>
+            <select onChange={e => setPageSize(Number(e.target.value))}>
                 {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
             </select>
             <table>
