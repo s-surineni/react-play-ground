@@ -1,5 +1,6 @@
 import data from './data.js'
 import { useState } from 'react'
+import './DataTable.css'
 function DataTable() {
     const pageSizes = [5, 10, 15]
     const [pageSize, setPageSize] = useState(pageSizes[0])
@@ -8,14 +9,16 @@ function DataTable() {
     const currentData = data.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
     return (
         <>
-            <label>
-                Rows per page:{' '}
-                <select value={pageSize} onChange={e => {setPageSize(Number(e.target.value)); setPageNumber(1)}}>
-                    {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
-                </select>
-            </label>
-            <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber === 1}>Previous</button>
-            <button onClick={() => setPageNumber(pageNumber + 1)} disabled={pageNumber === pageCount}>Next</button>
+            <div className="data-table__toolbar">
+                <label>
+                    Rows per page:{' '}
+                    <select value={pageSize} onChange={e => {setPageSize(Number(e.target.value)); setPageNumber(1)}}>
+                        {pageSizes.map(size => <option key={size} value={size}>{size}</option>)}
+                    </select>
+                </label>
+                <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber === 1}>Previous</button>
+                <button onClick={() => setPageNumber(pageNumber + 1)} disabled={pageNumber === pageCount}>Next</button>
+            </div>
             <table>
             <caption>People</caption>
             <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
