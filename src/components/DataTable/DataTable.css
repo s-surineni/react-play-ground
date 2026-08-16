@@ -5,7 +5,20 @@
   margin-bottom: 1rem;
 }
 
+.data-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
 .data-table th,
 .data-table td {
   padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.data-table th {
+  font-weight: 600;
+  color: #495057;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
 }
