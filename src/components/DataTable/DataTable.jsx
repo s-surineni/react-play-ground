@@ -19,7 +19,7 @@ function DataTable() {
                 <button onClick={() => setPageNumber(pageNumber - 1)} disabled={pageNumber === 1}>Previous</button>
                 <button onClick={() => setPageNumber(pageNumber + 1)} disabled={pageNumber === pageCount}>Next</button>
             </div>
-            <table>
+            <table className="data-table">
             <caption>People</caption>
             <thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
             <tbody>
