@@ -9,36 +9,36 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .demo-section {
   background: white;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  box-shadow: 0 2px 0.25rem rgba(0,0,0,0.1);
 }
 
 .demo-title {
   color: #333;
   border-bottom: 2px solid #007bff;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  padding-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 
 .counter-display {
   background: #f8f9fa;
-  padding: 15px;
-  border-radius: 6px;
-  margin: 10px 0;
-  border-left: 4px solid #007bff;
+  padding: 0.9375rem;
+  border-radius: 0.375rem;
+  margin: 0.625rem 0;
+  border-left: 0.25rem solid #007bff;
 }
 
 .counter-value {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #007bff;
 }
@@ -47,11 +47,11 @@ body {
   background: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.25rem;
   cursor: pointer;
-  margin: 5px;
-  font-size: 16px;
+  margin: 0.3125rem;
+  font-size: 1rem;
 }
 
 .button:hover {
@@ -64,26 +64,26 @@ body {
 
 .render-count {
   background: #e7f3ff;
-  padding: 10px;
-  border-radius: 4px;
-  margin: 5px 0;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+  margin: 0.3125rem 0;
   border: 1px solid #b3d9ff;
 }
 
 .static-content {
   background: #f0f0f0;
-  padding: 10px;
-  border-radius: 4px;
-  margin: 5px 0;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+  margin: 0.3125rem 0;
   color: #666;
 }
 
 .performance-info {
   background: #fff3cd;
   border: 1px solid #ffeaa7;
-  border-radius: 4px;
-  padding: 15px;
-  margin: 20px 0;
+  border-radius: 0.25rem;
+  padding: 0.9375rem;
+  margin: 1.25rem 0;
 }
 
 .performance-info h3 {
@@ -92,11 +92,11 @@ body {
 }
 
 .performance-info ul {
-  margin: 10px 0;
-  padding-left: 20px;
+  margin: 0.625rem 0;
+  padding-left: 1.25rem;
 }
 
 .performance-info li {
-  margin: 5px 0;
+  margin: 0.3125rem 0;
   color: #856404;
 }

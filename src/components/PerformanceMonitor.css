@@ -1,9 +1,9 @@
 .performance-monitor__actions {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .performance-monitor__start-btn {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .performance-monitor__start-btn--active {
@@ -16,12 +16,12 @@
 
 .performance-monitor__logs {
   background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 6px;
-  max-height: 400px;
+  padding: 0.9375rem;
+  border-radius: 0.375rem;
+  max-height: 25rem;
   overflow-y: auto;
   font-family: monospace;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .performance-monitor__empty {
@@ -35,19 +35,19 @@
 }
 
 .performance-monitor__instructions {
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 0.9375rem;
+  font-size: 0.875rem;
   color: #666;
 }
 
 .performance-monitor__instructions ol {
-  margin-left: 20px;
+  margin-left: 1.25rem;
 }
 
 .performance-monitor__idle {
   background-color: #e9ecef;
-  padding: 15px;
-  border-radius: 6px;
+  padding: 0.9375rem;
+  border-radius: 0.375rem;
   text-align: center;
   color: #666;
 }

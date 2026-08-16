@@ -31,7 +31,7 @@ function Button({ children, index }) {
       style={{
         width: "100%",
         textAlign: "left",
-        padding: "12px",
+        padding: "0.75rem",
         border: "1px solid #ddd",
         background: isOpen ? "#f0f0f0" : "white",
         cursor: "pointer",
@@ -47,7 +47,7 @@ function Panel({ children, index }) {
   if (openIndex !== index) return null
 
   return (
-    <div className="accordion__panel" style={{ padding: "12px", border: "1px solid #ddd", borderTop: "none" }}>
+    <div className="accordion__panel" style={{ padding: "0.75rem", border: "1px solid #ddd", borderTop: "none" }}>
       {children}
     </div>
   )

@@ -17,10 +17,10 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: "20px", background: "#ffe6e6", border: "1px solid #ff9999", borderRadius: "8px" }}>
+        <div style={{ padding: "1.25rem", background: "#ffe6e6", border: "1px solid #ff9999", borderRadius: "0.5rem" }}>
           <h2>Something went wrong</h2>
           <pre style={{ whiteSpace: "pre-wrap" }}>{this.state.error?.message}</pre>
-          <button onClick={() => this.setState({ hasError: false, error: null })} style={{ marginTop: "10px" }}>
+          <button onClick={() => this.setState({ hasError: false, error: null })} style={{ marginTop: "0.625rem" }}>
             Try again
           </button>
         </div>
@@ -35,18 +35,18 @@ const BuggyCounter = ({ max = 3 }) => {
   if (count > max) throw new Error(`Count exceeded ${max}!`)
 
   return (
-    <div style={{ padding: "20px", border: "1px solid #ccc", borderRadius: "8px", margin: "20px 0" }}>
+    <div style={{ padding: "1.25rem", border: "1px solid #ccc", borderRadius: "0.5rem", margin: "1.25rem 0" }}>
       <p>Count: {count}</p>
-      <button onClick={() => setCount(c => c + 1)} style={{ marginRight: "8px" }}>Increment</button>
+      <button onClick={() => setCount(c => c + 1)} style={{ marginRight: "0.5rem" }}>Increment</button>
       <button onClick={() => setCount(0)}>Reset</button>
-      <p style={{ fontSize: "12px", color: "#666" }}>Try incrementing past {max} to see the fallback.</p>
+      <p style={{ fontSize: "0.75rem", color: "#666" }}>Try incrementing past {max} to see the fallback.</p>
     </div>
   )
 }
 
 const ErrorBoundaryDemo = () => {
   return (
-    <div style={{ maxWidth: "480px", margin: "0 auto", padding: "20px" }}>
+    <div style={{ maxWidth: "30rem", margin: "0 auto", padding: "1.25rem" }}>
       <h1>Error Boundary</h1>
       <p>Class-component boundary that catches render errors and shows fallback UI.</p>
 
@@ -54,7 +54,7 @@ const ErrorBoundaryDemo = () => {
         <BuggyCounter max={3} />
       </ErrorBoundary>
 
-      <div style={{ marginTop: "20px", padding: "12px", background: "#f8f9fa", borderRadius: "8px" }}>
+      <div style={{ marginTop: "1.25rem", padding: "0.75rem", background: "#f8f9fa", borderRadius: "0.5rem" }}>
         <h3>How it works</h3>
         <ul>
           <li><code>getDerivedStateFromError</code> updates state to trigger fallback.</li>

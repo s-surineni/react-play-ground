@@ -102,7 +102,7 @@ export default function FileExplorerNormalized() {
   const rootNodes = Object.values(nodes).filter(node => !childIds.has(node.id))
 
   return (
-    <div style={{ fontFamily: "monospace", fontSize: "14px" }}>
+    <div style={{ fontFamily: "monospace", fontSize: "0.875rem" }}>
       {rootNodes.map(node => (
         <TreeNode
           key={node.id}
@@ -185,7 +185,7 @@ function TreeNode({ node, renameNode, nodes }) {
           )}
         </div>
         {open && node.children && (
-          <div style={{ paddingLeft: "20px" }}>
+          <div style={{ paddingLeft: "1.25rem" }}>
             {node.children.map(childId =>
               nodes[childId] ? (
                 <TreeNode

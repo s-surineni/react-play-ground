@@ -9,7 +9,7 @@ const LazyTarget = () => {
   }, [])
 
   return (
-    <div style={{ padding: "20px", background: "#e6f7ff", border: "1px solid #91d5ff", borderRadius: "8px" }}>
+    <div style={{ padding: "1.25rem", background: "#e6f7ff", border: "1px solid #91d5ff", borderRadius: "0.5rem" }}>
       <h3>Lazy Loaded Component</h3>
       <p>This component was loaded on demand. Ticks: {tick}</p>
     </div>

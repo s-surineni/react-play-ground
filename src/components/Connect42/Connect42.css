@@ -1,28 +1,28 @@
 .game-container {
-  --cell-size: 60px;
+  --cell-size: 3.75rem;
   --cols: 7;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 1.25rem;
 }
 
 .status-text {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
 }
 
 .board {
   background-color: #0066cc; /* Classic Blue Board Frame */
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
   display: grid;
   grid-template-columns: repeat(var(--cols), var(--cell-size));
-  gap: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  gap: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .cell {
@@ -47,13 +47,13 @@
 }
 
 .reset-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.25rem;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }

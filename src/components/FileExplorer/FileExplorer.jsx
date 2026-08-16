@@ -52,7 +52,7 @@ function TreeNode({ node, onRename }) {
         )}
       </div>
       {isFolder && open && (
-        <div style={{ paddingLeft: '20px' }}>
+        <div style={{ paddingLeft: '1.25rem' }}>
           {node.children.map((child) => (
             <TreeNode key={child.id} node={child} onRename={onRename} />
           ))}

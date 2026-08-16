@@ -1,56 +1,56 @@
 .use-callback {
-  padding: 20px;
-  max-width: 800px;
+  padding: 1.25rem;
+  max-width: 50rem;
 }
 
 .use-callback__child {
   border: 2px solid #3498db;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px 0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0.625rem 0;
   background-color: #ebf5fb;
 }
 
 .use-callback__child-btn {
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   background-color: #3498db;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .use-callback__tip {
   background-color: #fff3cd;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.25rem;
   border: 1px solid #ffc107;
 }
 
 .use-callback__without {
   background-color: #f8d7da;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.25rem;
   border: 1px solid #dc3545;
 }
 
 .use-callback__with {
   background-color: #d4edda;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
   border: 1px solid #28a745;
 }
 
 .use-callback__counts {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
 }
 
 .use-callback__takeaway {
   background-color: #e2e3e5;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
+  padding: 0.9375rem;
+  border-radius: 0.5rem;
+  margin-top: 1.25rem;
   border: 1px solid #6c757d;
 }

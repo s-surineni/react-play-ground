@@ -15,18 +15,18 @@
 .hg-main,
 .hg-aside,
 .hg-footer {
-  padding: 12px;
+  padding: 0.75rem;
   text-align: center;
 }
 
 .hg-header {
   background-color: tomato;
-  height: 60px;
+  height: 3.75rem;
 }
 
 .hg-nav {
   background-color: coral;
-  width: 100px;
+  width: 6.25rem;
   flex-shrink: 0; /* Prevents the navigation from shrinking when the content in <main> is too wide.*/
 }
 
@@ -38,11 +38,11 @@
 
 .hg-aside {
   background-color: sandybrown;
-  width: 100px;
+  width: 6.25rem;
   flex-shrink: 0; /* Prevents the sidebar from shrinking when the content in <main> is too wide.*/
 }
 
 .hg-footer {
   background-color: slategray;
-  height: 100px;
+  height: 6.25rem;
 }

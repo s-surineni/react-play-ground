@@ -25,7 +25,7 @@ const UseDebounce = () => {
   }, [debouncedQuery])
 
   return (
-    <div style={{ maxWidth: "400px", margin: "0 auto", padding: "20px" }}>
+    <div style={{ maxWidth: "25rem", margin: "0 auto", padding: "1.25rem" }}>
       <h1>useDebounce Custom Hook</h1>
       <p>Filters a list after the user stops typing for 400ms.</p>
 
@@ -33,19 +33,19 @@ const UseDebounce = () => {
         value={query}
         onChange={e => setQuery(e.target.value)}
         placeholder="Search fruits..."
-        style={{ width: "100%", padding: "10px", marginBottom: "12px" }}
+        style={{ width: "100%", padding: "0.625rem", marginBottom: "0.75rem" }}
       />
 
-      <p style={{ fontSize: "12px", color: "#666" }}>
+      <p style={{ fontSize: "0.75rem", color: "#666" }}>
         Query: <code>{query}</code> → Debounced: <code>{debouncedQuery}</code>
       </p>
 
       <ul style={{ listStyle: "none", padding: 0 }}>
         {matches.map(item => (
-          <li key={item} style={{ padding: "8px", borderBottom: "1px solid #eee" }}>{item}</li>
+          <li key={item} style={{ padding: "0.5rem", borderBottom: "1px solid #eee" }}>{item}</li>
         ))}
         {matches.length === 0 && debouncedQuery && (
-          <li style={{ padding: "8px", color: "#666" }}>No matches</li>
+          <li style={{ padding: "0.5rem", color: "#666" }}>No matches</li>
         )}
       </ul>
     </div>

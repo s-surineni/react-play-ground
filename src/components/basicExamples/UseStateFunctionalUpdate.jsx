@@ -17,7 +17,7 @@ const UseStateFunctionalUpdate = () => {
   };
 
   return (
-    <div style={{ maxWidth: "520px", margin: "0 auto", padding: "20px" }}>
+    <div style={{ maxWidth: "32.5rem", margin: "0 auto", padding: "1.25rem" }}>
       <h1>useState: Direct vs Functional Update</h1>
       <p>
         When you call a setter multiple times in one event handler, React may batch
@@ -26,31 +26,31 @@ const UseStateFunctionalUpdate = () => {
         previous update.
       </p>
 
-      <div style={{ display: "flex", gap: "16px", marginTop: "20px" }}>
-        <div style={{ flex: 1, padding: "16px", border: "1px solid #ddd", borderRadius: "8px" }}>
+      <div style={{ display: "flex", gap: "1rem", marginTop: "1.25rem" }}>
+        <div style={{ flex: 1, padding: "1rem", border: "1px solid #ddd", borderRadius: "0.5rem" }}>
           <h3>Direct value: setCountA(countA + 1)</h3>
-          <p style={{ fontSize: "32px", textAlign: "center" }}>{countA}</p>
+          <p style={{ fontSize: "2rem", textAlign: "center" }}>{countA}</p>
           <button
             onClick={incrementDirect}
-            style={{ width: "100%", padding: "10px", marginTop: "8px" }}
+            style={{ width: "100%", padding: "0.625rem", marginTop: "0.5rem" }}
           >
             Increment 3x
           </button>
-          <p style={{ fontSize: "12px", color: "#666", marginTop: "8px" }}>
+          <p style={{ fontSize: "0.75rem", color: "#666", marginTop: "0.5rem" }}>
             Expected: +3. Actual: {countA === 1 ? "+1 (stale closure)" : countA === 3 ? "+3" : `+${countA}`}
           </p>
         </div>
 
-        <div style={{ flex: 1, padding: "16px", border: "1px solid #ddd", borderRadius: "8px" }}>
+        <div style={{ flex: 1, padding: "1rem", border: "1px solid #ddd", borderRadius: "0.5rem" }}>
           <h3>Functional: setCountB(prev =&gt; prev + 1)</h3>
-          <p style={{ fontSize: "32px", textAlign: "center" }}>{countB}</p>
+          <p style={{ fontSize: "2rem", textAlign: "center" }}>{countB}</p>
           <button
             onClick={incrementFunctional}
-            style={{ width: "100%", padding: "10px", marginTop: "8px" }}
+            style={{ width: "100%", padding: "0.625rem", marginTop: "0.5rem" }}
           >
             Increment 3x
           </button>
-          <p style={{ fontSize: "12px", color: "#666", marginTop: "8px" }}>
+          <p style={{ fontSize: "0.75rem", color: "#666", marginTop: "0.5rem" }}>
             Expected: +3. Actual: {countB === 3 ? "+3 (correct)" : `+${countB}`}
           </p>
         </div>

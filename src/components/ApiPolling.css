@@ -1,32 +1,32 @@
 .api-polling {
-  padding: 24px;
-  max-width: 560px;
+  padding: 1.5rem;
+  max-width: 35rem;
   margin: 0 auto;
 }
 
 .api-polling__title {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   color: #333;
 }
 
 .api-polling__intro {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
   color: #666;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .api-polling__last-updated {
-  margin-bottom: 16px;
-  font-size: 12px;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
   color: #6c757d;
 }
 
 .api-polling__card {
   border: 1px solid #dee2e6;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
   background-color: #f8f9fa;
-  min-height: 120px;
+  min-height: 7.5rem;
 }
 
 .api-polling__loading {
@@ -40,8 +40,8 @@
 }
 
 .api-polling__quote {
-  margin: 0 0 12px 0;
-  font-size: 18px;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
   font-style: italic;
   color: #333;
   line-height: 1.5;
@@ -49,12 +49,12 @@
 
 .api-polling__author {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #6c757d;
 }
 
 .api-polling__refreshing {
-  margin-top: 12px;
-  font-size: 12px;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
   color: #6c757d;
 }

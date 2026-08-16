@@ -8,7 +8,7 @@ import styles from "./ProgressBar.module.css";
  * @param {number} percent - Progress percentage (0 to 100)
  * @param {boolean} showLabel - Whether to show percentage label (default true)
  * @param {string} variant - 'default' | 'success' | 'warning' | 'danger'
- * @param {string} height - CSS height (e.g. '8px', '1rem')
+ * @param {string} height - CSS height (e.g. '0.5rem', '1rem')
  * @param {string} className - Additional CSS class
  */
 function ProgressBar({

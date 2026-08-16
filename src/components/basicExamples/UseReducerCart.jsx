@@ -38,29 +38,29 @@ const UseReducerCart = () => {
   const total = state.items.reduce((sum, i) => sum + i.price * i.qty, 0)
 
   return (
-    <div style={{ maxWidth: "480px", margin: "0 auto", padding: "20px" }}>
+    <div style={{ maxWidth: "30rem", margin: "0 auto", padding: "1.25rem" }}>
       <h1>Shopping Cart (useReducer)</h1>
       <p>State transitions are centralized in a reducer instead of multiple setState calls.</p>
 
-      <div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
+      <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem" }}>
         <input
           value={name}
           onChange={e => setName(e.target.value)}
           placeholder="Item name"
-          style={{ flex: 1, padding: "8px" }}
+          style={{ flex: 1, padding: "0.5rem" }}
         />
         <input
           type="number"
           value={price}
           onChange={e => setPrice(e.target.value)}
           placeholder="Price"
-          style={{ width: "80px", padding: "8px" }}
+          style={{ width: "5rem", padding: "0.5rem" }}
         />
-        <button onClick={addItem} style={{ padding: "8px 16px" }}>Add</button>
+        <button onClick={addItem} style={{ padding: "0.5rem 1rem" }}>Add</button>
       </div>
 
       {state.items.map(item => (
-        <div key={item.id} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #eee" }}>
+        <div key={item.id} style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem 0", borderBottom: "1px solid #eee" }}>
           <span>{item.name} x{item.qty}</span>
           <span>${(item.price * item.qty).toFixed(2)}</span>
           <button onClick={() => dispatch({ type: "remove", id: item.id })} style={{ color: "red" }}>Remove</button>
@@ -68,10 +68,10 @@ const UseReducerCart = () => {
       ))}
 
       {state.items.length > 0 && (
-        <button onClick={() => dispatch({ type: "clear" })} style={{ marginTop: "12px" }}>Clear Cart</button>
+        <button onClick={() => dispatch({ type: "clear" })} style={{ marginTop: "0.75rem" }}>Clear Cart</button>
       )}
 
-      <p style={{ marginTop: "16px", fontWeight: "bold" }}>Total: ${total.toFixed(2)}</p>
+      <p style={{ marginTop: "1rem", fontWeight: "bold" }}>Total: ${total.toFixed(2)}</p>
     </div>
   )
 }

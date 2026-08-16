@@ -7,20 +7,20 @@ const ExpensiveChild = memo(({ value, onIncrement, label }) => {
   return (
     <div style={{
       border: '2px solid #3498db',
-      borderRadius: '8px',
-      padding: '16px',
-      margin: '10px 0',
+      borderRadius: '0.5rem',
+      padding: '1rem',
+      margin: '0.625rem 0',
       backgroundColor: '#ebf5fb'
     }}>
       <h4>{label}</h4>
       <p>Value: {value}</p>
       <button onClick={onIncrement} style={{
-        padding: '8px 16px',
+        padding: '0.5rem 1rem',
         cursor: 'pointer',
         backgroundColor: '#3498db',
         color: 'white',
         border: 'none',
-        borderRadius: '4px'
+        borderRadius: '0.25rem'
       }}>
         Increment {label}
       </button>
@@ -55,14 +55,14 @@ const UseCallbackExample = () => {
   }, []); // Empty dependency array
 
   return (
-    <div style={{ padding: '20px', maxWidth: '800px' }}>
+    <div style={{ padding: '1.25rem', maxWidth: '50rem' }}>
       <h2>useCallback Example</h2>
       
       <div style={{
         backgroundColor: '#fff3cd',
-        padding: '15px',
-        borderRadius: '8px',
-        marginBottom: '20px',
+        padding: '0.9375rem',
+        borderRadius: '0.5rem',
+        marginBottom: '1.25rem',
         border: '1px solid #ffc107'
       }}>
         <strong>💡 Watch the console!</strong>
@@ -72,9 +72,9 @@ const UseCallbackExample = () => {
 
       <div style={{
         backgroundColor: '#f8d7da',
-        padding: '15px',
-        borderRadius: '8px',
-        marginBottom: '20px',
+        padding: '0.9375rem',
+        borderRadius: '0.5rem',
+        marginBottom: '1.25rem',
         border: '1px solid #dc3545'
       }}>
         <h3>❌ Without useCallback</h3>
@@ -91,8 +91,8 @@ const UseCallbackExample = () => {
 
       <div style={{
         backgroundColor: '#d4edda',
-        padding: '15px',
-        borderRadius: '8px',
+        padding: '0.9375rem',
+        borderRadius: '0.5rem',
         border: '1px solid #28a745'
       }}>
         <h3>✅ With useCallback</h3>
@@ -100,7 +100,7 @@ const UseCallbackExample = () => {
           The increment function is memoized, preventing unnecessary re-renders of the child.
         </p>
         
-        <div style={{ marginBottom: '15px' }}>
+        <div style={{ marginBottom: '0.9375rem' }}>
           <p>Count 1: {count1}</p>
           <p>Count 2: {count2}</p>
         </div>
@@ -120,9 +120,9 @@ const UseCallbackExample = () => {
 
       <div style={{
         backgroundColor: '#e2e3e5',
-        padding: '15px',
-        borderRadius: '8px',
-        marginTop: '20px',
+        padding: '0.9375rem',
+        borderRadius: '0.5rem',
+        marginTop: '1.25rem',
         border: '1px solid #6c757d'
       }}>
         <h3>Key Takeaway:</h3>

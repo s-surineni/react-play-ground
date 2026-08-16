@@ -65,8 +65,8 @@ function ProgressBarDemo() {
         <h2>Sizes &amp; no label</h2>
         <div className="progress-bar-demo__grid progress-bar-demo__grid--vertical">
           <div>
-            <span className="progress-bar-demo__variant-label">Thin (8px)</span>
-            <ProgressBar value={70} height="8px" showLabel={false} />
+            <span className="progress-bar-demo__variant-label">Thin (0.5rem)</span>
+            <ProgressBar value={70} height="0.5rem" showLabel={false} />
           </div>
           <div>
             <span className="progress-bar-demo__variant-label">Default</span>
