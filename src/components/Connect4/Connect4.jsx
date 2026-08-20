@@ -1,9 +1,13 @@
 import {useMemo, useState} from 'react'
+
 export default function Connect4() {
+  // Standard Connect 4 board: 6 rows x 7 columns
   const ROWS = 6;
   const COLS = 7;
   const RED = "RED";
   const BLUE = "BLUE";
+
+  // Win lines: horizontal, vertical, and both diagonals
   const DIRECTIONS = [
     [0, 1],
     [1, 0],
@@ -11,6 +15,7 @@ export default function Connect4() {
     [1, -1],
   ];
 
+  // Empty board: each cell is null until a disc is dropped
   const createBoard = () =>
     Array.from({ length: ROWS }, () => Array(COLS).fill(null));
 
@@ -26,6 +31,7 @@ export default function Connect4() {
   const inBounds = (r, c) =>
     r >= 0 && r < ROWS && c >= 0 && c < COLS;
 
+  // Gravity: discs fall to the lowest empty row in a column
   const findEmptyRow = (col, nextBoard) => {
     for (let row = ROWS - 1; row >= 0; row--) {
       if (!nextBoard[row][col]) return row;
@@ -33,6 +39,7 @@ export default function Connect4() {
     return -1;
   };
 
+  // From the last drop, walk both ways along each direction and look for 4 in a row
   const checkWinner = (row, col, nextBoard, player) => {
     for (const [dr, dc] of DIRECTIONS) {
       let count = 1;
@@ -63,6 +70,7 @@ export default function Connect4() {
     const nextBoard = board.map((r) => [...r]);
     const row = findEmptyRow(col, nextBoard);
 
+    // Column is already full
     if (row === -1) return;
 
     nextBoard[row][col] = currentPlayer;
@@ -98,8 +106,10 @@ export default function Connect4() {
     setIsDraw(false);
   };
 
+  // Top cell occupied means no more drops in that column
   const isColumnFull = (col) => board[0][col] !== null;
 
+  // Fast lookup of winning cells for highlighting
   const winningSet = useMemo(
     () => new Set(winningCells.map(([r, c]) => `${r}-${c}`)),
     [winningCells]
@@ -126,6 +136,7 @@ export default function Connect4() {
             : `${currentPlayerName}'s turn`}
         </div>
 
+        {/* One Drop button per column */}
         <div className="grid grid-cols-7 gap-2 mb-3">
           {Array.from({ length: COLS }).map((_, col) => (
             <button
@@ -139,6 +150,7 @@ export default function Connect4() {
           ))}
         </div>
 
+        {/* Board cells; winning discs get a green border */}
         <div className="grid grid-cols-7 gap-2 bg-yellow-400 rounded-2xl p-3">
           {board.map((row, r) =>
             row.map((cell, c) => {

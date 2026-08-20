@@ -1,3 +1,8 @@
+// Problem: Build Connect Four.
+// 6×7 grid, two players take turns dropping a disc into a column (gravity:
+// it occupies the lowest empty cell). First to connect four of their discs
+// in a row — horizontally, vertically, or either diagonal — wins. Reset
+// returns the board to empty. Block further moves after a win.
 import React, { useState } from 'react';
 import './Connect42.css';
 
