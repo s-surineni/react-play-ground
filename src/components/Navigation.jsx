@@ -2,6 +2,19 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css';
 
+const NAV_ACCENTS = [
+  '#e11d48',
+  '#ea580c',
+  '#16a34a',
+  '#0d9488',
+  '#0284c7',
+  '#4f46e5',
+  '#7c3aed',
+  '#c026d3',
+  '#db2777',
+  '#0891b2',
+];
+
 const Navigation = () => {
   const location = useLocation();
   const [expandedMenus, setExpandedMenus] = useState({});
@@ -265,10 +278,13 @@ const Navigation = () => {
             const hasSubmenu = item.submenu && item.submenu.length > 0;
             const isActive = item.path && location.pathname === item.path;
             const hasActiveChild = hasSubmenu && item.submenu.some(subItem => location.pathname === subItem.path);
+            const accentStyle = {
+              '--nav-accent': NAV_ACCENTS[index % NAV_ACCENTS.length],
+            };
 
             if (hasSubmenu) {
               return (
-                <div key={menuKey} className="nav__item">
+                <div key={menuKey} className="nav__item" style={accentStyle}>
                   <div
                     onClick={() => toggleMenu(menuKey)}
                     className={`nav__card ${hasActiveChild ? 'nav__card--active-child' : ''} ${isExpanded ? 'nav__card--expanded' : ''}`}
@@ -309,6 +325,7 @@ const Navigation = () => {
                 key={item.path || menuKey}
                 to={item.path}
                 className="nav__link"
+                style={accentStyle}
               >
                 <div className={`nav__card ${isActive ? 'nav__card--active' : ''}`}>
                   <h3 className="nav__card-title">{item.label}</h3>

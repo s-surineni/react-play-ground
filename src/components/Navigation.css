@@ -1,8 +1,27 @@
 .nav {
-  background-color: #f8f9fa;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  --nav-accent: #4f46e5;
+
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  padding: 0.75rem 1rem 0;
+  border-bottom: none;
   margin-bottom: 0.75rem;
+}
+
+.nav::after {
+  content: '';
+  display: block;
+  height: 0.1875rem;
+  margin: 0.75rem -1rem 0;
+  background: linear-gradient(
+    90deg,
+    #e11d48,
+    #ea580c,
+    #16a34a,
+    #0284c7,
+    #4f46e5,
+    #7c3aed,
+    #db2777
+  );
 }
 
 .nav__header {
@@ -27,7 +46,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #333;
+  background: linear-gradient(90deg, #e11d48, #4f46e5, #db2777);
   transition: all 0.3s ease;
 }
 
@@ -50,9 +69,12 @@
 
 .nav__title {
   margin: 0;
-  color: #333;
   font-size: 1.25rem;
   font-weight: bold;
+  background: linear-gradient(90deg, #e11d48, #ea580c, #0284c7, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .nav__grid {
@@ -74,40 +96,35 @@
 .nav__card {
   padding: 0.5rem 0.75rem;
   background-color: white;
-  color: #333;
-  border: 1px solid #dee2e6;
+  color: #334155;
+  border: 1px solid color-mix(in srgb, var(--nav-accent) 28%, #e2e8f0);
+  border-left: 0.25rem solid var(--nav-accent);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 0.25rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 0.25rem color-mix(in srgb, var(--nav-accent) 18%, transparent);
   margin-bottom: 0;
 }
 
 .nav__card:not(.nav__card--active):not(.nav__card--active-child):hover {
-  background-color: #e9ecef;
+  background-color: color-mix(in srgb, var(--nav-accent) 12%, white);
   transform: translateY(-1px);
+  box-shadow: 0 0.25rem 0.5rem color-mix(in srgb, var(--nav-accent) 28%, transparent);
 }
 
-.nav__card--active {
-  background-color: #007bff;
+.nav__card--active,
+.nav__card--active-child {
+  background-color: var(--nav-accent);
   color: white;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 123, 255, 0.3);
+  border-color: var(--nav-accent);
+  box-shadow: 0 0.25rem 0.5rem color-mix(in srgb, var(--nav-accent) 40%, transparent);
   transform: translateY(-2px);
 }
 
-.nav__card--active:hover {
-  background-color: #007bff;
-  transform: translateY(-1px);
-}
-
-.nav__card--active-child {
-  background-color: #007bff;
-  color: white;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 123, 255, 0.3);
-}
-
+.nav__card--active:hover,
 .nav__card--active-child:hover {
-  background-color: #007bff;
+  background-color: color-mix(in srgb, var(--nav-accent) 85%, black);
+  transform: translateY(-1px);
 }
 
 .nav__card--expanded {
@@ -128,6 +145,12 @@
   margin: 0;
   font-size: 0.875rem;
   font-weight: 600;
+  color: var(--nav-accent);
+}
+
+.nav__card--active .nav__card-title,
+.nav__card--active-child .nav__card-title {
+  color: white;
 }
 
 .nav__card-desc {
@@ -141,7 +164,13 @@
 
 .nav__arrow {
   font-size: 1.125rem;
+  color: var(--nav-accent);
   transition: transform 0.2s ease;
+}
+
+.nav__card--active-child .nav__arrow,
+.nav__card--active .nav__arrow {
+  color: white;
 }
 
 .nav__arrow--expanded {
@@ -151,7 +180,7 @@
 .nav__submenu {
   margin-top: 0.625rem;
   padding-left: 0.9375rem;
-  border-left: 0.1875rem solid #007bff;
+  border-left: 0.1875rem solid var(--nav-accent);
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
@@ -164,33 +193,39 @@
 
 .nav__submenu-item {
   padding: 0.75rem;
-  background-color: #f8f9fa;
-  color: #333;
-  border: 1px solid #dee2e6;
+  background-color: white;
+  color: #334155;
+  border: 1px solid color-mix(in srgb, var(--nav-accent) 28%, #e2e8f0);
   border-radius: 0.375rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--nav-accent) 16%, transparent);
 }
 
 .nav__submenu-item:hover {
-  background-color: #e9ecef;
+  background-color: color-mix(in srgb, var(--nav-accent) 12%, white);
 }
 
 .nav__submenu-item--active {
-  background-color: #007bff;
+  background-color: var(--nav-accent);
   color: white;
-  box-shadow: 0 2px 0.25rem rgba(0, 123, 255, 0.3);
+  border-color: var(--nav-accent);
+  box-shadow: 0 2px 0.25rem color-mix(in srgb, var(--nav-accent) 40%, transparent);
 }
 
 .nav__submenu-item--active:hover {
-  background-color: #007bff;
+  background-color: color-mix(in srgb, var(--nav-accent) 85%, black);
 }
 
 .nav__submenu-title {
   margin: 0 0 0.25rem 0;
   font-size: 0.875rem;
   font-weight: 600;
+  color: var(--nav-accent);
+}
+
+.nav__submenu-item--active .nav__submenu-title {
+  color: white;
 }
 
 .nav__submenu-desc {
