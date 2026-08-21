@@ -1,13 +1,22 @@
+import { useState } from 'react'
 import style from './TempPlayground.module.css'
 
-const CELLS = 6 * 6
+const ROWS = 6
+const COLS = 6
 
 function TempPlayground() {
+  const [board, setBoard] = useState(
+    Array(ROWS).fill(null).map(() => Array(COLS).fill(null))
+  )
+  const [player, setPlayer] = useState('red')
+
   return (
     <div className={style.board}>
-      {Array.from({ length: CELLS }, (_, i) => (
-        <div key={i} className={style.cell} />
-      ))}
+      {board.map((row, r) =>
+        row.map((cell, c) => (
+          <div key={`${r}-${c}`} className={style.cell} />
+        ))
+      )}
     </div>
   )
 }
