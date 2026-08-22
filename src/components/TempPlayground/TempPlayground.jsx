@@ -28,7 +28,7 @@ function TempPlayground() {
     for (const [dr, dc] of directions) {
       const [nextR, nextC] = [row + dr, col + dc]
       let matches = 1;
-      while(insideBoard(nextR, nextC) && board[nextR, nextC] === currPlayer) {
+      while(insideBoard(nextR, nextC) && board[nextR][nextC] === currPlayer) {
         matches += 1;
         [nextR, nextC] = [row + (dr * matches), row + (dc * matches)]
       }
