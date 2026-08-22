@@ -19,6 +19,13 @@ function TempPlayground() {
     return -1
   }
 
+  function checkWinner(row, col) {
+    const directions = [[0, 1], [1, 0], [1, 1], [-1, 1]]
+    for (dr, dc in directions) {
+      const [nextR, nextC] = [row + dr, row + dc]
+    }
+  }
+
   const handleCellClick = (c) => {
     const rowToMark = findFreeRow(c)
     if (rowToMark === -1) return
