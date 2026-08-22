@@ -12,19 +12,18 @@ function TempPlayground() {
   const [player, setPlayer] = useState('red')
 
   function findFreeRow(col) {
-    let currRow = board.length - 1
-    while(board[currRow][col] != null) {
-      currRow--;
+    for (let r = ROWS - 1; r >= 0; r--) {
+      if (board[r][col] === null) return r
     }
-    return currRow;
+    return -1
   }
 
-  const handleCellClick = (r, c) => {
-    if (board[r][c]) return
+  const handleCellClick = (c) => {
+    const rowToMark = findFreeRow(c)
+    if (rowToMark === -1) return
 
     // LEARN: copy the 2D array before writing. Mutating board[r][c] in place does not re-render.
     const nextBoard = board.map((row) => [...row])
-    const rowToMark = findFreeColumn(c)
     nextBoard[rowToMark][c] = player
     setBoard(nextBoard)
     setPlayer(player === 'red' ? 'blue' : 'red')
@@ -38,8 +37,8 @@ function TempPlayground() {
             key={`${r}-${c}`}
             className={`${style.cell} ${cell ? style[cell] : ''}`}
             // LEARN: Do not extract row/col from the click event or the DOM.
-            // LEARN: This arrow function closes over r, c from map and passes them when clicked.
-            onClick={() => handleCellClick(r, c)}
+            // LEARN: This arrow function closes over c from map. Row is chosen by gravity, not the clicked cell.
+            onClick={() => handleCellClick(c)}
           />
         ))
       )}
