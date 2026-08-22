@@ -23,17 +23,19 @@ function TempPlayground() {
     return nextR >= 0 && nextR < board.length && nextC >= 0 && nextC < board[0].length;
   }
   function checkWinner(row, col, currPlayer, board) {
-    const directions = [[0, 1], [1, 0], [1, 1], [-1, 1]]
-    for (dr, dc in directions) {
-      const [nextR, nextC] = [row + dr, row + dc]
+    const directions = [[0, 1], [1, 0], [1, 1], [-1, 1],
+  [0, -1], [-1, 0], [-1, -1], [1, -1]]
+    for (const [dr, dc] of directions) {
+      const [nextR, nextC] = [row + dr, col + dc]
       let matches = 1;
       while(insideBoard(nextR, nextC) && board[nextR, nextC] === currPlayer) {
         matches += 1;
         [nextR, nextC] = [row + (dr * matches), row + (dc * matches)]
       }
-      return matches == 4;
+      if( matches == 4) return true;
 
     }
+    return false
   }
 
   const handleCellClick = (r, c) => {
@@ -43,7 +45,9 @@ function TempPlayground() {
     // LEARN: copy the 2D array before writing. Mutating board[r][c] in place does not re-render.
     const nextBoard = board.map((row) => [...row])
     nextBoard[rowToMark][c] = player
-    checkWinner(c, player, nextBoard);
+    if (checkWinner(rowToMark, c, player, nextBoard)) {
+      console.log('winner', player);
+    }
     setBoard(nextBoard)
     setPlayer(player === 'red' ? 'blue' : 'red')
   }
