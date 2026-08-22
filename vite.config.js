@@ -7,6 +7,7 @@ export default defineConfig({
     port: 3003,
   },
   test: {
-    environment: 'node',
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.js',
   },
 })

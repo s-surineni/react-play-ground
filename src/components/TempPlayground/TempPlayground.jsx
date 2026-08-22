@@ -4,25 +4,6 @@ import style from './TempPlayground.module.css'
 const ROWS = 6
 const COLS = 6
 
-export function findFreeRow(board, col) {
-  for (let r = board.length - 1; r >= 0; r--) {
-    if (board[r][col] === null) return r
-  }
-  return -1
-}
-
-export function handleCellClick(board, player, col) {
-  const rowToMark = findFreeRow(board, col)
-  if (rowToMark === -1) return { board, player }
-
-  const nextBoard = board.map((row) => [...row])
-  nextBoard[rowToMark][col] = player
-  return {
-    board: nextBoard,
-    player: player === 'red' ? 'blue' : 'red',
-  }
-}
-
 function TempPlayground() {
   // LEARN: 2D board. fill then map so each row is a new array. Array(ROWS).fill(sameRow) would share one row.
   const [board, setBoard] = useState(
@@ -30,10 +11,23 @@ function TempPlayground() {
   )
   const [player, setPlayer] = useState('red')
 
-  const onCellClick = (c) => {
-    const next = handleCellClick(board, player, c)
-    setBoard(next.board)
-    setPlayer(next.player)
+  // LEARN: Not passing ROWS as an explicit dependency. This helper is nested in the component, so closing over board is the usual style. Pass board (then you don't need ROWS) only if you extract it for reuse or tests.
+  function findFreeRow(col) {
+    for (let r = board.length - 1; r >= 0; r--) {
+      if (board[r][col] === null) return r
+    }
+    return -1
+  }
+
+  const handleCellClick = (c) => {
+    const rowToMark = findFreeRow(c)
+    if (rowToMark === -1) return
+
+    // LEARN: copy the 2D array before writing. Mutating board[r][c] in place does not re-render.
+    const nextBoard = board.map((row) => [...row])
+    nextBoard[rowToMark][c] = player
+    setBoard(nextBoard)
+    setPlayer(player === 'red' ? 'blue' : 'red')
   }
 
   return (
@@ -42,10 +36,11 @@ function TempPlayground() {
         row.map((cell, c) => (
           <div
             key={`${r}-${c}`}
+            data-testid={`cell-${r}-${c}`}
             className={`${style.cell} ${cell ? style[cell] : ''}`}
             // LEARN: Do not extract row/col from the click event or the DOM.
             // LEARN: This arrow function closes over c from map. Row is chosen by gravity, not the clicked cell.
-            onClick={() => onCellClick(c)}
+            onClick={() => handleCellClick(c)}
           />
         ))
       )}
