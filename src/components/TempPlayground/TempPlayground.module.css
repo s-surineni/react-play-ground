@@ -9,4 +9,13 @@
 .cell {
   box-sizing: border-box;
   border: 1px solid black;
+  cursor: pointer;
+}
+
+.red {
+  background-color: #ff3333;
+}
+
+.blue {
+  background-color: #33ccff;
 }
