@@ -19,20 +19,31 @@ function TempPlayground() {
     return -1
   }
 
-  function checkWinner(row, col) {
+  function insideBoard(nextR, nextC) {
+    return nextR >= 0 && nextR < board.length && nextC >= 0 && nextC < board[0].length;
+  }
+  function checkWinner(row, col, currPlayer, board) {
     const directions = [[0, 1], [1, 0], [1, 1], [-1, 1]]
     for (dr, dc in directions) {
       const [nextR, nextC] = [row + dr, row + dc]
+      let matches = 1;
+      while(insideBoard(nextR, nextC) && board[nextR, nextC] === currPlayer) {
+        matches += 1;
+        [nextR, nextC] = [row + (dr * matches), row + (dc * matches)]
+      }
+      return matches == 4;
+
     }
   }
 
-  const handleCellClick = (c) => {
+  const handleCellClick = (r, c) => {
     const rowToMark = findFreeRow(c)
     if (rowToMark === -1) return
 
     // LEARN: copy the 2D array before writing. Mutating board[r][c] in place does not re-render.
     const nextBoard = board.map((row) => [...row])
     nextBoard[rowToMark][c] = player
+    checkWinner(c, player, nextBoard);
     setBoard(nextBoard)
     setPlayer(player === 'red' ? 'blue' : 'red')
   }
@@ -47,7 +58,7 @@ function TempPlayground() {
             className={`${style.cell} ${cell ? style[cell] : ''}`}
             // LEARN: Do not extract row/col from the click event or the DOM.
             // LEARN: This arrow function closes over c from map. Row is chosen by gravity, not the clicked cell.
-            onClick={() => handleCellClick(c)}
+            onClick={() => handleCellClick(r, c)}
           />
         ))
       )}
