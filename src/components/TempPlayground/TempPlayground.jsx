@@ -10,6 +10,7 @@ function TempPlayground() {
     Array(ROWS).fill(null).map(() => Array(COLS).fill(null))
   )
   const [player, setPlayer] = useState('red')
+  const [winner, setWinner] = useState(null)
 
   // LEARN: Not passing ROWS as an explicit dependency. This helper is nested in the component, so closing over board is the usual style. Pass board (then you don't need ROWS) only if you extract it for reuse or tests.
   function findFreeRow(col) {
@@ -55,33 +56,39 @@ function TempPlayground() {
   }
 
   const handleCellClick = (r, c) => {
+    if (winner) return
+
     const rowToMark = findFreeRow(c)
     if (rowToMark === -1) return
 
     // LEARN: copy the 2D array before writing. Mutating board[r][c] in place does not re-render.
     const nextBoard = board.map((row) => [...row])
     nextBoard[rowToMark][c] = player
-    if (checkWinner(rowToMark, c, player, nextBoard)) {
-      console.log('winner', player);
-    }
     setBoard(nextBoard)
+    if (checkWinner(rowToMark, c, player, nextBoard)) {
+      setWinner(player)
+      return
+    }
     setPlayer(player === 'red' ? 'blue' : 'red')
   }
 
   return (
-    <div className={style.board}>
-      {board.map((row, r) =>
-        row.map((cell, c) => (
-          <div
-            key={`${r}-${c}`}
-            data-testid={`cell-${r}-${c}`}
-            className={`${style.cell} ${cell ? style[cell] : ''}`}
-            // LEARN: Do not extract row/col from the click event or the DOM.
-            // LEARN: This arrow function closes over c from map. Row is chosen by gravity, not the clicked cell.
-            onClick={() => handleCellClick(r, c)}
-          />
-        ))
-      )}
+    <div>
+      {winner && <div data-testid="status">Winner: {winner}</div>}
+      <div className={style.board}>
+        {board.map((row, r) =>
+          row.map((cell, c) => (
+            <div
+              key={`${r}-${c}`}
+              data-testid={`cell-${r}-${c}`}
+              className={`${style.cell} ${cell ? style[cell] : ''}`}
+              // LEARN: Do not extract row/col from the click event or the DOM.
+              // LEARN: This arrow function closes over c from map. Row is chosen by gravity, not the clicked cell.
+              onClick={() => handleCellClick(r, c)}
+            />
+          ))
+        )}
+      </div>
     </div>
   )
 }

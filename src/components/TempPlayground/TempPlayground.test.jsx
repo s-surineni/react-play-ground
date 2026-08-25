@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import TempPlayground from './TempPlayground'
 import style from './TempPlayground.module.css'
 
@@ -64,7 +64,6 @@ describe('TempPlayground', () => {
   })
 
   it('wins when the disc completes a line from the middle', () => {
-    const log = vi.spyOn(console, 'log').mockImplementation(() => {})
     const view = render(<TempPlayground />)
 
     fireEvent.click(cell(view, 0, 0))
@@ -75,7 +74,10 @@ describe('TempPlayground', () => {
     fireEvent.click(cell(view, 0, 5))
     fireEvent.click(cell(view, 0, 2))
 
-    expect(log).toHaveBeenCalledWith('winner', 'red')
-    log.mockRestore()
+    expect(view.getByTestId('status')).toHaveTextContent('Winner: red')
+
+    fireEvent.click(cell(view, 0, 4))
+    expect(cell(view, 5, 4)).not.toHaveClass(style.red)
+    expect(cell(view, 5, 4)).not.toHaveClass(style.blue)
   })
 })
