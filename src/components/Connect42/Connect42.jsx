@@ -24,6 +24,13 @@ const Connect4 = () => {
     if (winner) return; // Game over guard
 
     // Scan from bottom row upwards to find the first empty space
+      // LEARN: Pass grid (which snapshot), not ROWS (size is grid.length).
+  // setBoard does not update board until the next render. After we write the new disc
+  // onto nextBoard, checkWinner / boardFull / insideBoard must read that copy.
+  // Closing over board would still see the old grid — the winning four would look like
+  // three, and a full board would still look like it has a hole.
+  // Bounds and cell values must use the same array. findFreeRow gets nextBoard too so
+  // helpers never secretly read a different board than the one we meant.
     for (let rowIndex = ROWS - 1; rowIndex >= 0; rowIndex--) {
       if (board[rowIndex][colIndex] === null) {
         // Create an immutable deep copy of our matrix state
