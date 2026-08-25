@@ -38,7 +38,40 @@ export default function Connect4() {
     }
     return -1;
   };
+/*
 
+  function checkWinner(row, col, currPlayer, board) {
+    // LEARN: Count both ways on each axis. Four in one ray misses a win when the new disc is in the middle of the line.
+    const axes = [
+      [0, 1],
+      [1, 0],
+      [1, 1],
+      [1, -1],
+    ]
+
+    const countDir = (dr, dc) => {
+      let count = 0
+      let r = row + dr
+      let c = col + dc
+      while (insideBoard(r, c) && board[r][c] === currPlayer) {
+        count += 1
+        // LEARN: Advance the cell we are looking at, not a step index.
+        // Old: keep matches, then next = [row + dr * matches, col + dc * matches].
+        // That uses the same number for "how many in a row" and "how far from origin".
+        // Here count only means how many matches. Position is its own state: r, c.
+        // Each loop: look at (r, c), then r += dr, c += dc. Same as walking a line on the grid.
+        r += dr
+        c += dc
+      }
+      return count
+    }
+
+    for (const [dr, dc] of axes) {
+      if (1 + countDir(dr, dc) + countDir(-dr, -dc) >= 4) return true
+    }
+    return false
+  }
+*/
   // From the last drop, walk both ways along each direction and look for 4 in a row
   const checkWinner = (row, col, nextBoard, player) => {
     for (const [dr, dc] of DIRECTIONS) {

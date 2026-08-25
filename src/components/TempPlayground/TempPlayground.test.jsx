@@ -10,6 +10,12 @@ function cell(view, r, c) {
 }
 
 describe('TempPlayground', () => {
+  it("shows red's turn at the start", () => {
+    const view = render(<TempPlayground />)
+
+    expect(view.getByTestId('status')).toHaveTextContent("red's turn")
+  })
+
   it('drops red at the bottom of the clicked column', () => {
     const view = render(<TempPlayground />)
 
@@ -17,6 +23,7 @@ describe('TempPlayground', () => {
 
     expect(cell(view, 5, 0)).toHaveClass(style.red)
     expect(cell(view, 0, 0)).not.toHaveClass(style.red)
+    expect(view.getByTestId('status')).toHaveTextContent("blue's turn")
   })
 
   it('stacks the next piece above and switches to blue', () => {
@@ -75,9 +82,37 @@ describe('TempPlayground', () => {
     fireEvent.click(cell(view, 0, 2))
 
     expect(view.getByTestId('status')).toHaveTextContent('Winner: red')
+    expect(cell(view, 5, 0)).toHaveClass(style.win)
+    expect(cell(view, 5, 1)).toHaveClass(style.win)
+    expect(cell(view, 5, 2)).toHaveClass(style.win)
+    expect(cell(view, 5, 3)).toHaveClass(style.win)
 
     fireEvent.click(cell(view, 0, 4))
     expect(cell(view, 5, 4)).not.toHaveClass(style.red)
     expect(cell(view, 5, 4)).not.toHaveClass(style.blue)
+  })
+
+  it('wins on four in a column', () => {
+    const view = render(<TempPlayground />)
+
+    fireEvent.click(cell(view, 0, 0))
+    fireEvent.click(cell(view, 0, 1))
+    fireEvent.click(cell(view, 0, 0))
+    fireEvent.click(cell(view, 0, 1))
+    fireEvent.click(cell(view, 0, 0))
+    fireEvent.click(cell(view, 0, 1))
+    fireEvent.click(cell(view, 0, 0))
+
+    expect(view.getByTestId('status')).toHaveTextContent('Winner: red')
+  })
+
+  it('resets the board', () => {
+    const view = render(<TempPlayground />)
+
+    fireEvent.click(cell(view, 0, 0))
+    fireEvent.click(view.getByTestId('reset'))
+
+    expect(cell(view, 5, 0)).not.toHaveClass(style.red)
+    expect(view.getByTestId('status')).toHaveTextContent("red's turn")
   })
 })
