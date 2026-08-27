@@ -113,6 +113,11 @@ const Navigation = () => {
           description: "Cart with useReducer",
         },
         {
+          path: "/use-counter",
+          label: "useCounter Hook",
+          description: "Simple custom hook with independent state",
+        },
+        {
           path: "/use-debounce",
           label: "useDebounce Hook",
           description: "Custom debounce hook",

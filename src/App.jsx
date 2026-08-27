@@ -17,6 +17,7 @@ import BasicUseEffectConsole from "./components/basicExamples/BasicUseEffectCons
 import UseEffectWithIssue from "./components/basicExamples/UseEffectWithIssue";
 import UseReducerCart from "./components/basicExamples/UseReducerCart";
 import UseDebounce from "./components/basicExamples/UseDebounce";
+import UseCounter from "./components/basicExamples/UseCounter";
 import ErrorBoundaryDemo from "./components/basicExamples/ErrorBoundaryDemo";
 import LazySuspense from "./components/basicExamples/LazySuspense";
 import LayoutEffectDemo from "./components/basicExamples/LayoutEffectDemo";
@@ -108,6 +109,7 @@ function App() {
             <Route path="/file-explorer-gf" element={<FileExplorerDemoGF />} />
             <Route path="/import-example" element={<ImportExample />} />
             <Route path="/use-reducer-cart" element={<UseReducerCart />} />
+            <Route path="/use-counter" element={<UseCounter />} />
             <Route path="/use-debounce" element={<UseDebounce />} />
             <Route path="/error-boundary-demo" element={<ErrorBoundaryDemo />} />
             <Route path="/use-state-functional-update" element={<UseStateFunctionalUpdate />} />
