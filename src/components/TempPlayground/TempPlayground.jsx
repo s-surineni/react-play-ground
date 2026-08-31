@@ -46,7 +46,9 @@ function TempPlayground() {
   return <FileExplorer files={folderStructure}/>
 }
 function FileItem({aFile}) {
-  return (aFile.name)
+  return <div>{aFile.name}
+  {aFile.children ? <FileExplorer files={aFile.children}/>: null}
+  </div>
 }
 function FileExplorer({files}) {
   return files.map(aFolder => <FileItem aFile={aFolder} />)
