@@ -48,7 +48,6 @@ function TempPlayground() {
   return <FileExplorer files={folderStructure} />
 }
 function FileItem({ aFile }) {
-  const [open, setOpen] = useState(false)
   return <div>{aFile.name}
     <div className={styles.children}>
       {aFile.children ? <FileExplorer files={aFile.children} /> : null}
@@ -56,6 +55,6 @@ function FileItem({ aFile }) {
   </div>
 }
 function FileExplorer({ files }) {
-  return files.map(aFolder => <FileItem aFile={aFolder} />)
+  return files.map(aFolder => <FileItem aFile={aFolder} key={aFolder.id}/>)
 }
 export default TempPlayground;
