@@ -48,8 +48,12 @@ function TempPlayground() {
   return <FileExplorer files={folderStructure} />
 }
 function FileItem({ aFile }) {
-  return <div>{aFile.name}
-    {aFile.children && (<div className={styles.children}>
+  const [open, setOpen] = useState(false)
+
+  return <div onClick={(e) => {
+    e.stopPropagation()
+    setOpen(!open)}}>{aFile.name}
+    {open && aFile.children && (<div className={styles.children}>
       {aFile.children ? <FileExplorer files={aFile.children} /> : null}
     </div>)}
   </div>
