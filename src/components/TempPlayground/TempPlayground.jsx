@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from './TempPlayground.module.css'
 const folderStructure = [
   {
@@ -47,6 +48,7 @@ function TempPlayground() {
   return <FileExplorer files={folderStructure} />
 }
 function FileItem({ aFile }) {
+  const [open, setOpen] = useState(false)
   return <div>{aFile.name}
     <div className={styles.children}>
       {aFile.children ? <FileExplorer files={aFile.children} /> : null}
