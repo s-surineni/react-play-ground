@@ -49,9 +49,9 @@ function TempPlayground() {
 }
 function FileItem({ aFile }) {
   return <div>{aFile.name}
-    <div className={styles.children}>
+    {aFile.children && (<div className={styles.children}>
       {aFile.children ? <FileExplorer files={aFile.children} /> : null}
-    </div>
+    </div>)}
   </div>
 }
 function FileExplorer({ files }) {
