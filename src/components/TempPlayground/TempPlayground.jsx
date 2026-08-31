@@ -54,7 +54,7 @@ function FileItem({ aFile }) {
     e.stopPropagation()
     setOpen(!open)}}>{aFile.name}
     {open && aFile.children && (<div className={styles.children}>
-      {aFile.children ? <FileExplorer files={aFile.children} /> : null}
+      { <FileExplorer files={aFile.children} /> }
     </div>)}
   </div>
 }
