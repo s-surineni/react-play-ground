@@ -1,3 +1,4 @@
+import styles from './TempPlayground.module.css'
 const folderStructure = [
   {
     id: 1,
@@ -43,14 +44,16 @@ const folderStructure = [
   },
 ]
 function TempPlayground() {
-  return <FileExplorer files={folderStructure}/>
+  return <FileExplorer files={folderStructure} />
 }
-function FileItem({aFile}) {
+function FileItem({ aFile }) {
   return <div>{aFile.name}
-  {aFile.children ? <FileExplorer files={aFile.children}/>: null}
+    <div className={styles.children}>
+      {aFile.children ? <FileExplorer files={aFile.children} /> : null}
+    </div>
   </div>
 }
-function FileExplorer({files}) {
+function FileExplorer({ files }) {
   return files.map(aFolder => <FileItem aFile={aFolder} />)
 }
 export default TempPlayground;

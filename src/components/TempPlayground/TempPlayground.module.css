@@ -1,30 +1,3 @@
-.board {
-  display: grid;
-  width: 280px;
-  height: 240px;
-}
-
-.cell {
-  box-sizing: border-box;
-  border: 1px solid black;
-  cursor: pointer;
-  padding: 0;
-  background: transparent;
-}
-
-.cell:disabled {
-  cursor: not-allowed;
-}
-
-.red {
-  background-color: #ff3333;
-}
-
-.blue {
-  background-color: #33ccff;
-}
-
-.win {
-  outline: 2px solid #111;
-  outline-offset: -2px;
+.children {
+  padding-left: 20px;
 }
