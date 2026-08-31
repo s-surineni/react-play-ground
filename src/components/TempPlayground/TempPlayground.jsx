@@ -43,9 +43,10 @@ const folderStructure = [
   },
 ]
 function TempPlayground() {
-  return 'hi'
+  return <FileExplorer files={folderStructure}/>
 }
-function FileExplorer() {
-  
+
+function FileExplorer({files}) {
+  return files.map(aFolder => JSON.stringify(aFolder))
 }
 export default TempPlayground;
