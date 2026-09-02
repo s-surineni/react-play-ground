@@ -73,10 +73,10 @@ function TempPlayground() {
   console.log(allIds)
   const rootIds =  allIds.difference(childIds)
   console.log(rootIds)
-  return 'hello'
+  return <FileExplorer files={folderStructure}/>
 }
 
-function FileExplorer() {
-  
+function FileExplorer({files}) {
+  return 'hello'
 }
 export default TempPlayground
