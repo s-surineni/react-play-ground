@@ -79,8 +79,7 @@ function TempPlayground() {
 function FileExplorer({ node, files }) {
   const [open, setOpen] = useState(false)
   return <><div onClick={(e) => {
-    // e.stopPropagation()
-    setOpen(!open)
+    files[node].children && setOpen(!open)
   }}>{files[node].name}</div>
     <div  className={styles.children}>
       {open && files[node].children && files[node].children.map(achildId => <FileExplorer key={achildId} files={files} node={achildId} />)}
