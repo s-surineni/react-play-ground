@@ -68,8 +68,11 @@ const folderStructure = {
 
 function TempPlayground() {
   const childIds = new Set(Object.values(folderStructure).flatMap((item) => item.children || []))
+  console.log(childIds)
   const allIds = new Set(Object.keys(folderStructure))
-  cosnt rootIds = 
+  console.log(allIds)
+  const rootIds =  allIds.difference(childIds)
+  console.log(rootIds)
   return 'hello'
 }
 
