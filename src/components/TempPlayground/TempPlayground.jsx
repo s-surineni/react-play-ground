@@ -73,7 +73,7 @@ function TempPlayground() {
   console.log(allIds)
   const rootIds = [...allIds.difference(childIds)]
   console.log(rootIds)
-  return rootIds.map((aRootId) => <FileExplorer files={folderStructure} node={aRootId} />)
+  return rootIds.map((aRootId) => <FileExplorer key={aRootId} files={folderStructure} node={aRootId} />)
 }
 
 function FileExplorer({ node, files }) {
@@ -83,7 +83,7 @@ function FileExplorer({ node, files }) {
     setOpen(!open)
   }}>{files[node].name}</div>
     <div  className={styles.children}>
-      {open && files[node].children && files[node].children.map(achildId => <FileExplorer files={files} node={achildId} />)}
+      {open && files[node].children && files[node].children.map(achildId => <FileExplorer key={achildId} files={files} node={achildId} />)}
     </div>
   </>
 
