@@ -67,24 +67,89 @@ const folderStructure = {
 }
 
 function TempPlayground() {
-  const childIds = new Set(Object.values(folderStructure).flatMap((item) => item.children || []))
-  console.log(childIds)
-  const allIds = new Set(Object.keys(folderStructure).map(Number))
-  console.log(allIds)
+  const [files, setFiles] = useState(folderStructure)
+  const childIds = new Set(Object.values(files).flatMap((item) => item.children || []))
+  const allIds = new Set(Object.keys(files).map(Number))
   const rootIds = [...allIds.difference(childIds)]
-  console.log(rootIds)
-  return rootIds.map((aRootId) => <FileExplorer key={aRootId} files={folderStructure} node={aRootId} />)
+
+  const renameNode = (nodeId, newName) => {
+    setFiles((prev) => ({
+      ...prev,
+      [nodeId]: {
+        ...prev[nodeId],
+        name: newName,
+      },
+    }))
+  }
+
+  return rootIds.map((aRootId) => (
+    <FileExplorer key={aRootId} files={files} node={aRootId} onRename={renameNode} />
+  ))
 }
 
-function FileExplorer({ node, files }) {
+function FileExplorer({ node, files, onRename }) {
   const [open, setOpen] = useState(false)
-  return <><div onClick={(e) => {
-    files[node].children && setOpen(!open)
-  }}>{files[node].name}</div>
-    <div  className={styles.children}>
-      {open && files[node].children && files[node].children.map(achildId => <FileExplorer key={achildId} files={files} node={achildId} />)}
-    </div>
-  </>
+  const [isRenaming, setIsRenaming] = useState(false)
+  const [editValue, setEditValue] = useState(files[node].name)
+  const current = files[node]
 
+  const handleDoubleClick = (e) => {
+    e.stopPropagation()
+    setIsRenaming(true)
+    setEditValue(current.name)
+  }
+
+  const handleSubmit = () => {
+    const trimmed = editValue.trim()
+    if (trimmed && trimmed !== current.name) {
+      onRename(node, trimmed)
+    }
+    setIsRenaming(false)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit()
+    } else if (e.key === "Escape") {
+      setEditValue(current.name)
+      setIsRenaming(false)
+    }
+  }
+
+  return (
+    <>
+      <div
+        onClick={() => {
+          current.children && setOpen(!open)
+        }}
+        onDoubleClick={handleDoubleClick}
+      >
+        {isRenaming ? (
+          <input
+            autoFocus
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            onBlur={handleSubmit}
+            onKeyDown={handleKeyDown}
+            onClick={(e) => e.stopPropagation()}
+          />
+        ) : (
+          current.name
+        )}
+      </div>
+      <div className={styles.children}>
+        {open &&
+          current.children &&
+          current.children.map((achildId) => (
+            <FileExplorer
+              key={achildId}
+              files={files}
+              node={achildId}
+              onRename={onRename}
+            />
+          ))}
+      </div>
+    </>
+  )
 }
 export default TempPlayground
