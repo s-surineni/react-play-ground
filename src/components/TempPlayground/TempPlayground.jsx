@@ -67,8 +67,9 @@ const folderStructure = {
 }
 
 function TempPlayground() {
-  const childIds = Object.values(folderStructure).flatMap((item) => item.children || [])
-  console.log(childIds)
+  const childIds = new Set(Object.values(folderStructure).flatMap((item) => item.children || []))
+  const allIds = new Set(Object.keys(folderStructure))
+  cosnt rootIds = 
   return 'hello'
 }
 
