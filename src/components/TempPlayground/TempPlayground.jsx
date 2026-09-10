@@ -2,10 +2,15 @@ import users from "./users"
 import {useState} from 'react'
 function TempPlayground() {
   const pageSizes = [5, 10, 15]
+  const [userData, setUserData] = useState(users);
   const [selectedPageSize, setSelectedPageSize] = useState(pageSizes[0])
   const [cursorPos, setCursorPos] = useState(0)
   function sortByName() {
-    users.sort()
+    const sortVal = 'name'
+    userData.sort((a, b) => {
+      a[sortVal].localeCompare(b[sortVal])
+    })
+    setUserData([...userData])
   }
   return <>
     <label>
