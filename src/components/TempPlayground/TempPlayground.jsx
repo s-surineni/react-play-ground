@@ -5,12 +5,15 @@ function TempPlayground() {
   const [userData, setUserData] = useState([...users]);
   const [selectedPageSize, setSelectedPageSize] = useState(pageSizes[0])
   const [cursorPos, setCursorPos] = useState(0)
+  const [sortAsc, setSortAsc] = useState(true)
   function sortByName() {
     const sortVal = 'name'
     userData.sort((a, b) => {
-      return a[sortVal].localeCompare(b[sortVal])
+      const res = a[sortVal].localeCompare(b[sortVal])
+      return sortAsc? res : - res
     })
     setUserData([...userData])
+    setSortAsc(!sortAsc)
   }
   return <>
     <label>
