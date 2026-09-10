@@ -2,7 +2,7 @@ import users from "./users"
 import {useState} from 'react'
 function TempPlayground() {
   const pageSizes = [5, 10, 15]
-  const [userData, setUserData] = useState(users);
+  const [userData, setUserData] = useState([...users]);
   const [selectedPageSize, setSelectedPageSize] = useState(pageSizes[0])
   const [cursorPos, setCursorPos] = useState(0)
   function sortByName() {
@@ -28,7 +28,7 @@ function TempPlayground() {
     <table>
       <thead><tr><th onClick={sortByName}>Name</th><th>Age</th><th>Occupation</th></tr></thead>
       <tbody>
-        {users.slice(cursorPos, cursorPos+ selectedPageSize).map(aUser => <tr key={aUser.id}><td>{aUser.name}</td><td>{aUser.age}</td><td>{aUser.occupation}</td></tr>)}
+        {userData.slice(cursorPos, cursorPos+ selectedPageSize).map(aUser => <tr key={aUser.id}><td>{aUser.name}</td><td>{aUser.age}</td><td>{aUser.occupation}</td></tr>)}
       </tbody>
     </table></>
 }
