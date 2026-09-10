@@ -7,14 +7,16 @@ function TempPlayground() {
   return <>
     <label>
       Rows :
-      <select onChange={(e) => setSelectedPageSize(Number(e.target.value))}
+      <select onChange={(e) => {
+        setCursorPos(0)
+        setSelectedPageSize(Number(e.target.value))}}
         value={selectedPageSize}>
         {pageSizes.map(aPageSize => <option key={aPageSize}
           value={aPageSize}>{aPageSize}</option>)}
       </select>
       </label>
-      <button onClick={() => setCursorPos(cursorPos - selectedPageSize)}>prev</button>
-      <button onClick={() => setCursorPos(cursorPos + selectedPageSize)}>next</button>
+      <button onClick={() => setCursorPos(cursorPos - selectedPageSize)} disabled={cursorPos <= 0}>prev</button>
+      <button onClick={() => setCursorPos(cursorPos + selectedPageSize)} disabled={cursorPos + selectedPageSize >= users.length}>next</button>
     <table>
       <thead><tr><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
       <tbody>
