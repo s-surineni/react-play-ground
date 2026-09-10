@@ -7,9 +7,10 @@ function TempPlayground() {
   return <>
     <label>
       Rows :
-      <select onChange={(e) => setSelectedPageSize(e.target.value)}>
+      <select onChange={(e) => setSelectedPageSize(e.target.value)}
+        value={selectedPageSize}>
         {pageSizes.map(aPageSize => <option key={aPageSize}
-          value={selectedPageSize}>{aPageSize}</option>)}
+          value={aPageSize}>{aPageSize}</option>)}
       </select>
       </label>
       <button onClick={() => setCursorPos(cursorPos - selectedPageSize)}>prev</button>
