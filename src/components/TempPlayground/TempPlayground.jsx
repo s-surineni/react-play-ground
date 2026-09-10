@@ -1,7 +1,10 @@
 import users from "./users"
 function TempPlayground() {
   return <table>
-    <th><td></td><td></td><td></td></th>
+    <thead><tr><th>Name</th><th>Age</th><th>Occupation</th></tr></thead>
+    <tbody>
+      {users.map(aUser => <tr key={aUser.id}><td>{aUser.name}</td></tr>)}
+    </tbody>
   </table>
 }
 
