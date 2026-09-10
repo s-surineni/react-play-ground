@@ -7,7 +7,7 @@ function TempPlayground() {
   return <>
     <label>
       Rows :
-      <select onChange={(e) => setSelectedPageSize(e.target.value)}
+      <select onChange={(e) => setSelectedPageSize(Number(e.target.value))}
         value={selectedPageSize}>
         {pageSizes.map(aPageSize => <option key={aPageSize}
           value={aPageSize}>{aPageSize}</option>)}
