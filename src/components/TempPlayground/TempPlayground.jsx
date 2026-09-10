@@ -8,7 +8,7 @@ function TempPlayground() {
   function sortByName() {
     const sortVal = 'name'
     userData.sort((a, b) => {
-      a[sortVal].localeCompare(b[sortVal])
+      return a[sortVal].localeCompare(b[sortVal])
     })
     setUserData([...userData])
   }
