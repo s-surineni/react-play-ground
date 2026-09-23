@@ -1,6 +1,6 @@
-import TaskInput from './TaskInput'
+import Todo from './Todo'
 function TempPlayground(){
-  return <TaskInput />;
+  return <Todo />;
 }
 
 export default TempPlayground
