@@ -4,8 +4,8 @@ import { useState } from "react";
 
 function Todo() {
     const [taskList, setTaskList] = useState(['hi', 'hillo'])
-    return <><TaskItem />
-        <TaskItem />
+    return <>
+        {taskList.map((item) => <TaskItem task={item}/>)}
     </>
 }
 export default Todo;

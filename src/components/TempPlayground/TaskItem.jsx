@@ -1,4 +1,4 @@
-function TaskItem() {
-    return 'hi'
+function TaskItem({task}) {
+    return task
 }
 export default TaskItem
