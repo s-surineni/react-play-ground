@@ -1,9 +1,11 @@
 import TaskInput from "./TaskInput";
-import TaskList from "./TaskList";
+import TaskItem from "./TaskItem";
+import { useState } from "react";
 
-function Todo () {
-    return <><TaskInput />
-    <TaskList />
+function Todo() {
+    const [taskList, setTaskList] = useState(['hi', 'hillo'])
+    return <><TaskItem />
+        <TaskItem />
     </>
 }
 export default Todo;
