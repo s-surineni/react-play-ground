@@ -4,7 +4,11 @@ import { useState } from "react";
 
 function Todo() {
     const [taskList, setTaskList] = useState(['hi', 'hillo'])
+    function handleSubmit(task) {
+        setTaskList([task, ...taskList])
+    }
     return <>
+    <TaskInput handleSubmit={handleSubmit}/>
         {taskList.map((item) => <TaskItem task={item}/>)}
     </>
 }
