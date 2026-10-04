@@ -121,3 +121,7 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Agent customizations & plugins
+.agents/
+

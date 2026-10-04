@@ -1,4 +1,4 @@
-import Todo from './Todo'
+import Todo from './ToDo'
 import IndexKeyExample from '../Antipatterns/IndexKeyExample'
 import StaleStateExamples from '../Antipatterns/StaleStateExamples'
 function TempPlayground(){
