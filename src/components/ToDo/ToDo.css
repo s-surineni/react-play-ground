@@ -1,0 +1,43 @@
+/* Main container: keeps the widget compact and centered on screen */
+.todo-container {
+  /* Restricts container width so controls remain readable on large screens */
+  max-width: 360px;
+  /* Centers the card horizontally ('auto') and adds 20px top/bottom margin */
+  margin: 20px auto;
+}
+
+/* Form row: aligns label, text input, and Add button */
+.todo-container form {
+  /* Aligns label, text input, and submit button on a single horizontal line */
+  display: flex;
+  /* Adds uniform spacing between form controls without extra child margins */
+  gap: 8px;
+  /* Separates the input form from the task list rendered below */
+  margin-bottom: 12px;
+}
+
+/* Text input field */
+.todo-container input {
+  /* Expands the input to take up all remaining horizontal space in the row */
+  flex: 1;
+}
+
+/* Task list container */
+.todo-container ul {
+  /* Removes default 40px browser left-padding to align items with the form */
+  padding-left: 0;
+  /* Removes default bullet points from list items */
+  list-style: none;
+}
+
+/* Individual task row */
+.todo-container li {
+  /* Enables flexbox to position text and delete button on opposite sides */
+  display: flex;
+  /* Pushes the task text to the far left and the delete button to the far right */
+  justify-content: space-between;
+  /* Adds vertical spacing between adjacent list items */
+  margin-bottom: 6px;
+  /* Wraps long words or URLs so they do not overflow outside the card */
+  overflow-wrap: anywhere;
+}

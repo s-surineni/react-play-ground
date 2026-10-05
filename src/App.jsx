@@ -48,6 +48,7 @@ import FileExplorerDemoGF from './components/FileExplorerGF/FileExplorerDemo'
 import Accordion from "./components/Accordion/Accordion";
 import ImportExample from "./components/basicExamples/ImportExample";
 import DataTable from "./components/DataTable/DataTable";
+import Todo from "./components/ToDo/ToDo";
 
 function App() {
   return (
@@ -118,6 +119,7 @@ function App() {
             <Route path="/layout-effect-demo" element={<LayoutEffectDemo />} />
             <Route path="/layout-effect-demo" element={<LayoutEffectDemo />} />
             <Route path="/data-table" element={<DataTable />} />
+            <Route path="/todo" element={<Todo />} />
           </Routes>
         </main>
       </div>

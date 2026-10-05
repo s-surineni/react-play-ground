@@ -1,6 +1,7 @@
 import TaskInput from "./TaskInput";
 import TaskItem from "./TaskItem";
 import { useState, useRef } from "react";
+import "./ToDo.css";
 
 const srOnlyStyle = {
     position: "absolute",
@@ -34,13 +35,15 @@ function Todo() {
     }
 
     function handleDeleteTask(taskId, taskText) {
+        const itemToDelete = taskList.find((item) => item.id === taskId);
+        const text = taskText || itemToDelete?.text || "item";
         setTaskList((prevTaskList) => prevTaskList.filter((item) => item.id !== taskId));
-        setStatusMessage(`Task "${taskText || "item"}" deleted.`);
+        setStatusMessage(`Task "${text}" deleted.`);
         inputRef.current?.focus();
     }
 
     return (
-        <section aria-labelledby="todo-heading">
+        <section aria-labelledby="todo-heading" className="todo-container">
             <h2 id="todo-heading">To-Do List</h2>
             <TaskInput onAddTask={handleAddTask} inputRef={inputRef} />
             {taskList.length === 0 ? (

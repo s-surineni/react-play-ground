@@ -258,6 +258,11 @@ const Navigation = () => {
       label: "Data table",
       description: "useLayoutEffect vs useEffect",
     },
+    {
+      path: "/todo",
+      label: "To-Do List",
+      description: "Accessible task list with live announcements",
+    },
   ];
 
   return (
