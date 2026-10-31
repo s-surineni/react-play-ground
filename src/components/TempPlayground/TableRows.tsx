@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 export interface User {
     id: number
@@ -16,23 +16,24 @@ function TableRows({ data }: TableRowsProps) {
     const [ASC, DESC] = ['Asc', 'Desc'] as const;
     const [sortCol, setSortCol] = useState<keyof User | null>(null)
     const [sortOrder, setSordOrder] = useState<ASC | DESC | null>(null)
-    const [rows, setRows] = useState(data)
+    const rows = useMemo(() => {
+        if (!sortCol || !sortOrder) return data
+        const sorted = [...data].sort((a, b) => {
+            const x = a[sortCol]
+            const y = b[sortCol]
+            return typeof x === 'number' && typeof y === 'number'
+                ? x - y
+                : String(x).localeCompare(String(y))
+        })
+        return sortOrder === DESC ? sorted.reverse() : sorted
+    }, [data, sortCol, sortOrder, DESC])
     function  sortBy(sortKey: Exclude<keyof User, 'id'>) {
         switch (sortKey) {
             case NAME:
             case OCCUPATION:
-                if (!sortOrder || sortOrder == DESC) {
-                    const newRows = [...rows]
-                    newRows.sort((a, b) => a[sortKey].localeCompare(b[sortKey]))
-                    setRows(newRows)
-                    setSortCol(sortKey)
-                }
-                break
             case AGE:
                 if (!sortOrder || sortOrder == DESC) {
-                    const newRows = [...rows]
-                    newRows.sort((a, b) => a[AGE] - (b[AGE]))
-                    setRows(newRows)
+                    setSortCol(sortKey)
                     setSordOrder(ASC)
                 }
         }
