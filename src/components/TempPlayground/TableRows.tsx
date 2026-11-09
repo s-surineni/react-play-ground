@@ -28,15 +28,12 @@ function TableRows({ data }: TableRowsProps) {
         return sortOrder === DESC ? sorted.reverse() : sorted
     }, [data, sortCol, sortOrder, DESC])
     function  sortBy(sortKey: Exclude<keyof User, 'id'>) {
-        switch (sortKey) {
-            case NAME:
-            case OCCUPATION:
-            case AGE:
+                    setSortCol(sortKey)        
                 if (!sortOrder || sortOrder == DESC) {
-                    setSortCol(sortKey)
                     setSordOrder(ASC)
+                } else {
+                    setSordOrder(DESC)
                 }
-        }
     }
     return (
         <table>
@@ -44,8 +41,8 @@ function TableRows({ data }: TableRowsProps) {
             <thead>
                 <tr>
                     <th scope="col" onClick={() => sortBy('name')}>Name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Occupation</th>
+                    <th scope="col" onClick={()=> sortBy(AGE)}>Age</th>
+            <th scope="col" onClick={()=>sortBy(OCCUPATION)}>Occupation</th>
                 </tr>
             </thead>
             <tbody>
