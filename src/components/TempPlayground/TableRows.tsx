@@ -1,11 +1,5 @@
 import { useMemo, useState } from "react"
-
-export interface User {
-    id: number
-    name: string
-    age: number
-    occupation: string
-}
+import type {User} from './types.ts'
 
 interface TableRowsProps {
     data: User[]
@@ -13,9 +7,10 @@ interface TableRowsProps {
 
 function TableRows({ data }: TableRowsProps) {
     const [NAME, OCCUPATION, AGE] = ['name', 'occupation', 'age'] as const
-    const [ASC, DESC] = ['Asc', 'Desc'] as const;
+    const ASC = 'Asc' , DESC ='Desc';
+    type SortOrder = typeof ASC | typeof DESC
     const [sortCol, setSortCol] = useState<keyof User | null>(null)
-    const [sortOrder, setSordOrder] = useState<ASC | DESC | null>(null)
+    const [sortOrder, setSordOrder] = useState<SortOrder | null>(null)
     const rows = useMemo(() => {
         if (!sortCol || !sortOrder) return data
         const sorted = [...data].sort((a, b) => {
@@ -42,7 +37,8 @@ function TableRows({ data }: TableRowsProps) {
                 <tr>
                     <th scope="col" onClick={() => sortBy('name')}>Name</th>
                     <th scope="col" onClick={()=> sortBy(AGE)}>Age</th>
-            <th scope="col" onClick={()=>sortBy(OCCUPATION)}>Occupation</th>
+            <th scope="col" onClick={()=>sortBy(OCCUPATION
+)}>Occupation</th>
                 </tr>
             </thead>
             <tbody>
